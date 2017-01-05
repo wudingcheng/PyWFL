@@ -62,3 +62,17 @@ subroutine py_bicubic_spline_circle(m1,n1,x1a,x2a,ya,m2,n2,x1,x2,y)
     call bicubic_spline_circle(m1,n1,x1a,x2a,ya,m2,n2,x1,x2,y)
 end subroutine py_bicubic_spline_circle
 
+subroutine py_cfftpack(z,n)
+    use wfl, only: cfftpack
+    integer,intent(in):: n
+    complex,intent(inout):: z(n)
+    call cfftpack(z,n)
+end subroutine py_cfftpack
+
+subroutine py_cfftpackb(z,n)
+    use wfl, only: cfftpackb
+    integer,intent(in):: n
+    complex,intent(inout):: z(n)
+    call cfftpackb(z,n)
+end subroutine py_cfftpackb
+

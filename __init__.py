@@ -73,13 +73,6 @@ def bicubic(x, y, val, x1, y1, method='ordinary'):
     Examples:
         todo
 
-
-
-    
-
-
-
-
 """
     if method == 'ordinary':
         return _pywfl.py_bicubic(x, y, val, x1, y1)
@@ -90,9 +83,10 @@ def bicubic(x, y, val, x1, y1, method='ordinary'):
     elif method == 'spline_circle':
         return _pywfl.py_bicubic_spline_circle(x, y, val, x1, y1)
 
+def fft():
+    pass
+
 
 if __name__ == '__main__':
-    print _pywfl.py_bilinear_square.__doc__
-    print _pywfl.py_bilinear.__doc__
-    print _pywfl.py_bilinear_square([1, 2], [1, 2], [[1, 2], [3, 4]], [1, 1.5, 2], [1, 1.5, 2])
-    print _pywfl.py_bilinear([1, 2], [1, 2], [1, 2, 3, 4], 2, 2)
+    print _pywfl.py_cfftpack.__doc__
+    print _pywfl.py_cfftpackb.__doc__
