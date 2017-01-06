@@ -76,3 +76,14 @@ subroutine py_cfftpackb(z,n)
     call cfftpackb(z,n)
 end subroutine py_cfftpackb
 
+! subroutine py_wfl_lsfit(ndat,x,y,ma,a,covar,funcs,chisq,sig)
+!     use wfl, only:wfl_lsfit
+!     integer,intent(in) :: ndat,ma
+!     real *8,intent(in),dimension(ndat) :: x,y
+!     real *8,intent(out) :: a(ma),covar(ma,ma)
+!     real *8,optional,intent(out) :: chisq
+!     real *8,optional,intent(in) :: sig(ndat)
+!     external funcs
+!     call wfl_lsfit(ndat,x,y,ma,a,covar,funcs,chisq,sig)
+! end subroutine py_wfl_lsfit
+
