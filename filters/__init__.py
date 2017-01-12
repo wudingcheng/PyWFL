@@ -1,6 +1,6 @@
 # encoding: utf-8
 """Filter functions of PyWFL"""
-from _filters import filters as _filters
+import _filters
 
 # __all__ = ['fft_filter', 'vondrak', 'gauss_jekeli']
 
@@ -12,24 +12,21 @@ def fft_filter(x, dt, per1, per2, method, window=0.0):
         dt (float) :Time interval of array x
         per1 (float) :Period for filter
         per2 (float) :Period for filter
-        method (string) :Filter method, should be **low**, **high**, **band**, means low pass filter, high pass filter and band pass filter. 
+        method (string) :Filter method, should be **low**, **high**, **band**, means low pass filter, high pass filter and band pass filter.
             If method is **low**, all signal period greater than per1 is retained, per2 not used;
             If method is **high**, all signal period smaller than per1 is retained, per2 not used;
             If method is **band**, all signal period from per1 to per2  is retained, per1 < per2;
 
-        window (float) :Window width for filter, :math:`window*dt=T/5` window width (a cosine weighted window), here :math:`T` is window width, such as :math:`T=100days`, if :math:`dt=10days`, then you can set window as 2.0, then 
+        window (float) :Window width for filter, :math:`window*dt=T/5` window width (a cosine weighted window), here :math:`T` is window width, such as :math:`T=100 days`, if :math:`dt=10 days`, then you can set window as 2.0, then
             filter window:
 
             .. math::
-                w_1(t) & = & (1+\cos(5*\pi*t/T))/2 & \quad &    -T < t < -4T/5 \\\\
-                w_2(t) & = & 1 & \quad &                     -4T/5 < t < 4T/5  \\\\
-                w_3(t) & = & (1+\cos(5*\pi*t/T))/2 & \quad & 4T/5  < t < T 
-
-
+                w_1(t) & = (1+\cos(5*\pi*t/T))/2 & \quad &    -T & < t  & < -4T/5 \\\\
+                w_2(t) & = 1 & \quad &                     -4T/5 & < t  & < 4T/5  \\\\
+                w_3(t) & = (1+\cos(5*\pi*t/T))/2 & \quad & 4T/5  & < t  & < T
 
     Returns:
         array_alike: Filtered series
-
 
     Notes:
         Detials for choose suitable window
@@ -38,7 +35,7 @@ def fft_filter(x, dt, per1, per2, method, window=0.0):
         ...
 
     See Also:
-        vondrak
+        :func:`vondrak`
     """
     return _filters.py_fft_filter(x, dt, per1, per2, method, window)
 
@@ -57,8 +54,6 @@ def vondrak(e, t, x):
 
 
     Notes:
-        comments here
-
         For 3 order Vondrak filter, define frequency response function as,
 
         .. math:: F(e,T)=(1+1/e (2\pi /T)^6)^{-1}=A \quad (0<A<1)
@@ -73,7 +68,9 @@ def vondrak(e, t, x):
             :label: eq3
 
         Then for low pass filter, set :math:`A` close to 1.0( such as :math:`A=0.99` or :math:`A=0.95`) and :math:`T` as the truncate period (which means the the signal of period of :math:`T` can be retained as :math:`(A*100)%`), and we can calculate the corresponding filter factor e by using :eq:`eq2`. By using this :math:`e` in subroutine VONDRAK, we can get the signals for all period greater than T.
+
         For high pass filter, first do the low pass filter as above, and then use the original data minus the low pass filter data, you can get the high pass filter data.
+
         For band pass filter, you can do two low pass filter :math:`e1` and :math:`e2` with the different truncate period :math:`T1` and :math:`T2`, then the difference for the two filtered data is the results of band pass filter (see Example below).
         To get more information of parameter e in subroutine VONDRAK, please reference:
 
@@ -85,7 +82,7 @@ def vondrak(e, t, x):
         todo
 
     See Also:
-        fft_filter : fft filter function
+        :func:`fft_filter`
     """
     return _filters.py_vondrak(e, t, x)
 
@@ -109,8 +106,8 @@ def gauss_jekeli(r, distance, ch='distance'):
         The Gaussian filtering weight function (normalized here so that the global integral of w is 1) in space domain is defined:
 
         .. math::
-            W(\\Psi) & = & \\frac{2 a e^{-a(1-\\cos \\Psi)}}{1 - e^{-2a}} \\\\
-            a & = & \\frac{\\ln 2}{1 - \\cos (r/R)}
+            W(\\Psi) & = \\frac{2 a e^{-a(1-\\cos \\Psi)}}{1 - e^{-2a}} \\\\
+            a & = \\frac{\\ln 2}{1 - \\cos (r/R)}
 
         here :math:`\\alpha` is the angle distance on the Earth's surface, :math:`a` is the Earth's averaging radius. :math:`r` is the distance on the Earth's surface at which :math:`W(\\alpha)` has dropped to 1/2 it value at :math:`\\alpha=0` (the distance on the Earth's surface = :math:`a*\\alpha`). Or we can refer to :math:`r` as the averaging radius (unit: meter).
 
@@ -125,7 +122,7 @@ def gauss_jekeli(r, distance, ch='distance'):
 
 
     See Also:
-        gauss_jekeli_fre
+        :func:`gauss_jekeli_fre`
 
 """
 
@@ -134,7 +131,7 @@ def gauss_jekeli(r, distance, ch='distance'):
 
 def gauss_jekeli_fre(n, r):
     """
-    Get Gaussian filtering weight function (defined by Jekeli) in frequency domain which is used to filter spherical harmonic coefficients 
+    Get Gaussian filtering weight function (defined by Jekeli) in frequency domain which is used to filter spherical harmonic coefficients
 
     Args:
     n (int): Maximum number of Gaussian filtering weight function
@@ -152,9 +149,9 @@ def gauss_jekeli_fre(n, r):
         In the frequency domain, the Gaussian filtering weight function can be computed with recursion relations (see Algorithm in GAUSS_JEKELI for definition of a):
 
         .. math::
-            \mathbf{W}_0 & = & 1 \\\\
-            \mathbf{W}_1 & = & \\frac{1 + e^{-2a}}{1 - e^{-2a}} - \\frac{1}{1} \\\\
-            \mathbf{W}_{n+1} & = & -\\frac{2n+1}{a} \mathbf{W}_n + \mathbf{W}_{n-1}
+            \mathbf{W}_0 & = 1 \\\\
+            \mathbf{W}_1 & = \\frac{1 + e^{-2a}}{1 - e^{-2a}} - \\frac{1}{1} \\\\
+            \mathbf{W}_{n+1} & = -\\frac{2n+1}{a} \mathbf{W}_n + \mathbf{W}_{n-1}
 
         Now :math:`w(l)` can multiply the spherical harmonic coefficients calculated from FUN_EXP_FFT, and then use FUNC_SUM_FFT to get the Gaussian filtering weighted spherical function value in space domain. This is also equivalent to do convolution between spherical function value with Gaussian filtering weighted function :math:`w(\alpha)` calculated from GAUSS_JEKELI in space domain.
 
@@ -170,7 +167,7 @@ def gauss_jekeli_fre(n, r):
 
 
 def gauss_jekeli_fre_nm(n, m_max, r_lon, r_lat):
-    """Get non-isotropic Gaussian filtering weight function in frequency domain which is used to filter spherical harmonic coefficients 
+    """Get non-isotropic Gaussian filtering weight function in frequency domain which is used to filter spherical harmonic coefficients
 
     Args:
         n (int): Maximum number (Degree) of Gaussian filtering weight function
@@ -185,9 +182,9 @@ def gauss_jekeli_fre_nm(n, m_max, r_lon, r_lat):
         In the frequency domain, the non-isotropic Gaussian filtering weight function can be computed with recursion relations (see Algorithm in GAUSS_JEKELI for definition of a):
 
         .. math::
-            \mathbf{W}_0 & = & 1 \\\\
-            \mathbf{W}_1 & = & \\frac{1 + e^{-2a}}{1 - e^{-2a}} - \\frac{1}{1} \\\\
-            \mathbf{W}_{n+1} & = & -\\frac{2n+1}{a} \mathbf{W}_n + \mathbf{W}_{n-1}
+            \mathbf{W}_0 & = 1 \\\\
+            \mathbf{W}_1 & = \\frac{1 + e^{-2a}}{1 - e^{-2a}} - \\frac{1}{1} \\\\
+            \mathbf{W}_{n+1} & = -\\frac{2n+1}{a} \mathbf{W}_n + \mathbf{W}_{n-1}
 
         Now :math:`w(l)` can multiply the spherical harmonic coefficients calculated from FUN_EXP_FFT, and then use FUNC_SUM_FFT to get the Gaussian filtering weighted spherical function value in space domain. This is also equivalent to do convolution between spherical function value with Gaussian filtering weighted function :math:`w(\alpha)` calculated from GAUSS_JEKELI in space domain.
 
@@ -197,7 +194,7 @@ def gauss_jekeli_fre_nm(n, m_max, r_lon, r_lat):
         .. [3] Wahr J.,M. Molenaar, F. Bryan, Time variablity of the Earth's gravity field: Hydrological and oceanic effects and their possible detection using GRACE, J. Geophys. Res. Vol.103, No.b12, P30205-30229,1998.
 
     See Also:
-        gauss_jekeli, gauss_jekeli_fre, func_sum_fft
+        :func:`gauss_jekeli`, :func:`gauss_jekeli_fre`, :func:`func_sum_fft`
 
 """
     return _filters.py_gauss_jekeli_fre_nm(n, m_max, r_lon, r_lat)
@@ -211,21 +208,21 @@ def weight_aver(x, npoints, weight_no=True):
 
     npoints (int) : Number of points to do moving average (npoints must be odd number and >=3)
 
-    weight_no (boolean) : optional, if present, then do running average (which means weight is equal); if not  then do weighted running average
+    weight_no (boolean) : optional, if present, then do running average (which means weight is equal); if not then do weighted running average
 
     Returns:
         array_alike : Output data for moving average
 
     Notes:
         There is a new subroutine RUNNING_MEAN which do the same thing, but can define weight function.
-        For 3 points the equation is: 
+        For 3 points the equation is:
             .. math:: xout_i = x_{i-1}+3*x_{i} + x_{i+1} / 5.0
         For 5 points the equation is:
             .. math:: xout_i = (x_{i-2}+3*x_{i-1}+5*x_{i}+3*x_{i+1} + x_{i+2} / 13.0
         For npoints the weight is: `1/sum(wt), 3/sum(wt), 5/sum(wt), 7/sum(wt), 9/sum(wt), ... 3/sum(wt), 1/sum(wt)`, where :math:`wt_n=1, 3, 5, 7, 9, 11, ..., 11, 9, 7, 5, 3, 1`
 
     See Also:
-        filters
+        :func:`filters`
 
 """
     return _filters.py_weight_aver(x, npoints, weight_no)
@@ -272,9 +269,9 @@ def butterworth(l, fl, fh, iband, n, dt, x, method='no_phase_shift', edge_effect
 
         Gain function is defined as:
             .. math::
-                    Amplitude\_gain & = & | H(e^{j\omega}) | \\\\
-                    Power\_gain\_in\_decibels & = & 10 \log10  | H(e^{j\omega}) |^2 \\\\
-                    Phase\_shift & = & \\tan^{-1}{ Im ( | H^(ej\omega) | ) / Re ( | H(e^{j\omega}) | ) }
+                    Amplitude\_gain & = | H(e^{j\omega}) | \\\\
+                    Power\_gain\_in\_decibels & = 10 \log10  | H(e^{j\omega}) |^2 \\\\
+                    Phase\_shift & = \\tan^{-1}{ Im ( | H^(ej\omega) | ) / Re ( | H(e^{j\omega}) | ) }
 
     References:
         .. [1] Stearns S. D. and R. A. David, Signal processing algorithms using Fortran and c,  PTR Prentice Hall, Englewood Cliffs, New Jersey, 1993. Chapter1-7
@@ -283,7 +280,7 @@ def butterworth(l, fl, fh, iband, n, dt, x, method='no_phase_shift', edge_effect
         todo
 
     See Also:
-        butterworth_order
+        :func:`butterworth_order`
 
 """
     edge_effect = 'yes' if edge_effect else 'no'
@@ -291,7 +288,7 @@ def butterworth(l, fl, fh, iband, n, dt, x, method='no_phase_shift', edge_effect
 
 
 def butterworth_order(fl, fh, dt):
-    """Determine the best order of Butterworth filter (an Infinite Impulse Response (IIR) filter ) 
+    """Determine the best order of Butterworth filter (an Infinite Impulse Response (IIR) filter )
 
     Args:
         fl (float) : Minimum order of normalized Butterworth analog filter
@@ -299,11 +296,11 @@ def butterworth_order(fl, fh, dt):
         dt (float) : higher cut-off frequency for all filter. (unit: Hz or others, see comments)
 
     Returns:
-        int : Desired digital filter type: 
-            1, means low pass, 
-            2, means high pass, 
-            3, means band pass,
-            4, means band stop.
+        int : Desired digital filter type
+            1. means low pass,
+            2. means high pass,
+            3. means band pass,
+            4. means band stop.
 
 
     Notes:
@@ -329,18 +326,18 @@ def butterworth_order(fl, fh, dt):
 
         Gain function is defined as:
             .. math::
-                    Amplitude\_gain & = & | H(e^{j\omega}) | \\\\
-                    Power\_gain\_in\_decibels & = & 10 \log10  | H(e^{j\omega}) |^2 \\\\
-                    Phase\_shift & = & \tan^{-1}{ Im [ | H^(ej\omega) | ] / Re [ | H(e^{j\omega}) | ] }
+                    Amplitude\_gain & = | H(e^{j\omega}) | \\\\
+                    Power\_gain\_in\_decibels & = 10 \log10  | H(e^{j\omega}) |^2 \\\\
+                    Phase\_shift & = \tan^{-1}{ Im [ | H^(ej\omega) | ] / Re [ | H(e^{j\omega}) | ] }
 
     References:
-        .. [1] Stearns S. D. and R. A. David, Signal processing algorithms using Fortran and c,  PTR Prentice Hall, Englewood Cliffs, New Jersey, 1993. Chapter1-7
+        .. [1] Stearns S. D. and R. A. David, Signal processing algorithms using Fortran and c, PTR Prentice Hall, Englewood Cliffs, New Jersey, 1993. Chapter1-7
 
     Examples:
         todo
 
     See Also:
-        butterworth_order
+        :func:`butterworth`
 
 """
     return _filters.py_wfl_butterworth_order(fl, fh, dt, iband)
@@ -361,28 +358,17 @@ def running_mean(x, m, weight=None):
             Output data for moving average
 
 
-    Note
-    ----
-        weight=1.0 means running average; weight=[1, 3, 5, 7, 9..or anything
-        like 8,4, 5,2, ...] means weighted running average, the true weight
-        used in the **WFL\_RUNNING\_MEAN** is weight/sum(weight) for
-        real/double calling, and weight/sum(abs(weight)) for complex/double
-        complex calling.  **WFL\_RUNNING\_MEAN** is the same as
-        `WEIGHT\_AVER <weight_aver.htm>`__ but using different method. Note,
-        here the weight can be set as your own, while in
-        `WEIGHT\_AVER <weight_aver.htm>`__, you only have two type weight.
+    Notes:
+        weight=1.0 means running average; weight=[1, 3, 5, 7, 9..or anything like 8,4, 5,2, ...] means weighted running average, the true weight used in the **WFL\_RUNNING\_MEAN** is weight/sum(weight) for real/double calling, and weight/sum(abs(weight)) for complex/double complex calling.  **WFL\_RUNNING\_MEAN** is the same as `WEIGHT\_AVER <weight_aver.htm>`__ but using different method. Note, here the weight can be set as your own, while in `WEIGHT\_AVER <weight_aver.htm>`__, you only have two type weight.
 
-
-        xout=CONV(x,weight/sum(weight)) #for real/double
-
-        xout=CONV(x, weight/sum(abs(weight)) ) #for complex/double complex
+        xout=conv(x, weight/sum(weight)) #for real/double
+        xout=conv(x, weight/sum(abs(weight)) ) #for complex/double complex
 
     Examples:
-
         　todo
 
     See Also:
-        filters
+        :func:`filters`
 """
     if weight is not None:
         if len(weight) != m:

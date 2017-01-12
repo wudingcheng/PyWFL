@@ -1,14 +1,14 @@
-import _test
-print _test.lsfit.__doc__
+from ctypes import *
 import numpy as np
 
+_add = cdll.LoadLibrary("./add.o")
 
-def func(x, a):
-    return x**a
 
-x = np.linspace(0, 10, 11)
-y = func(x, 2)
-print x
-print y
-print _test.pass_func(x, func)
-# print _test.lsfit(x, y, 1, func)
+def add(a, b):
+    a = np.require(a, float, ['CONTIGUOUS', 'ALIGNED'])
+    b = np.require(b, float, ['CONTIGUOUS', 'ALIGNED'])
+    c = np.empty_like(a)
+    _add.add(a, b, c)
+    return c
+
+print add(1, 2)

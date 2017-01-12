@@ -1,0 +1,127 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+subroutine py_pnm(n,theta,p) ! in harmonics.f90
+    use wfl, only: pnm
+    integer intent(in) :: n
+    real*8 intent(in) :: theta
+    real*8 dimension(n + 1,n + 1),intent(out),depend(n,n) :: p
+end subroutine py_pnm
+subroutine py_pnmi(n,ts,tn,pinmsn) ! in harmonics.f90
+    use wfl, only: pnmi
+    integer intent(in) :: n
+    real*8 intent(in) :: ts
+    real*8 intent(in) :: tn
+    real*8 dimension(n + 1,n + 1),intent(out),depend(n,n) :: pinmsn
+end subroutine py_pnmi
+subroutine py_wfl_pn(n,x,pnx) ! in harmonics.f90
+    use wfl, only: wfl_pn
+    integer intent(in) :: n
+    real*8 intent(in) :: x
+    real*8 dimension(n + 1),intent(out),depend(n) :: pnx
+end subroutine py_wfl_pn
+subroutine py_wfl_pn_diff(n,x,pn_diff) ! in harmonics.f90
+    use wfl, only: wfl_pn_diff
+    integer intent(in) :: n
+    real*8 intent(in) :: x
+    real*8 dimension(n + 1),intent(out),depend(n) :: pn_diff
+end subroutine py_wfl_pn_diff
+subroutine py_cs2k(n,c,s,k,cha) ! in harmonics.f90
+    use wfl, only: cs2k
+    integer, optional,intent(in),check((shape(c,0)-1)==n),depend(c) :: n=(shape(c,0)-1)
+    real*8 dimension(n + 1,n + 1),intent(in) :: c
+    real*8 dimension(n + 1,n + 1),intent(in),depend(n,n) :: s
+    complex*16 dimension(n + 1,2 * n + 1),intent(out),depend(n,n) :: k
+    character*7, optional,intent(in) :: cha
+end subroutine py_cs2k
+subroutine py_wfl_func_exp_fft(lon,lat,func,cord_lon,cord_lat,n,c,s,cha,diff_percent,iterative) ! in harmonics.f90
+    use wfl, only: wfl_func_exp_fft
+    integer, optional,intent(in),check(shape(func,0)==lon),depend(func) :: lon=shape(func,0)
+    integer, optional,intent(in),check((shape(func,1)+1)==lat),depend(func) :: lat=(shape(func,1)+1)
+    real*8 dimension(lon,lat - 1),intent(in) :: func
+    real*8 dimension(lon),intent(in),depend(lon) :: cord_lon
+    real*8 dimension(lat),intent(in),depend(lat) :: cord_lat
+    integer intent(in) :: n
+    real*8 dimension(n + 1,n + 1),intent(out),depend(n,n) :: c
+    real*8 dimension(n + 1,n + 1),intent(out),depend(n,n) :: s
+    character*6, optional,intent(in) :: cha
+    real*8, optional,intent(out) :: diff_percent
+    integer, optional,intent(in) :: iterative
+end subroutine py_wfl_func_exp_fft
+subroutine py_wfl_dpnm(n,theta,dp) ! in harmonics.f90
+    use wfl, only: wfl_dpnm
+    integer intent(in) :: n
+    real*8 intent(in) :: theta
+    real*8 dimension(n + 1,n + 1),intent(out),depend(n,n) :: dp
+end subroutine py_wfl_dpnm
+subroutine py_wfl_dpnm2(n,theta,dp,ddp) ! in harmonics.f90
+    use wfl, only: wfl_dpnm
+    integer intent(in) :: n
+    real*8 intent(in) :: theta
+    real*8 dimension(n + 1,n + 1),intent(out),depend(n,n) :: dp
+    real*8 dimension(n + 1,n + 1),intent(out),depend(n,n) :: ddp
+end subroutine py_wfl_dpnm2
+subroutine py_func_sum_fft(lon,lat,depart_lon,co_lat,n,c,s,fun,cha,cmethod) ! in harmonics.f90
+    use wfl, only: func_sum_fft
+    integer intent(in) :: lon
+    integer, optional,intent(in),check(len(co_lat)>=lat),depend(co_lat) :: lat=len(co_lat)
+    real*8 intent(in) :: depart_lon
+    real*8 dimension(lat),intent(in) :: co_lat
+    integer, optional,intent(in),check((shape(c,0)-1)==n),depend(c) :: n=(shape(c,0)-1)
+    real*8 dimension(n + 1,n + 1),intent(in) :: c
+    real*8 dimension(n + 1,n + 1),intent(in),depend(n,n) :: s
+    real*8 dimension(lon,lat),intent(out),depend(lon,lat) :: fun
+    character*(*) intent(in) :: cha
+    character*(*), optional,intent(in) :: cmethod
+end subroutine py_func_sum_fft
+subroutine py_func_sum(lon,lat,co_lon,co_lat,n,c,s,fun,cmethod) ! in harmonics.f90
+    use wfl, only: func_sum
+    integer, optional,intent(in),check(len(co_lon)>=lon),depend(co_lon) :: lon=len(co_lon)
+    integer, optional,intent(in),check(len(co_lat)>=lat),depend(co_lat) :: lat=len(co_lat)
+    real*8 dimension(lon),intent(in) :: co_lon
+    real*8 dimension(lat),intent(in) :: co_lat
+    integer, optional,intent(in),check((shape(c,0)-1)==n),depend(c) :: n=(shape(c,0)-1)
+    real*8 dimension(n + 1,n + 1),intent(in) :: c
+    real*8 dimension(n + 1,n + 1),intent(in),depend(n,n) :: s
+    real*8 dimension(lon,lat),intent(out),depend(lon,lat) :: fun
+    character*(*), optional,intent(in) :: cmethod
+end subroutine py_func_sum
+subroutine py_wfl_harmonic(n,t,x,m_per,pe,amph,zper,itrend,timebegin,method,best_fit_order,poly_co) ! in harmonics.f90
+    use wfl, only: wfl_harmonic
+    integer, optional,intent(in),check(len(t)>=n),depend(t) :: n=len(t)
+    real*8 dimension(n),intent(in) :: t
+    real*8 dimension(n),intent(in),depend(n) :: x
+    integer, optional,intent(in),check(len(pe)>=m_per),depend(pe) :: m_per=len(pe)
+    real*8 dimension(m_per),intent(in) :: pe
+    real*8 dimension(4,m_per),intent(out),depend(m_per) :: amph
+    real*8 dimension(n,m_per + 3),intent(out),depend(n,m_per) :: zper
+    integer, optional,intent(in) :: itrend
+    integer, optional,intent(in) :: timebegin
+    character*3, optional,intent(in) :: method
+    integer, optional,intent(out) :: best_fit_order
+    real*8 dimension(:,:),intent(out) :: poly_co
+end subroutine py_wfl_harmonic
+subroutine py_wfl_harmonic_more(n,t,x,m_per,pe,idef,pdef,am,ph,dam,dph,co_self,zper,itrend,timebegin,method,best_fit_order,poly_co) ! in harmonics.f90
+    use wfl, only: wfl_harmonic_more
+    integer, optional,intent(in),check(len(t)>=n),depend(t) :: n=len(t)
+    real*8 dimension(n),intent(in) :: t
+    real*8 dimension(n),intent(in),depend(n) :: x
+    integer, optional,intent(in),check(len(pe)>=m_per),depend(pe) :: m_per=len(pe)
+    real*8 dimension(m_per),intent(in) :: pe
+    integer, optional,intent(in),check(shape(pdef,1)==idef),depend(pdef) :: idef=shape(pdef,1)
+    real*8 dimension(n,idef),intent(in),depend(n) :: pdef
+    real*8 dimension(m_per),intent(out),depend(m_per) :: am
+    real*8 dimension(m_per),intent(out),depend(m_per) :: ph
+    real*8 dimension(m_per),intent(out),depend(m_per) :: dam
+    real*8 dimension(m_per),intent(out),depend(m_per) :: dph
+    real*8 dimension(idef,2),intent(out),depend(idef) :: co_self
+    real*8 dimension(n,m_per + 4),intent(out),depend(n,m_per) :: zper
+    integer, optional,intent(in) :: itrend
+    integer, optional,intent(in) :: timebegin
+    character*(*), optional,intent(in) :: method
+    integer, optional,intent(out) :: best_fit_order
+    real*8, optional,dimension(:,:),intent(out) :: poly_co
+end subroutine py_wfl_harmonic_more
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

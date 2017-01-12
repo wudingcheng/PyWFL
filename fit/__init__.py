@@ -1,4 +1,5 @@
 import _fit
+import numpy as np
 
 
 def fit(x, y):
@@ -19,10 +20,10 @@ def fit(x, y):
         Given a set of data points x(1:n),y(1:n), fit them to a straight line y = a + bx by minimizing chi-square. Returned are a,b and their respective probable uncertainties siga and sigb.
 
     Examples:
-        >> import numpy as np
-        >> a = np.arange(10)
-        >> b = 1.2 * a + 3.0 + np.random.rand(10)
-        >> fa, fb, sig_a, sig_b = fit(a, b)
+        >>> import numpy as np
+        >>> a = np.arange(10)
+        >>> b = 1.2 * a + 3.0 + np.random.rand(10)
+        >>> fa, fb, sig_a, sig_b = fit(a, b)
 
 """
     return _fit.py_fitline(x, y)
@@ -32,7 +33,7 @@ def fitmulti(x, y):
     """Do multiple linear regression by minimizing chi-square method (or least squares method).
 
     Args:
-        x (array) : x(n, m-1) The multi-variables value (n point, and m-1 variables)
+        x (array) : x[n, m-1] The multi-variables value (n point, and m-1 variables)
         y (array) : The function value :math:`y(i)=a0+a1*x1(i)+a2*x2(i)+...+a(m-1)*x(m-1)(i)`, where :math:`i=1,n`
 
     Returns:
@@ -52,32 +53,33 @@ def fitmulti(x, y):
 
         Residuals sum of squares is:
 
-        .. math:: chisq = \sum_{i=1}^{n}\left[ y_i - \sum_{j=0}^{m} a_{ij} x_{ij} \right]
+        .. math:: \chi^2 = \sum_{i=1}^{n} [ y_i - \sum_{j=0}^{m} a_{ij} x_{ij} ]
 
         Mean standard deviation is:
 
         .. math::
-            s & = & \sqrt{1 - chisq / dyy} \\
-            dyy & = & \sum_{i=1}^{n} y_i - \bar{y} \\
+            s & = & \sqrt{1 - \chi^2 / dyy} \\\\
+            dyy & = & \sum_{i=1}^{n} y_i - \bar{y} \\\\
             \bar{y} & = & \sum_{i=1}^{n} y_i / n
 
         Partial correlation coefficient is:
 
         .. math::
-            v_j & = & \sqrt{1 - chisq / Q_j} \\
-            Q_j & = & \sum_{i=1}^{n}\left[ y_i - \sum_{k=1, k \neq j}^{m}a_{ik}x_{ik} \right]
+            v_j & = & \sqrt{1 - \chi^2 / Q_j} \\\\
+            Q_j & = & \sum_{i=1}^{n}[ y_i - \sum_{k=1, k \neq j}^{m}a_{ik}x_{ik} ]
 
     Examples:
-        >> import numpy as np
-        >> a = np.arange(10)
-        >> b = 1.2 * a + 3.0 + np.random.rand(10)
-        >> fitmulti(a, b)
+        >>> import numpy as np
+        >>> a = np.arange(10)
+        >>> b = 1.2 * a + 3.0 + np.random.rand(10)
+        >>> fitmulti(a, b)
 """
     return _fit.py_fitmulti(x, y)
 
 
 def fitpoly(x, y, order=2):
     """Give a polynomial fit of a time series by minimizing chi-square method.
+
     Args:
         x (array): The self-variable of fitted polynomial function
         y (array): Time series to be fitted ( y=f(x) )
@@ -95,10 +97,10 @@ def fitpoly(x, y, order=2):
         the input x(:) was changed to x(:)-x(1) in the subroutine FITPOLY on Dec. 19, 2014. To do this will prevent the problem in x(:) which may cause wrong output values of the subroutine. For example, if x(:) is index of year, i.e., 2000.001-2010.999 with daily interval, using the NON-modified FITPOLY will give wrong results, but the modified FITPOLY will give the correct results (the reason is that we will use x**n in the subroutine, if x value change is small, x**n will similar.). After this modification, to restore the polynomial data using output parameter a manually, you must change x(:) to x(:)-x(1). That is y=a0+a1*(x-x(1))+a2*(x-x(1))**2+... , or simply use subroutine POLYNOMIAL.
 
     Examples:
-        >> import numpy as np
-        >> a = np.arange(10)
-        >> b = 1.2 * a + 3.0 + np.random.rand(10)
-        >> fitpoly(a, b)
+        >>> import numpy as np
+        >>> a = np.arange(10)
+        >>> b = 1.2 * a + 3.0 + np.random.rand(10)
+        >>> fitpoly(a, b)
 """
     if order < 2:
         order = fitpoly_best_degree(x, y)
@@ -107,6 +109,7 @@ def fitpoly(x, y, order=2):
 
 def fitpoly_best_degree(x, y, max_order=10, method='bic'):
     """Give the best fit degree (or order) of a polynomial fit for a time series by using minimizing chi-square method.
+
     Args:
         x (array) : The time index of array y
         y (array) : Time series to be fitted ( y=f(x) )
@@ -121,10 +124,10 @@ def fitpoly_best_degree(x, y, max_order=10, method='bic'):
         Given a set of data points x(1:n), y(1:n) , use chi-square minimization to fit for some or all of the coefficients a(1:m) of a function that depends linearly on a, y = a1+a2*x+a3*x**2+...,then use AIC or BIC criterion to get the best fit order.
 
     Example:
-        >> import numpy as np
-        >> a = np.arange(10)
-        >> b = 1.2 * a + 3.0 + np.random.rand(10)
-        >> fitpoly_best_degree(a, b, method='aic')
+        >>> import numpy as np
+        >>> a = np.arange(10)
+        >>> b = 1.2 * a + 3.0 + np.random.rand(10)
+        >>> fitpoly_best_degree(a, b, method='aic')
 """
     cond = ['aic', 'bic']
     if method not in cond:
@@ -147,26 +150,97 @@ def detrend(x, y):
         Gives data x(n),y(n), get detrend data yout(n), the trend is fitted as y=a+bx
 
     Examples:
-        >> import numpy as np
-        >> a = np.arange(10)
-        >> b = 1.2 * a + 3.0 + np.random.rand(10)
-        >> r = detrend(a, b)
+        >>> import numpy as np
+        >>> a = np.arange(10)
+        >>> b = 1.2 * a + 3.0 + np.random.rand(10)
+        >>> r = detrend(a, b)
 """
     assert x.shape == y.shape
     return _fit.py_detrend(x, y)
 
 
-def harmonic(t, x, pe, itrend=2, timebegin=None, method='bic'):
-    if timebegin is None:
-        timebegin = x[0]
-    if itrend < 0:
-        return _fit.py_wfl_harmonic_polys(t, x, pe, timebegin=timebegin, method=method)
+# def harmonic(t, x, pe, itrend=2, timebegin=None, method='bic'):
+#     if timebegin is None:
+#         timebegin = x[0]
+#     if itrend < 0:
+#         return _fit.py_wfl_harmonic_polys(t, x, pe, timebegin=timebegin, method=method)
+#     else:
+#         return _fit.py_wfl_harmonic_fix(t, x, pe, itrend, timebegin=timebegin)
+
+def lsfit(x, y, m, func, sig=None):
+    """General linear Least Squares(LS) fits
+
+    Args:
+        x (array) : x[n], The time series of self-variable of LS fit function, e.g. function :math:`f(x)`
+        y (array) : y[n], Time series to be fitted ( :math:`y=f(x)` )
+        m (int) : The number fitted coefficients
+        func (function) : External function ( :math:`y=f(x)` ) to be fitted, func must be a subroutine to provide the fit function, it could be considered as the design matrix, this function returns ndarray result[m, n]
+        sig (array) : sig[n], default None, means all weight are the same.
+
+    Returns:
+        tuple
+            * a (array) : a(m), LS fitted coefficients
+            * cov (ndarray) : cov[m, m], Covariance matrix (the diagonal is variance) of a
+            * chisq (float) : :math:`\chi^2`, the postfit residual sums of squares. :math:`\chi^2 = \sum ( y_i - f(x_i)  )^2, i=1,\dots,n`
+
+    Notes:
+        General Linear LS Fit by Gauss-Jordan Elimination.
+
+        Given a set of data points x(1:n), y(1:n) , use chi-square minimization to fit all of the coefficients a(1:m) of a function that depends linearly on a, y = f(x),The program returns values for a(1:m), :math:`\chi^2`, and the covariance matrix covar(1:m,1:m).
+
+        How to write user-defined function? the user-defined function can be regarded as design matrix, see the example
+
+
+    Examples:
+        >>> import numpy as np
+        >>>
+        >>> # user define function f(x) = 1 + x + x^2
+        >>> # the result will return the left design matrix
+        >>> def fpoly(x, n):
+        >>>     res = np.ones((n, len(x)))
+        >>>     for i in range(1, n):
+        >>>         res[i, :] = res[i - 1, :] * x
+        >>>     return res
+        >>>
+        >>>
+        >>> def func(x):
+        >>>     return 1 + x + x**2
+        >>>
+        >>>
+        >>> x = np.arange(10) * 1.0
+        >>> y = func(x)
+        >>> print lsfit(x, y, 3, fpoly)
+        >>>
+        >>> with weight example
+        >>> yerr = np.random.rand(10)
+        >>> y += yerr
+        >>> print fpoly(x, 3).shape
+        >>> print lsfit(x, y, 3, fpoly, sig=yerr)
+"""
+    if sig is not None:
+        return _fit.lsfit(x, y, m, func, sig=sig)
     else:
-        return _fit.py_wfl_harmonic_fix(t, x, pe, itrend, timebegin=timebegin)
+        return _fit.lsfit(x, y, m, func)
+
+
+def fpoly(x, n):
+    res = np.ones((n, len(x)))
+    for i in range(1, n):
+        res[i, :] = res[i - 1, :] * x
+    return res
+
+
+def func(x):
+    return 1 + x + x**2
+
 
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
-    import numpy as np
-    a = np.arange(10)
-    b = 1.2 * a + 3.0 + np.random.rand(10)
-    print _fit.py_wfl_harmonic_polys.__doc__
+    x = np.arange(10) * 1.0
+    y = func(x)
+    print lsfit(x, y, 3, fpoly)
+    yerr = np.random.rand(10)
+    y += yerr
+    print fpoly(x, 3).shape
+    print lsfit(x, y, 3, fpoly, sig=yerr)
+    # print _fit.py_wfl_harmonic_polys.__doc__

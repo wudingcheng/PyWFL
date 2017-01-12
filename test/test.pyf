@@ -1,0 +1,60 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module pass_func__user__routines
+    interface pass_func_user_interface
+        subroutine func(x,m,temp) ! in :_test:test.f90:pass_func:unknown_interface
+            real dimension(m),intent(in) :: x
+            integer, optional,intent(in),check(len(x)>=m),depend(x) :: m=len(x)
+            real dimension(m),depend(m), intent(out) :: temp
+        end subroutine func
+    end interface pass_func_user_interface
+end python module pass_func__user__routines
+python module lsfit__user__routines
+    interface lsfit_user_interface
+        subroutine funcs(ndat,x,ma,afunc0) ! in :_test:test.f90:lsfit:unknown_interface
+            integer, optional,intent(hide),check(len(x)>=ndat),depend(x) :: ndat=len(x)
+            real*8 dimension(ndat),intent(in) :: x
+            integer, optional,intent(in),check(shape(afunc0,0)==ma),depend(afunc0) :: ma=shape(afunc0,0)
+            real*8 dimension(ma,ndat),depend(ndat), intent(out) :: afunc0
+        end subroutine funcs
+    end interface lsfit_user_interface
+end python module lsfit__user__routines
+python module _test ! in
+    interface  ! in :_test
+        subroutine pass_func(x,m,func,xout) ! in :_test:test.f90
+            use pass_func__user__routines
+            real dimension(m),intent(in) :: x
+            integer, optional,intent(in),check(len(x)>=m),depend(x) :: m=len(x)
+            external func
+            real dimension(m),intent(out),depend(m) :: xout
+        end subroutine pass_func
+        subroutine lsfit(ndat,x,y,ma,a,covar,funcs,chisq,sig) ! in :_test:test.f90
+            use wfl, only: covsrt8,gaussj8
+            use lsfit__user__routines
+            integer, optional,intent(in),check(len(x)>=ndat),depend(x) :: ndat=len(x)
+            real*8 dimension(ndat),intent(in) :: x
+            real*8 dimension(ndat),intent(in),depend(ndat) :: y
+            integer intent(in) :: ma
+            real*8 dimension(ma),intent(out),depend(ma) :: a
+            real*8 dimension(ma,ma),intent(out),depend(ma,ma) :: covar
+            external funcs
+            real*8, optional,intent(out) :: chisq
+            real*8, optional,dimension(ndat),intent(in),depend(ndat) :: sig
+        end subroutine lsfit
+        subroutine lstsq(h,ndat,y,ma,a,covar,chisq,sig) ! in :_test:test.f90
+            use wfl, only: covsrt8,gaussj8
+            real*8 dimension(ma,ndat),intent(in) :: h
+            integer, optional,intent(in),check(shape(h,1)==ndat),depend(h) :: ndat=shape(h,1)
+            real*8 dimension(ndat),intent(in),depend(ndat) :: y
+            integer, optional,intent(in),check(shape(h,0)==ma),depend(h) :: ma=shape(h,0)
+            real*8 dimension(ma),intent(out),depend(ma) :: a
+            real*8 dimension(ma,ma),intent(out),depend(ma,ma) :: covar
+            real*8, optional,intent(out) :: chisq
+            real*8, optional,dimension(ndat),intent(in),depend(ndat) :: sig
+        end subroutine lstsq
+    end interface
+end python module _test
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

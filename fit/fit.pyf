@@ -1,0 +1,133 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module lsfit__user__routines
+    interface lsfit_user_interface
+        subroutine funcs(ndat,x,ma,afunc0) ! in :_fit:fit.f90:lsfit:unknown_interface
+            integer, optional,intent(hide),check(len(x)>=ndat),depend(x) :: ndat=len(x)
+            real*8 dimension(ndat),intent(in) :: x
+            integer, optional,intent(in),check(shape(afunc0,0)==ma),depend(afunc0) :: ma=shape(afunc0,0)
+            real*8 dimension(ma,ndat),depend(ndat), intent(out) :: afunc0
+        end subroutine funcs
+    end interface lsfit_user_interface
+end python module lsfit__user__routines
+python module _fit ! in
+    interface  ! in :_fit
+        subroutine py_fitline(x,y,ndata,a,b,siga,sigb) ! in :_fit:fit.f90
+            use wfl, only: fitline
+            real*8 dimension(ndata),intent(in) :: x
+            real*8 dimension(ndata),intent(in),depend(ndata) :: y
+            integer, optional,intent(in),check(len(x)>=ndata),depend(x) :: ndata=len(x)
+            real*8 intent(out) :: a
+            real*8 intent(out) :: b
+            real*8 intent(out) :: siga
+            real*8 intent(out) :: sigb
+        end subroutine py_fitline
+        subroutine py_fitmulti(x,y,ndat,ma,a,covar,chisq,s,r,v) ! in :_fit:fit.f90
+            use wfl, only: fitmulti
+            real*8 dimension(ndat,ma - 1),intent(in) :: x
+            real*8 dimension(ndat),intent(in),depend(ndat) :: y
+            integer*4, optional,intent(in),check(shape(x,0)==ndat),depend(x) :: ndat=shape(x,0)
+            integer*4, optional,intent(in),check((shape(x,1)+1)==ma),depend(x) :: ma=(shape(x,1)+1)
+            real*8 dimension(ma),intent(out),depend(ma) :: a
+            real*8 dimension(ma,ma),intent(out),depend(ma,ma) :: covar
+            real*8 intent(out) :: chisq
+            real*8 intent(out) :: s
+            real*8 intent(out) :: r
+            real*8 dimension(ma),intent(out),depend(ma) :: v
+        end subroutine py_fitmulti
+        subroutine py_fitpoly(x,y,ndat,ma,a,covar,chisq) ! in :_fit:fit.f90
+            use wfl, only: fitpoly
+            real*8 dimension(ndat),intent(in) :: x
+            real*8 dimension(ndat),intent(in),depend(ndat) :: y
+            integer, optional,intent(in),check(len(x)>=ndat),depend(x) :: ndat=len(x)
+            integer intent(in) :: ma
+            real*8 dimension(ma),intent(out),depend(ma) :: a
+            real*8 dimension(ma,ma),intent(out),depend(ma,ma) :: covar
+            real*8 intent(out) :: chisq
+        end subroutine py_fitpoly
+        function py_fitpoly_best_degree(x,y,n,max_order,ch) result (best_degree) ! in :_fit:fit.f90
+            use wfl, only: fitpoly_best_degree
+            real*8 dimension(n),intent(in) :: x
+            real*8 dimension(n),intent(in),depend(n) :: y
+            integer, optional,intent(in),check(len(x)>=n),depend(x) :: n=len(x)
+            integer intent(in) :: max_order
+            character*(*), optional,intent(in) :: ch
+            integer :: best_degree
+        end function py_fitpoly_best_degree
+        subroutine py_detrend(n,x,y,yout) ! in :_fit:fit.f90
+            use wfl, only: detrend
+            integer, optional,intent(in),check(len(x)>=n),depend(x) :: n=len(x)
+            real*8 dimension(n),intent(in) :: x
+            real*8 dimension(n),intent(in),depend(n) :: y
+            real*8 dimension(n),intent(out),depend(n) :: yout
+        end subroutine py_detrend
+        subroutine py_polynomial(x,y,n,m,yout) ! in :_fit:fit.f90
+            use wfl, only: polynomial
+            real*8 dimension(n),intent(in) :: x
+            real*8 dimension(n),intent(in),depend(n) :: y
+            integer, optional,intent(in),check(len(x)>=n),depend(x) :: n=len(x)
+            integer intent(in) :: m
+            real*8 dimension(n),intent(out),depend(n) :: yout
+        end subroutine py_polynomial
+        subroutine py_quadratic(n,x,y,yout) ! in :_fit:fit.f90
+            use wfl, only: quadratic
+            integer, optional,intent(in),check(len(x)>=n),depend(x) :: n=len(x)
+            real*8 dimension(n),intent(in) :: x
+            real*8 dimension(n),intent(in),depend(n) :: y
+            real*8 dimension(n),intent(out),depend(n) :: yout
+        end subroutine py_quadratic
+        subroutine py_wfl_depoly(n,t,x,xout,m_order,max_order,method,nbest_fit_order) ! in :_fit:fit.f90
+            use wfl, only: wfl_depoly
+            integer, optional,intent(in),check(len(t)>=n),depend(t) :: n=len(t)
+            real*8 dimension(n),intent(in) :: t
+            real*8 dimension(n),intent(in),depend(n) :: x
+            real*8 dimension(n),intent(out),depend(n) :: xout
+            integer, optional,intent(in) :: m_order
+            integer, optional,intent(in) :: max_order
+            character*(*), optional,intent(in) :: method
+            integer, optional,intent(out) :: nbest_fit_order
+        end subroutine py_wfl_depoly
+        subroutine py_wfl_miss_data_recover(n,t,x,m_per,pe,n_miss,nt_miss,xout,itrend) ! in :_fit:fit.f90
+            use wfl, only: wfl_miss_data_recover
+            integer, optional,intent(in),check(len(t)>=n),depend(t) :: n=len(t)
+            real*8 dimension(n),intent(in) :: t
+            real*8 dimension(n),intent(in),depend(n) :: x
+            integer intent(in) :: m_per
+            real*8 dimension(n),intent(in),depend(n) :: pe
+            integer intent(in) :: n_miss
+            real*8 dimension(n),intent(in),depend(n) :: nt_miss
+            real*8 dimension(n),intent(out),depend(n) :: xout
+            integer, optional,intent(in) :: itrend
+        end subroutine py_wfl_miss_data_recover
+        subroutine py_wfl_rm_jump(n,t,x,m_per,pe,n_jump,nt_jump,xout,itrend,amph) ! in :_fit:fit.f90
+            use wfl, only: wfl_rm_jump
+            integer, optional,intent(in),check(len(t)>=n),depend(t) :: n=len(t)
+            real*8 dimension(n),intent(in) :: t
+            real*8 dimension(n),intent(in),depend(n) :: x
+            integer, optional,intent(in),check(len(pe)>=m_per),depend(pe) :: m_per=len(pe)
+            real*8 dimension(m_per),intent(in) :: pe
+            integer, optional,intent(in),check(len(nt_jump)>=n_jump),depend(nt_jump) :: n_jump=len(nt_jump)
+            integer dimension(n_jump),intent(in) :: nt_jump
+            real*8 dimension(n,6),intent(out),depend(n) :: xout
+            integer, optional,intent(in) :: itrend
+            real*8, optional,dimension(4,m_per),intent(out),depend(m_per) :: amph
+        end subroutine py_wfl_rm_jump
+        subroutine lsfit(ndat,x,y,ma,a,covar,funcs,chisq,sig) ! in :_fit:fit.f90
+            use wfl, only: covsrt8,gaussj8
+            use lsfit__user__routines
+            integer, optional,intent(in),check(len(x)>=ndat),depend(x) :: ndat=len(x)
+            real*8 dimension(ndat),intent(in) :: x
+            real*8 dimension(ndat),intent(in),depend(ndat) :: y
+            integer intent(in) :: ma
+            real*8 dimension(ma),intent(out),depend(ma) :: a
+            real*8 dimension(ma,ma),intent(out),depend(ma,ma) :: covar
+            external funcs
+            real*8, optional,intent(out) :: chisq
+            real*8, optional,dimension(ndat),intent(in),depend(ndat) :: sig
+        end subroutine lsfit
+    end interface
+end python module _fit
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/

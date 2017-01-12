@@ -1,0 +1,25 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module _harmonic ! in
+    interface  ! in :_harmonic
+        module harmonic ! in :_harmonic:harmonic.f90
+            integer :: n
+            real*8 dimension(n,n) :: cov
+            integer :: polys
+            real*8, allocatable,dimension(:,:) :: pdef
+            real*8, private,allocatable,dimension(:,:) :: design_matrix
+            real*8 :: t
+            real*8 :: x
+            real*8, allocatable,dimension(:) :: periods
+            subroutine gen_design_matrix ! in :_harmonic:harmonic.f90:harmonic
+            end subroutine gen_design_matrix
+            subroutine fit(res) ! in :_harmonic:harmonic.f90:harmonic
+                real intent(out) :: res
+            end subroutine fit
+        end module harmonic
+    end interface
+end python module _harmonic
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/
