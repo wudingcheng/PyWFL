@@ -1,0 +1,473 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyWFL.coorelation &mdash; PyWFL 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="PyWFL 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="PyWFL" href="../PyWFL.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PyWFL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">PyWFL</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">PyWFL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+          <li><a href="../PyWFL.html">PyWFL</a> &raquo;</li>
+      
+    <li>PyWFL.coorelation</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for PyWFL.coorelation</h1><div class="highlight"><pre>
+<span></span><span class="c1"># encoding: utf-8</span>
+<span class="kn">import</span> <span class="nn">_correlation</span>
+
+
+<div class="viewcode-block" id="cor2"><a class="viewcode-back" href="../../PyWFL.coorelation.html#PyWFL.coorelation.cor2">[docs]</a><span class="k">def</span> <span class="nf">cor2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dof</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Give correlation coefficient and 95% confidential level between two vectors</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a (array) : Array a</span>
+<span class="sd">        b (array) : Array b</span>
+<span class="sd">        dof (int) : Degrees of Freedom (DOF), if not equal 0, this value will be used to calculate colev; if 0, DOF will be set to n-2. If you want to do get a more reliable DOF, please use function :func:`edof` to get effect DOF and use it here.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple:</span>
+<span class="sd">            * co (float) : The correlation coefficient between array a and b</span>
+<span class="sd">            * colev (float) : The 95% confidential levelarcov of correlation coefficient (Degrees of Freedom is n-2 )</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        co is between -1 and 1</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from numpy import cos, arange</span>
+<span class="sd">        &gt;&gt;&gt; t = arange(100)</span>
+<span class="sd">        &gt;&gt;&gt; a = cos(t)</span>
+<span class="sd">        &gt;&gt;&gt; b = cos(t - 0.3)</span>
+<span class="sd">        &gt;&gt;&gt; cor2(a, b)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_correlation</span><span class="o">.</span><span class="n">py_cor2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dof</span><span class="o">=</span><span class="n">dof</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="corfre"><a class="viewcode-back" href="../../PyWFL.coorelation.html#PyWFL.coorelation.corfre">[docs]</a><span class="k">def</span> <span class="nf">corfre</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get  squared coherence amplitude spectrum and phase spectrum in the frequency domain for two vectors</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a (array) : Array a</span>
+<span class="sd">        b (array) : Array b</span>
+<span class="sd">        dt (float) : The time interval for time index of array a and b</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: out(i,n-1)--i=0, frequency; i=1, periods; i=2, squared coherency amplitude spectrum; i=3, phase spectrum; i=4, 95% confidential level for amplitude spectrum</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] B. F. Chao, correlation of interannual length-of-day variation with El-nino/southern oscillation,1972-1986, J. Geophys. R., Vol.93, pp7709-7715, 1988.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; from numpy import cos, arange</span>
+<span class="sd">        &gt;&gt;&gt; t = arange(100)</span>
+<span class="sd">        &gt;&gt;&gt; a = cos(t)</span>
+<span class="sd">        &gt;&gt;&gt; b = cos(t - 0.3)</span>
+<span class="sd">        &gt;&gt;&gt; corfre(a, b, dt=1.0)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_correlation</span><span class="o">.</span><span class="n">py_corfre</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="corlag"><a class="viewcode-back" href="../../PyWFL.coorelation.html#PyWFL.coorelation.corlag">[docs]</a><span class="k">def</span> <span class="nf">corlag</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dof</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Give time lagged correlation coefficients of two vectors</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dt (float): The time interval for time index of array a and b</span>
+<span class="sd">        a (array) : Array a</span>
+<span class="sd">        b (array) : Array b</span>
+<span class="sd">        dof (float) : Factor of Degrees Of Freedom (DOF) for filtered input vector a and b, if a and b is not filtered, then set  dof=1.0. If array a and b are both filtered by some filter, then the freedom of array a and b will decrease (the value of 95% correlation confidential level will increase), if you know the exact DOF of filtered array a and b, e.g. n1 (n1&lt;n, n is the length of array a, so is array b), then set dof=n1/n will get the exact 95% confidential level; otherwise (set dof=1.0 for filtered a and b) you will get a lower value of 95% confidential level which is not correct.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray: out(i,-n/2+2:n/2-2)--i=1,time index; i=2, correlation coefficients; i=3, positive 95% confidential level; i=4, negative 95% confidential level</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        When you get the maximum correlation coefficient (the most near m=0 point at both positive m and negative m) at out(2, m), if m&gt;0, then array a lead array b; if m&lt;0, then array a lag array b.  See example for details.</span>
+
+<span class="sd">        To determine the correct DOF for filtered array a or b by using :func:`vondrak` method, please reference:</span>
+
+<span class="sd">        Yan Haoming, Zhong Min, Zhu Yaozhong, Determination of the degree of freedom of digital filtered time series with an application to the correlation analysis between the length of day and the southern oscillation index, Chinese Astronomy and Astrophysics, Vol. 28, No.1, P120-126, 2004.(in English)</span>
+
+<span class="sd">        闫昊明，钟敏，朱耀仲，时间序列数字滤波后自由度的确定――应用于日长变化与南方涛动指数的相关分析，天文学报，Vol. 44, No.3, P324-329, 2003. (in Chinese)</span>
+
+<span class="sd">        If you want use other filter method to filter the original data, and want to get the correct DOF, please also reference the above papers to do your own Monte Carlo analysis to get the correct DOF of filtered data. Or reference function WFL_EDOF for more details for determine effect DOF.</span>
+
+<span class="sd">        Note: the above definition may different with MATLAB etc. software, be aware that the above equation is more accurate. And due to the factor n/(n-lag), the r(lag) may be great than 1.0 when lag is large, please take more attention about it and only use small lag to determine the lag correlation coefficient.</span>
+
+<span class="sd">        Sign convention of this routine: if a leads b, i.e., a is shifted to the left of b, then CORLAG  will show a peak at positive lags.</span>
+
+<span class="sd">        For lag==0, array a(1),a(2)...a(n) and array b(1),b(2)...b(n) do corelation analysis.</span>
+<span class="sd">        For lag==1, array a(1),a(2)...a(n-1) and array b(2),b(3)...b(n) do corelation analysis. b is shifted to left by one step.</span>
+<span class="sd">        For lag==m(m&lt;n/2-2), array a(1),a(2)...a(n-m) and array b(1+m),b(2+m)...b(n) do corelation analysis. b is shifted to left by m steps.</span>
+<span class="sd">        For lag==-1, array a(2),a(3)...a(n) and array b(1),b(2),...b(n-1) do corelation analysis. a is shifted to right by one step.</span>
+<span class="sd">        For lag==-m, array a(1+m),a(2+m),..a(n) and array b(1),b(2),...b(n-m) do corelation analysis. a is shifted to right by m steps.</span>
+
+
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_correlation</span><span class="o">.</span><span class="n">py_corlag</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="arcov"><a class="viewcode-back" href="../../PyWFL.coorelation.html#PyWFL.coorelation.arcov">[docs]</a><span class="k">def</span> <span class="nf">arcov</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the auto-covariance of a time series</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (array) : x[n], Time series to calculate auto-covariance</span>
+<span class="sd">        normalized (bool) : if True, then x will be normalized first (so mean(x)=0, std(x)=1), and then calculate the auto-covariance; if False, then only get the auto-covariance without normalized.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        array : Auto-covariance</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        The autocorrelation function can be acquired by using r(k)=x_arcov(k)/x_arcov(0), where k=0,...,n-1. Also see ARCO or WFL_MULTICOR.</span>
+
+<span class="sd">        There two algorithm to calculate autocovariance,  named Algorithm A and Algorithm B, see below for details. Algorithm B is an unbiased estimator of theoretical autocovariance of the ensemble, where Algorithm B is only asymptotically unbiased as the recorder length N tend to infinity. However, it is shown that the biased estimator (Algorithm A) has a smaller mean square error.  It is seen that the two variances of Algorithm A and B coincide when k=0 but as k tends to N the variance of the Algorithm A (biased estimator) tends to zero, whereas the variance of the Algorithm B (unbiased estimator) tends to infinity. It is this behavior which makes the unbiased estimator (Algorithm B) so unsatisfactory.  As a result, here choose Algorithm A to calculate the autocovariance.  See Jenkins and Watts (1968), p174-180, for details.</span>
+
+<span class="sd">        Algorithm A:</span>
+<span class="sd">            autocovar(K)=1/N * ( SUM( (X(T)-X_AVERAGE) * ( X(T+K)-X_AVERAGE)  ) Where T=1,N-K ) and K=0,1,...N-1</span>
+
+<span class="sd">        Algorithm B (NOT used):</span>
+<span class="sd">            autocovar(K)=1/(N-K)* ( SUM( (X(T)-X_AVERAGE) * ( X(T+K)-X_AVERAGE)  ) Where T=1,N-K ) and K=0,1,...N-1</span>
+
+<span class="sd">        Reference:</span>
+<span class="sd">            .. [1] Jenkins, G. M., and D. G., Watts, Spectral analysis and its applications, Holden-Day,  1968.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">ch</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span> <span class="k">if</span> <span class="n">normalized</span> <span class="k">else</span> <span class="s1">&#39;n&#39;</span>
+    <span class="k">return</span> <span class="n">_correlation</span><span class="o">.</span><span class="n">py_wfl_arcov</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="n">ch</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="edof"><a class="viewcode-back" href="../../PyWFL.coorelation.html#PyWFL.coorelation.edof">[docs]</a><span class="k">def</span> <span class="nf">edof</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Determine the Effect Degree of Freedom (EDOF) of two time series for correlation analysis</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (array) : Time series to be analysised</span>
+<span class="sd">        y (array) : Time series to be analysised</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        int : The effect degree of freedom for time series x and y</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        When do correlation analysis, we often use t test to give a 95% confidence level with DOF as n-2. But this method is only suitable for the time series which is not auto-correlated, for the time series which is auto-correlated, we should use EDOF which is smaller than DOF. So this subroutine is used  to calculate the EDOF of two time series and then use it as the DOF to do correlation analysis in subroutine :func:`cor2`.</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] Davis R. E., Predictability of sea-surface temperature and sea-level pressure anomalies over the North pacific ocean, J Phys. Oceanogr., Vol.6, 249-266,1976.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_correlation</span><span class="o">.</span><span class="n">py_wfl_edof</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="fre_response"><a class="viewcode-back" href="../../PyWFL.coorelation.html#PyWFL.coorelation.fre_response">[docs]</a><span class="k">def</span> <span class="nf">fre_response</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nw</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get Frequency Response for two time series by using Multitaper smoothing method</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dt (float) : The time interval for time index of array a and b</span>
+<span class="sd">        x (array) : Array x</span>
+<span class="sd">        y (array) : Array y. :math:`y(f)=h(f)*x(f)`  in frequency domain, here :math:`h(f)` is the frequency response function which will be calculated.</span>
+<span class="sd">        nw (float) : DPSS orders 0 to 2*nw-1 required (2&lt;=nw&lt;n/2). Note, here, nw is real or double type. The typical values of nw is 2, 5/2, 3, 7/2, 4. Thus you can get (nw)Pi-multitapers, e.g. for nw=4, you get 4Pi-multitapers. Smaller nw higher frequency precision, greater nw smaller variance in frequency domain.  See :func:`dpss` for more details.</span>
+<span class="sd">        p (float) : Confidence level for the F-test (0.&lt;p&lt;1.0)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple:</span>
+<span class="sd">            * fre_res( n/2, 4) : fre_res(:,1), FFT periods (same unit as dt); fre_res(;,2), frequency response function amplitude spectrum; fre_res(:,3), frequency response function phase spectrum; fre_res(:,4), noise spectrum</span>
+<span class="sd">            * amp_ci(n/2,2) : 100*P% confidence level confidence intervals for frequency response function amplitude spectrum fre_res(:,2). amp_ci(:,1) is lower confidence intervals, and amp_ci(:,2) is upper confidence intervals.</span>
+<span class="sd">            * ph_ci(n/2,2) : 100*P% confidence level confidence intervals for frequency response function phase spectrum fre_res(:,3). ph_ci(:,1) is lower confidence intervals, and ph_ci(:,2) is upper confidence intervals.  Note, if the output ph_ci(i,1)==ph_ci(i,2), it means that there&#39;s no confidence interval, because the eq. (10.4.4) of Jenkins and Watts(1968) to calculate ph_ci(:,:) is out of the calculation range due to very small squared coherence between x and y. Thus, only at frequency of larger squared coherence value, the phase confidence interval is meaningful.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        Phase confidence intervals may be failure at some frequencies (usually at larger frequencies which close to Nyquist frequency). In this case, ph_ci(i,1)==ph_ci(i,2)==fre_res(i,3). Be careful of this failure.</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] Jenkins, G. M., and D. G., Watts, Spectral analysis and its applications, Holden-Day, 1968. (chapter 10 for details of frequency response function)</span>
+<span class="sd">        .. [2] Bell, B., Percival, D.B. and Walden, A.T. &quot;Calculating Thomson&#39;s Spectral Multitapers by Inverse Iteration&quot;, J. Comput. and Graph. Stat., 1993.</span>
+<span class="sd">        .. [3] Percival D. B., and A. T. Walden, Spectral analysis for physical applications: Multitaper and conventional univariate techniques, Cambridge University Press, Cambridge, 583p, 1993.</span>
+<span class="sd">        .. [4] Thomson, D. J., 1982, Spectral estimation and harmonic analysis: IEEE Proc., v. 70, no. 9, p. 1055-1096.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_correlation</span><span class="o">.</span><span class="n">py_wfl_fre_response</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nw</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="mtm_coh"><a class="viewcode-back" href="../../PyWFL.coorelation.html#PyWFL.coorelation.mtm_coh">[docs]</a><span class="k">def</span> <span class="nf">mtm_coh</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nw</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.95</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get  squared coherence amplitude spectrum and phase spectrum / cross amplitude and phase spectrum in the frequency domain for two vectors by using multitaper(MTM) method</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dt (float) : The time interval for time index of array a and b</span>
+<span class="sd">        x (array) : Array x</span>
+<span class="sd">        y (array) : Array y. :math:`y(f)=h(f)*x(f)`  in frequency domain, here :math:`h(f)` is the frequency response function which will be calculated.</span>
+<span class="sd">        nw (float) : DPSS orders 0 to 2*nw-1 required (2&lt;=nw&lt;n/2). Note, here, nw is real or double type. The typical values of nw is 2, 5/2, 3, 7/2, 4. Thus you can get (nw)Pi-multitapers, e.g. for nw=4, you get 4Pi-multitapers. Smaller nw higher frequency precision, greater nw smaller variance in frequency domain.  See :func:`dpss` for more details.</span>
+<span class="sd">        p (float) : Confidence level for the F-test (0.&lt;p&lt;1.0)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple:</span>
+<span class="sd">            * coh_spec( n/2, 3):coh_spec(:,1), FFT periods (same unit as dt); coh_spec(;,2), squared coherency amplitude spectrum; coh_spec(:,3), coherency phase spectrum</span>
+<span class="sd">            * cross_spec( n/2, 3):cross_spec(:,1), FFT periods (same unit as dt); cross_spec(;,2), cross amplitude spectrum of a and b; cross_spec(:,3), cross phase spectrum</span>
+<span class="sd">            * f_test(n/2):100*P% confidence level F-test value for squared coherency amplitude spectrum</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        Similar as subroutine :func:`corfre` bus use multitaper method to calculate the spectrum.</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] Bell, B., Percival, D.B. and Walden, A.T. &quot;Calculating Thomson&#39;s Spectral Multitapers by Inverse Iteration&quot;, J. Comput. and Graph. Stat., 1993.</span>
+<span class="sd">        .. [2] Percival D. B., and A. T. Walden, Spectral analysis for physical applications: Multitaper and conventional univariate techniques, Cambridge University Press, Cambridge, 583p, 1993.</span>
+<span class="sd">        .. [3] Thomson, D. J., 1982, Spectral estimation and harmonic analysis: IEEE Proc., v. 70, no. 9, p. 1055-1096.</span>
+<span class="sd">        .. [4] Jenkins, G. M., and D. G., Watts, Spectral analysis and its applications, Holden-Day, 1968. (chapter 6-9)</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        :func:`corlag`, :func:`cor2`, :func:`corfre`</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_correlation</span><span class="o">.</span><span class="n">py_wfl_mtm_coh</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">nw</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="multicor"><a class="viewcode-back" href="../../PyWFL.coorelation.html#PyWFL.coorelation.multicor">[docs]</a><span class="k">def</span> <span class="nf">multicor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out_type</span><span class="o">=</span><span class="s1">&#39;cor&#39;</span><span class="p">,</span> <span class="n">fft</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">remove_mean</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculate the auto- and cross covariance/correlation of input data (time series)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x (ndarray) : x[n,m], total m time series, each has n points. Time series for calculating auto- and cross covariance/correlation. x was first removed average in the subroutine.</span>
+<span class="sd">        out_type : out_type=&#39;cov&#39; or &#39;cor&#39; for covariance and correlation output</span>
+<span class="sd">        fft (bool) : if True, use fft method</span>
+<span class="sd">        remove_mean (bool) : if True, then first remove mean of input x(n,m) for each column m, if False, no remove mean for the input data x(n,m). If not present  remove_mean, no mean removed from input data x(n,m).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        ndarray : xout</span>
+<span class="sd">            Auto- and cross covariance for X if out_type=&#39;cov&#39;;</span>
+<span class="sd">            auto- and cross correlation for X, if out_type=&#39;cor&#39;</span>
+<span class="sd">            The first index of x(:,:,:) is lags. Thus x_out(0,m,m) is the covariance/correlation of all m series at lag==0. And x_out(:,i,i) is the autocovariance/autocorrelation of the ith series.</span>
+
+<span class="sd">            when using FFT method, The first index of output x_out(:,m,m)  is different from not using fft.</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        Properties of covariance functions:</span>
+<span class="sd">            The properties of the auto covariance functions of a real bivariate process are the same as those for the auto covariance functions of a univariate  process, that is,</span>
+
+<span class="sd">            .. math::</span>
+<span class="sd">                \\gamma_{ii}(0) &amp; = Var\\left[ X_i(t) \\right ] = \\sigma^2_{X_i} \\\\</span>
+<span class="sd">                \\gamma_{ii}(u) &amp; = \\gamma_{ii}(-u)</span>
+
+<span class="sd">        Hence the covariance between the two stochastic processed can be described by means of the single cross covariance functions :func:`\\gamma_{12}(u)`, where :func:`-\\infty \\leq u \\leq +\\infty`. Note that although the auto covariance function is an even function of lag, the cross covariance function will **NOT** be an even function in general.</span>
+
+<span class="sd">        The cross correlation function:</span>
+
+<span class="sd">            In general it may be necessary to study the interactions between two processes with possibly different scales of measurement or different variances. In this situation it is necessary to define the cross correlation function</span>
+
+<span class="sd">                .. math::</span>
+<span class="sd">                    \\rho_{12}(u) = \\gamma_{12}(u) / \\sqrt(\\gamma_{11}(0)\\gamma_{22}(0)) = \\gamma_{12}(u)/(\\sigma_1 \\sigma_2)</span>
+
+<span class="sd">            The first property of the cross correlation function is that</span>
+
+<span class="sd">                .. math:: | \\rho_{12}(u) | \leq 1</span>
+
+<span class="sd">            which follows from the fact that the random variable</span>
+
+<span class="sd">                .. math:: Y(t) = \\lambda_1 X_1(t) + \\lambda_2 X_2(t+u)</span>
+
+<span class="sd">            has positive variance.</span>
+<span class="sd">            The second property is that</span>
+
+<span class="sd">                ..math:: \\rho_{12}(u) = \\rho_{21}(-u)</span>
+
+<span class="sd">        Sign convention of this routine: if x(:,i) lags x(:,j), i.e., x(:,i) is shifted to the right of x(:,j), then WFL_MULTICOR  will show a peak at positive lags.</span>
+
+<span class="sd">        Difference between :func:`multicor` with :func:`corlag`:</span>
+
+<span class="sd">        The results of :func:`multicor` (for auto and cross correlation only) is different with the results of :func:`corlag` in three parts: first, :func:`corlag` has a factor of n/(n-lag) while :func:`multicor` has the factor 1.0;  second, :func:`corlag` use different variance (each n-lag data) while :func:`multicor` use the same variance cov(0,i,i); and third, the sign convention of func:`corlag` is reverse with that of :func:`multicor`.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; x = np.array([[47, 64, 23, 71, 38, 65, 55, 41, 59, 48, 71, 35, 56, 40, 58, 44, 80, 55,</span>
+<span class="sd">                       37, 74, 51, 58, 50, 60, 44, 57, 50, 45, 25, 59, 50, 71, 56, 74, 50, 58,</span>
+<span class="sd">                       45, 54, 36, 54, 48, 55, 45, 57, 50, 62, 44, 64, 43, 52, 38, 60, 55, 41,</span>
+<span class="sd">                       53, 49, 34, 35, 54, 45, 68, 38, 50, 60],</span>
+<span class="sd">                      [47, 64, 23, 71, 38, 65, 55, 41, 59, 48, 71, 35, 56, 40, 58, 44, 80, 55,</span>
+<span class="sd">                       37, 74, 51, 58, 50, 60, 44, 57, 50, 45, 25, 59, 50, 71, 56, 74, 50, 58,</span>
+<span class="sd">                       45, 54, 36, 54, 48, 55, 45, 57, 50, 62, 44, 64, 43, 52, 38, 60, 55, 41,</span>
+<span class="sd">                       53, 49, 34, 35, 54, 45, 68, 38, 50, 60]]).T</span>
+<span class="sd">        &gt;&gt;&gt; multicor(x, fft=True)[:, 0, 1]</span>
+<span class="sd">        &gt;&gt;&gt; multicor(x)[:, 0, 1]</span>
+
+<span class="sd">    References:</span>
+<span class="sd">        .. [1] Jenkins, G. M., and D. G., Watts, Spectral analysis and its applications,  P207-208, P322-325, Holden-Day, 1968.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">remove_mean</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span> <span class="k">if</span> <span class="n">remove_mean</span> <span class="k">else</span> <span class="s1">&#39;n&#39;</span>
+    <span class="k">return</span> <span class="n">_correlation</span><span class="o">.</span><span class="n">py_wfl_multicor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out_type</span><span class="p">,</span> <span class="n">fft</span><span class="o">=</span><span class="n">fft</span><span class="p">,</span> <span class="n">remove_mean</span><span class="o">=</span><span class="n">remove_mean</span><span class="p">)</span></div>
+
+
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YAN Haoming, WU Dingcheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

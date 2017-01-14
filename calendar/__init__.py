@@ -1,5 +1,5 @@
 # encoding: utf-8
-from __future__ import division
+from __future__ import division, absolute_import
 from datetime import datetime, timedelta
 
 __all__ = ["ymd2julday", "julday2date", "mjd2julday", "yearfraction2date", "yearfraction2mjd",

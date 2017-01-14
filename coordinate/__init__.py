@@ -1,5 +1,8 @@
 # encoding: utf-8
-import _coordinate
+from __future__ import absolute_import
+from . import _coordinate
+
+__all__ = ["gd2lambert", "blh2xyz", "xyz2blh", "lambert2gd", "xyz2enu", "gc2gd", "geo2ups", "datum"]
 
 
 def gd2lambert(lon, lat, cm, ps, pn, ol, ea=None, ef=None):
@@ -42,6 +45,10 @@ def blh2xyz(b, l, h, ea=None, ef=None):
 """
     if None in [ea, ef]:
         ea, ef = datum(1)
+    if not -90 <= b <= 90:
+        raise ValueError('Latitude should be between -90 and 90!')
+    if not 0 <= l <= 360:
+        raise ValueError('Longitude should be between 0 and 360!')
     return _coordinate.py_wfl_blh2xyz(b, l, h, ea=ea, ef=ef)
 
 

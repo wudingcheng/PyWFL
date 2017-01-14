@@ -31,6 +31,10 @@ def adjustment(A, y):
 def lstsq(A, y):
     return np.linalg.lstsq(A, y)
 
+
+def curvefit(t, y):
+
+
 n = 100000
 t = np.linspace(0, 20, n)
 y = t * 0.0001 + 0.0001 * t**2 + t**3 + 20 * np.sin(2 * np.pi * t / 365) + 30 * np.sin(2 * np.pi * t / 182.5) + 1.2

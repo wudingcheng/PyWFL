@@ -1,4 +1,11 @@
-import _statistics
+# encoding: utf-8
+from __future__ import absolute_import
+from . import _statistics
+
+
+__all__ = ["aic", "bic", "chinv", "cumsum", "diff", "geop", "leap_rm", "montonic",
+           "montecarlo", "month_mean", "month_mean_idx", "var_percent", "cdff", "cdfnor",
+           "cdft", "taylor_diagram"]
 
 
 def aic(m, residuals):
@@ -364,3 +371,6 @@ def taylor_diagram(r, f, isnormal=True):
 """
     isnormal = 'y' if isnormal else 'n'
     return _statistics.py_wfl_taylor_diagram(r, f, isnormal=isnormal)
+
+
+# print geop(1, 1.2, 5)

@@ -1,5 +1,10 @@
-import _interpolation
+# encoding: utf-8
+from __future__ import absolute_import
+from . import _interpolation
 import numpy as np
+
+
+__all__ = ["bilinear", "bilinear_square", "bicubic", "linear_interpolation", "linear_int_miss", "points_average_cycle"]
 
 
 def bilinear(x, y, val, x1, y1):

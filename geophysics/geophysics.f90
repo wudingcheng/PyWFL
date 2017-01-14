@@ -241,6 +241,7 @@ subroutine py_wfl_prem(n, prem_out, prem_parameter)
     integer, intent(in) :: n
     real *8, intent(out) :: prem_out(n, 2)
     character(len=*), optional, intent(in) :: prem_parameter
+    call wfl_prem(n, prem_out, prem_parameter)
 end subroutine py_wfl_prem
 
 function py_wfl_pressure2depth(pressure, lat) result (depth)
@@ -443,6 +444,21 @@ subroutine py_eaam_xyz_wind_en(lon,lat,lay,ltrop,pl,u,v,fw,fwl,f3w,f3wl,flag,slp
         call eaam_xyz_wind_en(lon,lat,lay,ltrop,pl,u,v,fw,fwl,f3w,f3wl)
     endif
 end subroutine py_eaam_xyz_wind_en
+
+! subroutine py_eaam_xyz_wind_en_wahr(lon,lat,lay,ltrop,pl,u0,v0,fw,fwl,f3w,f3wl,flag,slp,hm,z)
+!     use wfl, only: eaam_xyz_wind_en_wahr
+!     integer,intent(in):: lon,lat,lay,ltrop
+!     real,intent(in):: pl(lay),u0(lon,lat,lay),v0(lon,lat,lay)
+!     complex*8,dimension(lon,lat,3),intent(out):: fw,fwl
+!     real*8,dimension(lon,lat),intent(out):: f3w,f3wl
+!     real,optional,intent(in):: slp(lon,lat),hm(lon,lat),z(lon,lat,lay)
+!     logical, optional, intent(in) :: flag
+!      if(present(flag) .and. flag) then
+!         call eaam_xyz_wind_en_wahr(lon,lat,lay,ltrop,pl,u0,v0,fw,fwl,f3w,f3wl,flag,slp,hm,z)
+!     else
+!         call eaam_xyz_wind_en_wahr(lon,lat,lay,ltrop,pl,u0,v0,fw,fwl,f3w,f3wl)
+!     endif
+! end subroutine py_eaam_xyz_wind_en_wahr
 
 function py_eam_barnes2eubanks(eam,cha) result(eam2)
     use wfl, only: eam_barnes2eubanks

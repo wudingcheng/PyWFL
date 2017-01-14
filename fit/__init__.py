@@ -1,5 +1,8 @@
-import _fit
-import numpy as np
+# encoding: utf-8
+from __future__ import absolute_import
+from . import _fit
+
+__all__ = ["fit", "fitmulti", "fitpoly", "fitpoly_best_degree", "detrend", "lsfit"]
 
 
 def fit(x, y):
@@ -223,24 +226,24 @@ def lsfit(x, y, m, func, sig=None):
         return _fit.lsfit(x, y, m, func)
 
 
-def fpoly(x, n):
-    res = np.ones((n, len(x)))
-    for i in range(1, n):
-        res[i, :] = res[i - 1, :] * x
-    return res
+# def fpoly(x, n):
+#     res = np.ones((n, len(x)))
+#     for i in range(1, n):
+#         res[i, :] = res[i - 1, :] * x
+#     return res
 
 
-def func(x):
-    return 1 + x + x**2
+# def func(x):
+#     return 1 + x + x**2
 
 
-if __name__ == '__main__':
-    import matplotlib.pyplot as plt
-    x = np.arange(10) * 1.0
-    y = func(x)
-    print lsfit(x, y, 3, fpoly)
-    yerr = np.random.rand(10)
-    y += yerr
-    print fpoly(x, 3).shape
-    print lsfit(x, y, 3, fpoly, sig=yerr)
+# if __name__ == '__main__':
+#     import matplotlib.pyplot as plt
+#     x = np.arange(10) * 1.0
+#     y = func(x)
+#     print lsfit(x, y, 3, fpoly)
+#     yerr = np.random.rand(10)
+#     y += yerr
+#     print fpoly(x, 3).shape
+#     print lsfit(x, y, 3, fpoly, sig=yerr)
     # print _fit.py_wfl_harmonic_polys.__doc__

@@ -1,0 +1,575 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyWFL.calendar package &mdash; PyWFL 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyWFL 1.0 documentation" href="index.html"/>
+        <link rel="up" title="PyWFL package" href="PyWFL.html"/>
+        <link rel="next" title="PyWFL.coordinate package" href="PyWFL.coordinate.html"/>
+        <link rel="prev" title="PyWFL package" href="PyWFL.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyWFL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">PyWFL</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="PyWFL.html">PyWFL package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="PyWFL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PyWFL.calendar package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coordinate.html">PyWFL.coordinate package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coorelation.html">PyWFL.coorelation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.filters.html">PyWFL.filters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.fit.html">PyWFL.fit package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.geophysics.html">PyWFL.geophysics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.harmonics.html">PyWFL.harmonics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.rand.html">PyWFL.rand package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.spectrum.html">PyWFL.spectrum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.statistics.html">PyWFL.statistics package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL.constant">PyWFL.constant module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PyWFL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">PyWFL</a> &raquo;</li>
+      
+          <li><a href="PyWFL.html">PyWFL package</a> &raquo;</li>
+      
+    <li>PyWFL.calendar package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/PyWFL.calendar.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pywfl-calendar-package">
+<h1>PyWFL.calendar package<a class="headerlink" href="#pywfl-calendar-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-PyWFL.calendar">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PyWFL.calendar" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="PyWFL.calendar.ymd2julday">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">ymd2julday</code><span class="sig-paren">(</span><em>year</em>, <em>month</em>, <em>day</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#ymd2julday"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.ymd2julday" title="Permalink to this definition">¶</a></dt>
+<dd><p>get julian day from year, month and day</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>year</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; year input</li>
+<li><strong>month</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; month input</li>
+<li><strong>day</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; day input</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Return</dt>
+<dd>int : julday</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.julday2date">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">julday2date</code><span class="sig-paren">(</span><em>jul</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#julday2date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.julday2date" title="Permalink to this definition">¶</a></dt>
+<dd><p>give a julday and return datetime object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>jul</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; julian day</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Return</dt>
+<dd>datetime : datetime</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.mjd2julday">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">mjd2julday</code><span class="sig-paren">(</span><em>mjd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#mjd2julday"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.mjd2julday" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get julian day(JD) by modified julian day (MJD)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mjd</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; modified julian day</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">julian day</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.yearfraction2date">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">yearfraction2date</code><span class="sig-paren">(</span><em>yearfraction</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#yearfraction2date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.yearfraction2date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convery fractional year to datetime object/list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yearfraction</strong> (<em>float/list</em>) &#8211; fractional year</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">datetime obejct/list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float/list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.yearfraction2mjd">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">yearfraction2mjd</code><span class="sig-paren">(</span><em>yearfraction</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#yearfraction2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.yearfraction2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>give a fractional year and return mjd</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yearfraction</strong> (<em>float/list</em>) &#8211; fractional year</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">datetime object/list</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float/list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.mjd2yearfraction">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">mjd2yearfraction</code><span class="sig-paren">(</span><em>mjd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#mjd2yearfraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.mjd2yearfraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>give a mjd and return a fractional year</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mjd</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; modified julday day</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">fractional year</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.julday2mjd">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">julday2mjd</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#julday2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.julday2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>julian day to modified julian day</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>julday</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; julian day</li>
+<li><strong>hour</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; hour, optional</li>
+<li><strong>minute</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; minute, optional</li>
+<li><strong>seconds</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; seconds, optional</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">modified julian day</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.yr2year">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">yr2year</code><span class="sig-paren">(</span><em>yr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#yr2year"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.yr2year" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert two digital year to four digital year</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yr</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; two digital year</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">four digital year</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.year2yr">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">year2yr</code><span class="sig-paren">(</span><em>year</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#year2yr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.year2yr" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert four digital year to two digital year</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yr</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; four digital year</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">two digital year</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.year_doy2date">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">year_doy2date</code><span class="sig-paren">(</span><em>year</em>, <em>doy</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#year_doy2date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.year_doy2date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get datetime object by year and day of year (doy)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>year</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; year</li>
+<li><strong>doy</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; day of year</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">datetime of input year and doy</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/datetime.html#module-datetime" title="(in Python v2.7)">datetime</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.date2year_doy">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">date2year_doy</code><span class="sig-paren">(</span><em>date</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#date2year_doy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.date2year_doy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get datetime&#8217;s year and day</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date</strong> (<a class="reference external" href="https://docs.python.org/2/library/datetime.html#module-datetime" title="(in Python v2.7)"><em>datetime</em></a>) &#8211; datetime obejct</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>year (int) : year</li>
+<li>doy (int) : day of year</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.date2yearfraction">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">date2yearfraction</code><span class="sig-paren">(</span><em>date</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#date2yearfraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.date2yearfraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get fractional year by datetime</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date</strong> (<em>datetime/list</em>) &#8211; datetime object/list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">fractional year (/list)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float/list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.date2mjd">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">date2mjd</code><span class="sig-paren">(</span><em>date</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#date2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.date2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get modified julian day by datetime obejct/list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datetime/list</strong> &#8211; datetime obejct/list</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">modified julian day (/list)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">float/list</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.ymdhms2mjd">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">ymdhms2mjd</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#ymdhms2mjd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.ymdhms2mjd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert year, month, day, hour, minute, seconds to modified julian day</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>year</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; year</li>
+<li><strong>month</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; month</li>
+<li><strong>day</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; day</li>
+<li><strong>hour</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; hour</li>
+<li><strong>minute</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; minute</li>
+<li><strong>second</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; second</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">modified julian day</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)">float</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.mjd2date">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">mjd2date</code><span class="sig-paren">(</span><em>mjd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#mjd2date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.mjd2date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert modified julian day to datetime obejct</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mjd</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; modified julian day</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">datetime obejct</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/datetime.html#module-datetime" title="(in Python v2.7)">datetime</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.gpsweek2date">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">gpsweek2date</code><span class="sig-paren">(</span><em>gpsweek</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#gpsweek2date"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.gpsweek2date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert GPS Week to datetime object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>gpsweek</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; GPS Week</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">datetime object</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/datetime.html#module-datetime" title="(in Python v2.7)">datetime</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.calendar.date2gpsweek">
+<code class="descclassname">PyWFL.calendar.</code><code class="descname">date2gpsweek</code><span class="sig-paren">(</span><em>date</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/calendar.html#date2gpsweek"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.calendar.date2gpsweek" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert datetime obejct to GPS Week</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>date</strong> (<a class="reference external" href="https://docs.python.org/2/library/datetime.html#module-datetime" title="(in Python v2.7)"><em>datetime</em></a>) &#8211; datetime obejct</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">GPS Week</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PyWFL.coordinate.html" class="btn btn-neutral float-right" title="PyWFL.coordinate package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PyWFL.html" class="btn btn-neutral" title="PyWFL package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YAN Haoming, WU Dingcheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyWFL.coordinate package &mdash; PyWFL 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyWFL 1.0 documentation" href="index.html"/>
+        <link rel="up" title="PyWFL package" href="PyWFL.html"/>
+        <link rel="next" title="PyWFL.coorelation package" href="PyWFL.coorelation.html"/>
+        <link rel="prev" title="PyWFL.calendar package" href="PyWFL.calendar.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyWFL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">PyWFL</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="PyWFL.html">PyWFL package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="PyWFL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.calendar.html">PyWFL.calendar package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PyWFL.coordinate package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coorelation.html">PyWFL.coorelation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.filters.html">PyWFL.filters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.fit.html">PyWFL.fit package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.geophysics.html">PyWFL.geophysics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.harmonics.html">PyWFL.harmonics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.rand.html">PyWFL.rand package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.spectrum.html">PyWFL.spectrum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.statistics.html">PyWFL.statistics package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL.constant">PyWFL.constant module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PyWFL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">PyWFL</a> &raquo;</li>
+      
+          <li><a href="PyWFL.html">PyWFL package</a> &raquo;</li>
+      
+    <li>PyWFL.coordinate package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/PyWFL.coordinate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pywfl-coordinate-package">
+<h1>PyWFL.coordinate package<a class="headerlink" href="#pywfl-coordinate-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-PyWFL.coordinate">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PyWFL.coordinate" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="PyWFL.coordinate.blh2xyz">
+<code class="descclassname">PyWFL.coordinate.</code><code class="descname">blh2xyz</code><span class="sig-paren">(</span><em>b</em>, <em>l</em>, <em>h</em>, <em>ea=None</em>, <em>ef=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/coordinate.html#blh2xyz"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.coordinate.blh2xyz" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change WGS84 BLH (latitude, longitude, and height) to X,Y,Z coordinate</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>b</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; wgs84 coordinate, latitude, unit: degree</li>
+<li><strong>l</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; wgs84 coordinate, longitude, unit: degree</li>
+<li><strong>h</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; wgs84 coordinate, height, unit: meter</li>
+<li><strong>ea</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid semimajor axis (in meter unit)</li>
+<li><strong>ef</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid flattening. ea and ef must be presented at the same time. If no ea and ef parameter are presented, then use WGS 84 value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">x, y, z (float) : corresponding x, y, z coordinate in unit meter</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.coordinate.datum">
+<code class="descclassname">PyWFL.coordinate.</code><code class="descname">datum</code><span class="sig-paren">(</span><em>reference_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/coordinate.html#datum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.coordinate.datum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ellipsoids parameters copied from GEOMAP3.6 MANUAL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>reference_name</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; the reference_name index list as follows:</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>a (float) : equatorial radius (meters)</li>
+<li>f (float) : flattening (a number around 0.00335, i.e. around 1/298.)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<ol class="arabic simple">
+<li>WGS84</li>
+<li>GRS80</li>
+<li>WGS72  (below sorted)</li>
+<li>Airy1930</li>
+<li>Airy1930(modified for Ireland1965)</li>
+<li>Australian</li>
+<li>Bessel1841</li>
+<li>Bessel1841(modified for NGO1948)</li>
+<li>Bessel1841(modified for Schwarzeck)</li>
+<li>Clarke1858</li>
+<li>Clarke1866</li>
+<li>Clarke1866(modified for Michigan)</li>
+<li>Clarke1880</li>
+<li>Clarke1880(modified for Arc1950)</li>
+<li>Clarke1880(modified for IGN)</li>
+<li>Clarke1880(modified for Jamaica)</li>
+<li>Clarke1880(modified for Merchich)</li>
+<li>Clarke1880(modified for Palestine)</li>
+<li>Everest1830</li>
+<li>Everest1830(modified for Kalianpur)</li>
+<li>Everest1830(modified for Kertau)</li>
+<li>Everest1830(modified for Timbalai)</li>
+<li>Fischer1960</li>
+<li>Fischer1960(modified for SouthAsia)</li>
+<li>Fischer1968</li>
+<li>GRS67</li>
+<li>Hayford 1909</li>
+<li>Helmert1906</li>
+<li>Hough</li>
+<li>IAG 75 (1980 xi&#8217;an coordiante)</li>
+<li>Indonesian</li>
+<li>International1924</li>
+<li>Krassovsky 1948 (1954 beijing coordinate)</li>
+<li>MERIT83</li>
+<li>NewInternational1967</li>
+<li>NWL10D</li>
+<li>NWL9D</li>
+<li>OSU86F</li>
+<li>OSU91A</li>
+<li>Plessis1817</li>
+<li>SouthAmerican</li>
+<li>Sphere (Note: f==0.0 for sphere)</li>
+<li>Struve1860</li>
+<li>Walbeck</li>
+<li>WarOffice</li>
+<li>WGS60</li>
+<li>WGS66</li>
+</ol>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.coordinate.gc2gd">
+<code class="descclassname">PyWFL.coordinate.</code><code class="descname">gc2gd</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z</em>, <em>ea=None</em>, <em>ef=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/coordinate.html#gc2gd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.coordinate.gc2gd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform geocentric coordinates to geodetic for a reference ellipsoid of specified form.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; unit meter</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; unit meter</li>
+<li><strong>z</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; unit meter</li>
+<li><strong>ea</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid semimajor axis (in meter unit)</li>
+<li><strong>ef</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid flattening. ea and ef must be presented at the same time. If no ea and ef parameter are presented, then use WGS 84 value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">b, l, h (float) : wgs84 coordinate b, l, h are latitude, longitude and height. unit: degree, degree, and meter</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Fukushima, T., &#8220;Transformation from Cartesian to geodetic coordinates accelerated by Halley&#8217;s method&#8221;, J.Geodesy (2006),79: 689-693</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.coordinate.gd2lambert">
+<code class="descclassname">PyWFL.coordinate.</code><code class="descname">gd2lambert</code><span class="sig-paren">(</span><em>lon</em>, <em>lat</em>, <em>cm</em>, <em>ps</em>, <em>pn</em>, <em>ol</em>, <em>ea=None</em>, <em>ef=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/coordinate.html#gd2lambert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.coordinate.gd2lambert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change geodetic coordinate (longitude and latitude) to two parallel latitudes Lambert projection coordinate (X and Y)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>alon</strong><strong>,</strong><strong>alat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Coordinate of longitude (-180,180) and latitude (-90,90) in degree unit</li>
+<li><strong>cm</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Central meridian of Lambert projection (-180,180) in degree unit</li>
+<li><strong>ps</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Southern standard parallel (-90,90) in degree unit</li>
+<li><strong>pn</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Northern standard parallel (-90,90) in degree unit</li>
+<li><strong>ol</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; latitude of origin for Lambert projection (-90,90) in degree unit</li>
+<li><strong>ea</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid semimajor axis (in meter unit)</li>
+<li><strong>ef</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid flattening. ea and ef must be presented at the same time. If no ea and ef parameter are presented, then use WGS 84 value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">x, y (float) : x and y coordinate of Lambert projection in meter unit</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><ol class="first last upperalpha simple" start="18">
+<li><ol class="first upperalpha" start="20">
+<li>WILLIAMS, LAMBERT AND MERCATOR MAP PROJECTIONS IN GEOLOGY AND GEOPHYSICS, COMPUTER AND GEOSCIENCES,  VOL.21,NO.3,P353-364,1995.</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.coordinate.geo2ups">
+<code class="descclassname">PyWFL.coordinate.</code><code class="descname">geo2ups</code><span class="sig-paren">(</span><em>lat</em>, <em>lon</em>, <em>ea=None</em>, <em>ef=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/coordinate.html#geo2ups"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.coordinate.geo2ups" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change geodetic coordinate (lon, lat ) to UPS (X, Y)
+UPS: Universal Polar Stereographic projection &#8211;Polar stereographic (variant A) projection (EPSG 9810)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; input geodetic latitude in degree (-90~90)</li>
+<li><strong>lon</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; input longitude in degree (-180~180)</li>
+<li><strong>ea</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid semimajor axis (in meter unit)</li>
+<li><strong>ef</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid flattening. ea and ef must be presented at the same time. If no ea and ef parameter are presented, then use WGS 84 value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">x,y (float): output UPS x(east) and y(north) in meter</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>For UPS (x,y) plot, we have</p>
+<p>For North pole case: the original longitude (0) is at S direction, longitude increase anti-colockwise.</p>
+<p>For South pole case: ................................ N ............................. colockwise.</p>
+<p>figure show</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> <span class="n">north</span> <span class="n">pole</span> <span class="n">case</span>                <span class="n">south</span> <span class="n">pole</span> <span class="n">case</span>
+    <span class="o">-/+</span><span class="mi">180</span>                              <span class="mi">0</span>
+<span class="o">-</span><span class="mi">90</span>        <span class="mi">90</span>                      <span class="o">-</span><span class="mi">90</span>      <span class="mi">90</span>
+       <span class="mi">0</span>                              <span class="o">-/+</span><span class="mi">180</span>
+</pre></div>
+</div>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Surveying and Positioning Guidance Note Number 7, part 2
+Coordinate Conversions and Transformations including Formulas, p52-56
+Revised - November 2009, available at <a class="reference external" href="http://www.epsg.org">http://www.epsg.org</a></td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.coordinate.lambert2gd">
+<code class="descclassname">PyWFL.coordinate.</code><code class="descname">lambert2gd</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>cm</em>, <em>ps</em>, <em>pn</em>, <em>ol</em>, <em>ea=None</em>, <em>ef=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/coordinate.html#lambert2gd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.coordinate.lambert2gd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change  two parallel latitudes Lambert projection coordinate (X and Y) to geodetic coordinate (longitude and latitude)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; x coordinate of Lambert projection in meter unit</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; y coordinate of Lambert projection in meter unit</li>
+<li><strong>cm</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Central meridian of Lambert projection (-180,180) in degree unit</li>
+<li><strong>ps</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Southern standard parallel (-90,90) in degree unit</li>
+<li><strong>pn</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Northern standard parallel (-90,90) in degree unit</li>
+<li><strong>ol</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; latitude of origin for Lambert projection (-90,90) in degree unit</li>
+<li><strong>ea</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid semimajor axis (in meter unit)</li>
+<li><strong>ef</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid flattening. ea and ef must be presented at the same time. If no ea and ef parameter are presented, then use WGS 84 value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">alon,alat (float) :Coordinate of longitude (-180,180) and latitude (-90,90) in degree unit</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><ol class="first last upperalpha simple" start="18">
+<li><ol class="first upperalpha" start="20">
+<li>WILLIAMS, LAMBERT AND MERCATOR MAP PROJECTIONS IN GEOLOGY AND GEOPHYSICS, COMPUTER AND GEOSCIENCES,  VOL.21,NO.3,P353-364,1995.</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.coordinate.xyz2blh">
+<code class="descclassname">PyWFL.coordinate.</code><code class="descname">xyz2blh</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z</em>, <em>ea=None</em>, <em>ef=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/coordinate.html#xyz2blh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.coordinate.xyz2blh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform Cartesian(Geocentric) x,y,z to geodetic coordinates (latitude, longitude, height) based on the exact solution (Borkowski,1989)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; unit meter</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; unit meter</li>
+<li><strong>z</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; unit meter</li>
+<li><strong>ea</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid semimajor axis (in meter unit)</li>
+<li><strong>ef</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid flattening. ea and ef must be presented at the same time. If no ea and ef parameter are presented, then use WGS 84 value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">b, l, h (float) : wgs84 coordinate b, l, h are latitude, longitude and height. unit: degree, degree, and meter</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Borkowski, K. M. (1989).  &#8220;Accurate algorithms to transform geocentric to geodetic coordinates&#8221;, <em>Bulletin Geodesique</em>, v. 63, pp. 50-56.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Borkowski, K. M. (1987).  &#8220;Transformation of geocentric to geodetic coordinates without approximations&#8221;, Astrophysics and Space Science, v. 139, n. 1, pp. 1-4.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Borkowski, K. M.   Correction in (1988), v. 146, n. 1, p. 201.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>Vermeille H., An analytical method to transform geocentric into geodetic coordinates, J Geod (2011) 85:105–117,DOI 10.1007/s00190-010-0419-x</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.coordinate.xyz2enu">
+<code class="descclassname">PyWFL.coordinate.</code><code class="descname">xyz2enu</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z</em>, <em>reference_lon</em>, <em>reference_lat</em>, <em>ea=None</em>, <em>ef=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/coordinate.html#xyz2enu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.coordinate.xyz2enu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change ECEF(Earth-Center,Earth-Fixed) clestian X,Y,Z coordinate to local E(east),N(north),U(up) coordinate</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; unit meter</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; unit meter</li>
+<li><strong>z</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; unit meter</li>
+<li><strong>reference_lat</strong> (<em>reference_lon</em><em>,</em><em></em>) &#8211; reference longitude (-180,180) and latitude (-90,90) in degree unit</li>
+<li><strong>ea</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid semimajor axis (in meter unit)</li>
+<li><strong>ef</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Ellipsoid flattening. ea and ef must be presented at the same time. If no ea and ef parameter are presented, then use WGS 84 value.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">local E(east), N(north), U(up) coordinate (meter)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">e, n, u (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PyWFL.coorelation.html" class="btn btn-neutral float-right" title="PyWFL.coorelation package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PyWFL.calendar.html" class="btn btn-neutral" title="PyWFL.calendar package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YAN Haoming, WU Dingcheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

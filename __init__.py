@@ -1,6 +1,16 @@
-import _pywfl
-import filters
-import fit
+from __future__ import absolute_import
+from . import _pywfl
+from . import filters
+from . import fit
+from . import geophysics
+from . import coordinate
+from . import coorelation
+from . import harmonics
+from . import interpolation
+from . import linalg
+from . import rand
+from . import spectrum
+from . import statistics
 
 
 def factorial(n):

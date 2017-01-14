@@ -1,7 +1,11 @@
-import _rand
+# encoding: utf-8
+from __future__ import absolute_import
+from . import _rand
+
+__all__ = ["color_noisesvd", "multi_color_noisesvd", "random_mtsvd", "random_mt_normsvd", "random_normsvd"]
 
 
-def color_noise(n, beta, iseed=0):
+def color_noisesvd(n, beta, iseed=0):
     """Get time series of (color) noise with pre-determined power spectra :math:`P(f)` which is proportional to :math:`1/f^{\\beta}`.
 
     Args:
@@ -31,7 +35,7 @@ def color_noise(n, beta, iseed=0):
     return _rand.py_wfl_noise_color(n, beta, iseed=iseed)
 
 
-def multi_color_noise(n, beta, pieces, iseed=0):
+def multi_color_noisesvd(n, beta, pieces, iseed=0):
     """Get time series of multi-color noise with pre-determined power spectra :math:`P(f)` which is proportional to :math:`1/f^{\\beta}`.
 
     Args:
@@ -64,7 +68,7 @@ def multi_color_noise(n, beta, pieces, iseed=0):
     return _rand.py_wfl_noise_multi_color(n, beta, pieces, iseed=iseed)
 
 
-def random_mt(n, interval=[0, 1], ran_type=3, iseed=0):
+def random_mtsvd(n, interval=[0, 1], ran_type=3, iseed=0):
     """Produces uniform distribution random numbers by MT (Mersenne Twister) method.
 
     Args:
@@ -93,7 +97,7 @@ def random_mt(n, interval=[0, 1], ran_type=3, iseed=0):
     return _rand.py_wfl_random_mt(n, iseed, min(interval), max(interval), ran_type)
 
 
-def random_mt_norm(n, mean=0.0, sig=1.0, ran_type=3, iseed=0):
+def random_mt_normsvd(n, mean=0.0, sig=1.0, ran_type=3, iseed=0):
     """Produces standard normal distribution random numbers  by MT (Mersenne Twister) method
 
     Args:
@@ -115,7 +119,7 @@ def random_mt_norm(n, mean=0.0, sig=1.0, ran_type=3, iseed=0):
     return _rand.py_wfl_random_mt_norm(n, iseed, mean, sig, ran_type)
 
 
-def random_norm(n, mean=0.0, sig=1.0, ran_type=1, iseed=0):
+def random_normsvd(n, mean=0.0, sig=1.0, ran_type=1, iseed=0):
     """Produces standard normal distribution random numbers
 
     Args:
@@ -143,4 +147,3 @@ def random_norm(n, mean=0.0, sig=1.0, ran_type=1, iseed=0):
 
 """
     return _rand.py_wfl_random_norm(n, iseed, mean, sig, ran_type)
-

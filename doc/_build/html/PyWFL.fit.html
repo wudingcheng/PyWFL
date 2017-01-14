@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyWFL.fit package &mdash; PyWFL 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyWFL 1.0 documentation" href="index.html"/>
+        <link rel="up" title="PyWFL package" href="PyWFL.html"/>
+        <link rel="next" title="PyWFL.geophysics package" href="PyWFL.geophysics.html"/>
+        <link rel="prev" title="PyWFL.filters package" href="PyWFL.filters.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyWFL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">PyWFL</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="PyWFL.html">PyWFL package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="PyWFL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.calendar.html">PyWFL.calendar package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coordinate.html">PyWFL.coordinate package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coorelation.html">PyWFL.coorelation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.filters.html">PyWFL.filters package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PyWFL.fit package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.geophysics.html">PyWFL.geophysics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.harmonics.html">PyWFL.harmonics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.rand.html">PyWFL.rand package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.spectrum.html">PyWFL.spectrum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.statistics.html">PyWFL.statistics package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL.constant">PyWFL.constant module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PyWFL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">PyWFL</a> &raquo;</li>
+      
+          <li><a href="PyWFL.html">PyWFL package</a> &raquo;</li>
+      
+    <li>PyWFL.fit package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/PyWFL.fit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pywfl-fit-package">
+<h1>PyWFL.fit package<a class="headerlink" href="#pywfl-fit-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-PyWFL.fit">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PyWFL.fit" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="PyWFL.fit.detrend">
+<code class="descclassname">PyWFL.fit.</code><code class="descname">detrend</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/fit.html#detrend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.fit.detrend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detrend the linear term of a time series</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; The time index of array y</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Array y, time series to be detrend</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">yout, detrend time series</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Least squares fit
+Gives data x(n),y(n), get detrend data yout(n), the trend is fitted as y=a+bx</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">detrend</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.fit.fit">
+<code class="descclassname">PyWFL.fit.</code><code class="descname">fit</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/fit.html#fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.fit.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give a linear fit of a time series by minimizing chi-square method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; The time index of array y</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time series to be fitted (<span class="math">\(y=a+bx\)</span>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>a (float): constant term for <span class="math">\(y=a+bx\)</span></li>
+<li>b (float): linear (or velocity) term for <span class="math">\(y=a+bx\)</span></li>
+<li>sig_a (float): Respective probable uncertainties of constant term a.  (Note: Formal error, unrealistic)</li>
+<li>sig_b (float): Respective probable uncertainties of linear term b. (Note: Formal error, unrealistic)</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Given a set of data points x(1:n),y(1:n), fit them to a straight line y = a + bx by minimizing chi-square. Returned are a,b and their respective probable uncertainties siga and sigb.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fa</span><span class="p">,</span> <span class="n">fb</span><span class="p">,</span> <span class="n">sig_a</span><span class="p">,</span> <span class="n">sig_b</span> <span class="o">=</span> <span class="n">fit</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.fit.fitmulti">
+<code class="descclassname">PyWFL.fit.</code><code class="descname">fitmulti</code><span class="sig-paren">(</span><em>x</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/fit.html#fitmulti"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.fit.fitmulti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do multiple linear regression by minimizing chi-square method (or least squares method).</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd>x (array) : x[n, m-1] The multi-variables value (n point, and m-1 variables)
+y (array) : The function value <span class="math">\(y(i)=a0+a1*x1(i)+a2*x2(i)+...+a(m-1)*x(m-1)(i)\)</span>, where <span class="math">\(i=1,n\)</span></dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>a (array) : a(m) Multiple linear regression coefficients of <span class="math">\(y(i)=a0+a1*x1(i)+a2*x2(i)+...+a(m-1)*x(m-1)(i)\)</span></li>
+<li>covar (matrix): covar(m, m) Covariance matrix (the diagonal is variance) of a</li>
+<li>chisq (float): Mean standard deviation, see Notes for details</li>
+<li>s (float): Mean standard deviation, see Notes for details</li>
+<li>r (float): Coefficient of multiple correlation, see Notes for details</li>
+<li>v (array): v(m) Partial correlation coefficient, see Notes for details</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dt>Notes:</dt>
+<dd><p class="first">Please careful to deal with the relation between regression coefficients and variable x. a(1) corresponding x0 (the constant term), a(2:m) corresponding to x(n, 1:m-1) variables, so covar and v. Also, v(1)=0.0 means no partial correlation coefficient (for constant term) was calculated from FITMULTI.
+The multiple linear regression model is:</p>
+<div class="math">
+\[y_i = \sum_{j=0}^{m} a_{ij}x_{ij} \qquad i = 1, 2, \dots n\]</div>
+<p>Residuals sum of squares is:</p>
+<div class="math">
+\[\chi^2 = \sum_{i=1}^{n} [ y_i - \sum_{j=0}^{m} a_{ij} x_{ij} ]\]</div>
+<p>Mean standard deviation is:</p>
+<div class="math">
+\[\begin{split}s &amp; = &amp; \sqrt{1 - \chi^2 / dyy} \\
+dyy &amp; = &amp; \sum_{i=1}^{n} y_i - ar{y} \\
+ar{y} &amp; = &amp; \sum_{i=1}^{n} y_i / n\end{split}\]</div>
+<p>Partial correlation coefficient is:</p>
+<div class="last math">
+\[\begin{split}v_j &amp; = &amp; \sqrt{1 - \chi^2 / Q_j} \\
+Q_j &amp; = &amp; \sum_{i=1}^{n}[ y_i - \sum_{k=1, k\end{split}\]</div>
+</dd>
+</dl>
+</div></blockquote>
+<p>eq j}^{m}a_{ik}x_{ik} ]</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Examples:</dt>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fitmulti</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.fit.fitpoly">
+<code class="descclassname">PyWFL.fit.</code><code class="descname">fitpoly</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>order=2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/fit.html#fitpoly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.fit.fitpoly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give a polynomial fit of a time series by minimizing chi-square method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; The self-variable of fitted polynomial function</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time series to be fitted ( y=f(x) )</li>
+<li><strong>order</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; default 2, The maximum degree of polynomial (you can use FITPOLY_BEST_DEGREE to get the best degree of polynomial)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>a (m): Polynomial term for <span class="math">\(y = a1+a2*x+a3*x**2+...am*x**(m-1)\)</span>. Note: After Dec. 19, 2014, the x in the formula should be substituted by x-x(1), see comments for details.</li>
+<li>covar (m, m): Covariance matrix (the diagonal is variance) of a</li>
+<li>chisq: <span class="math">\(\chi^2\)</span>,the postfit residual sums of squares. the postfit residual sums of squares.  chisq=sum [ (y(i)-y_fit(i)) <a href="#id1"><span class="problematic" id="id2">**</span></a>2 ]  ,i=1,...,n</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Given a set of data points x(1:n), y(1:n) , use chi-square minimization to fit for some or all of the coefficients a(1:m) of a function that depends linearly on a, y = a1+a2*x+a3*x**2+...,The program returns values for a(1:m), <span class="math">\(\chi^2\)</span> = chisq, and the covariance matrix covar(1:m,1:m).</p>
+<p>the input x(:) was changed to x(:)-x(1) in the subroutine FITPOLY on Dec. 19, 2014. To do this will prevent the problem in x(:) which may cause wrong output values of the subroutine. For example, if x(:) is index of year, i.e., 2000.001-2010.999 with daily interval, using the NON-modified FITPOLY will give wrong results, but the modified FITPOLY will give the correct results (the reason is that we will use x**n in the subroutine, if x value change is small, x**n will similar.). After this modification, to restore the polynomial data using output parameter a manually, you must change x(:) to x(:)-x(1). That is y=a0+a1*(x-x(1))+a2*(x-x(1))**2+... , or simply use subroutine POLYNOMIAL.</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fitpoly</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.fit.fitpoly_best_degree">
+<code class="descclassname">PyWFL.fit.</code><code class="descname">fitpoly_best_degree</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>max_order=10</em>, <em>method='bic'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/fit.html#fitpoly_best_degree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.fit.fitpoly_best_degree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Give the best fit degree (or order) of a polynomial fit for a time series by using minimizing chi-square method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; The time index of array y</li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time series to be fitted ( y=f(x) )</li>
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of array x and y</li>
+<li><strong>max_order</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The maximum degrees of polynomial fit, default 10</li>
+<li><strong>method</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Method to get best fit order, default &#8216;bic&#8217; criterion; optional in [&#8216;aic&#8217;, &#8216;bic&#8217;]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">nbest_order, The best order for the polynomial fit</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Given a set of data points x(1:n), y(1:n) , use chi-square minimization to fit for some or all of the coefficients a(1:m) of a function that depends linearly on a, y = a1+a2*x+a3*x**2+...,then use AIC or BIC criterion to get the best fit order.</p>
+<p class="rubric">Example</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">+</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fitpoly_best_degree</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;aic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.fit.fpoly">
+<code class="descclassname">PyWFL.fit.</code><code class="descname">fpoly</code><span class="sig-paren">(</span><em>x</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/fit.html#fpoly"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.fit.fpoly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.fit.func">
+<code class="descclassname">PyWFL.fit.</code><code class="descname">func</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/fit.html#func"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.fit.func" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.fit.lsfit">
+<code class="descclassname">PyWFL.fit.</code><code class="descname">lsfit</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>m</em>, <em>func</em>, <em>sig=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/fit.html#lsfit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.fit.lsfit" title="Permalink to this definition">¶</a></dt>
+<dd><p>General linear Least Squares(LS) fits</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; x[n], The time series of self-variable of LS fit function, e.g. function <span class="math">\(f(x)\)</span></li>
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; y[n], Time series to be fitted ( <span class="math">\(y=f(x)\)</span> )</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number fitted coefficients</li>
+<li><strong>func</strong> (<em>function</em>) &#8211; External function ( <span class="math">\(y=f(x)\)</span> ) to be fitted, func must be a subroutine to provide the fit function, it could be considered as the design matrix, this function returns ndarray result[m, n]</li>
+<li><strong>sig</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; sig[n], default None, means all weight are the same.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>a (array) : a(m), LS fitted coefficients</li>
+<li>cov (ndarray) : cov[m, m], Covariance matrix (the diagonal is variance) of a</li>
+<li>chisq (float) : <span class="math">\(\chi^2\)</span>, the postfit residual sums of squares. <span class="math">\(\chi^2 = \sum ( y_i - f(x_i)  )^2, i=1,\dots,n\)</span></li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>General Linear LS Fit by Gauss-Jordan Elimination.</p>
+<p>Given a set of data points x(1:n), y(1:n) , use chi-square minimization to fit all of the coefficients a(1:m) of a function that depends linearly on a, y = f(x),The program returns values for a(1:m), <span class="math">\(\chi^2\)</span>, and the covariance matrix covar(1:m,1:m).</p>
+<p>How to write user-defined function? the user-defined function can be regarded as design matrix, see the example</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># user define function f(x) = 1 + x + x^2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># the result will return the left design matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">fpoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>        <span class="n">res</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">x</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">res</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">lsfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">fpoly</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">weight</span> <span class="n">example</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">yerr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">+=</span> <span class="n">yerr</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">fpoly</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">lsfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">fpoly</span><span class="p">,</span> <span class="n">sig</span><span class="o">=</span><span class="n">yerr</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PyWFL.geophysics.html" class="btn btn-neutral float-right" title="PyWFL.geophysics package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PyWFL.filters.html" class="btn btn-neutral" title="PyWFL.filters package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YAN Haoming, WU Dingcheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,5 +1,16 @@
-import _geophysics
+#encoding: utf-8
+from __future__ import absolute_import
+from . import _geophysics
 
+__all__ = ["am2eam", "geo_distance", "area", "cs2kai", "kai2cs", "degree_var", "j2j3", "eaam_xyz_j2j3", "load_vert_def",
+           "load_vert_exp", "love", "cs2cs", "cs2vertical", "var_reduction", "depth2pressure", "pressure2depth", "dm2lod",
+           "fan_filter", "green", "green_func_theta", "grace_destripe", "potential_temperture_to_situ",
+           "situ_temperatrue_to_potential", "j2j4j6", "lod2torque", "mountain_torque", "prem", "rm_sp_from_sg",
+           "search_resonance", "sg_multistation", "soiltemp", "solar_heat_tide", "stress_torque", "thermal_vertical_deformation",
+           "torque", "torque2lod", "torque2lod_adams", "vd_station_index", "wind2tao", "windv2tao", "x2prograd", "prograd2x0",
+           "angle_dis", "eaam_xyz_slp", "eaam_xyz_wind", "eam_barnes2eubanks", "eam2masms", "ewam_xyz_j2j3", "gauss_grid",
+           "geocenter", "masms2eam", "oam_int", "oam_simple", "ocean_densiy", "pm2xy", "prograd2x_0", "soda_xyz_st", "soda_xyz_uvh",
+           "sphere_len", "sphere_len_inv", "volume", "atg"]
 
 def am2eam(am, cha='xp'):
     """ Change Angular Momentum (AM) to Effective Angular Momentum (EAM)
@@ -433,12 +444,19 @@ def green(theta, n_max_love, cha="vd", cha_norm=False):
 
 
 """
+    import os
+    from shutil import copyfile
+    prem_file = os.path.join(os.path.dirname(__file__), 'love.prem.13000.dat')
+    work_file = os.path.join(os.getcwd(), 'love.prem.13000.dat')
+    copyfile(prem_file, work_file)
     cha_norm = 'norm' if cha_norm else 'unnorm'
     conds = ['vd', 'hd', 'gc', 'dg', 'ig', 'dig', 'tc', 'fag', 'pc', 'sc']
     if cha.lower() not in conds:
         raise ValueError('cha should be in [{}]'.format(' '.join(conds)))
 
-    return _geophysics.py_wfl_green(theta, n_max_love, cha, cha_norm=cha_norm)
+    result = _geophysics.py_wfl_green(theta, n_max_love, cha, cha_norm=cha_norm)
+    # os.remove(work_file)
+    return result
 
 
 def green_func_theta(n):
@@ -598,13 +616,13 @@ def mountain_torque(sp, hm):
     return _geophysics.py_wfl_mountain_torque(sp, hm)
 
 
-def prem(n, parameter='density'):
+def prem(n=76, parameter='density'):
     """Acquiring PREM parameters (depth, density, mass, gravity acceleration, pressure, and moment of inertia)
 
     Args:
         n (int) : The layers of PREM, n must equal 76 here. (n==76)
         parameter (string) : default density
-            * 'mass', then  prem_out(:,2) output integral of mass of Earth from Earth's center to surface (unit: kg)
+            * 'mass',    then  prem_out(:,2) output integral of mass of Earth from Earth's center to surface (unit: kg)
             * 'gravity', then prem_out(:,2) output gravity acceleration of Earth in each layer  (unit:m/s**2)
             * 'pressure', then prem_out(:,2) output pressures of Earth in each layer (unit: Pa)
             * 'inertial', then  prem_out(:,2) output integral of moment of inertia of Earth from Earth's center to surface (unit: kg.m**2)
@@ -619,6 +637,10 @@ def prem(n, parameter='density'):
         Some values, specified in the table II of the paper, which can likely be accurately fitted by cubic splines are left out. Between the given points within each complex block, the parameters are interpolated by means of natural cubic splines. If only one value of a material parameter is specified per a layer, the parameter is assumed constant within the layer. In the input data for complete ray tracing, the values of density are specified only at the interfaces because elsewhere they have no influence upon the high-frequency asymptotics.
 
 """
+    conds = ['mass', 'gravity', 'pressure', 'inertial', 'density']
+    if parameter not in conds:
+        raise ValueError("parameter should be in [{}]".format(" ".join(conds)))
+    return _geophysics.py_wfl_prem(n, prem_parameter=parameter)
 
 
 def rm_sp_from_sg(fre, fre_idx, spec_sp, spec_sg, m_order=0):

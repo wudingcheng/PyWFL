@@ -1,8 +1,10 @@
 # encoding: utf-8
 """Filter functions of PyWFL"""
-import _filters
+from __future__ import absolute_import
+from . import _filters
 
-# __all__ = ['fft_filter', 'vondrak', 'gauss_jekeli']
+__all__ = ["fft_filter", "vondrak", "gauss_jekeli", "gauss_jekeli_fre", "gauss_jekeli_fre_nm",
+           "weight_aver", "butterworth", "butterworth_order", "running_mean"]
 
 
 def fft_filter(x, dt, per1, per2, method, window=0.0):

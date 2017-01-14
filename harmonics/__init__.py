@@ -1,5 +1,9 @@
 # encoding: utf-8
-import _harmonics
+from __future__ import absolute_import
+from . import _harmonics
+
+__all__ = ["cs2k", "cs2kai", "pn", "pn_diff", "pnm", "pnmi", "func_exp_fft", "dpnm", "dpnm2",
+           "func_sum_fft", "func_sum", "harmonic"]
 
 
 def cs2k(c, s, quantum=True):
@@ -359,10 +363,16 @@ def func_sum(lon, lat, c, s, cmethod='p'):
     return _harmonics.py_func_sum(lon, lat, c, s, cmethod=cmethod.upper())
 
 
-def harmonic(t, x, periods, pdef=None, itrend=2, timebegin=None, method='aic'):
+def harmonic(t, x, order, periods, pdef=None, itrend=2, timebegin=None, method='aic'):
     if timebegin is None:
         timebegin = 0
     if pdef is None:
         return _harmonics.py_wfl_harmonic(t, x, periods, itrend=itrend, timebegin=timebegin, method=method)
     else:
         return _harmonics.py_wfl_harmonic_more(t, x, periods, pdef, itrend=itrend, timebegin=timebegin, method=method)
+
+# import numpy as np
+# t = np.arange(51544, 52500)
+# # print np.pi * t / 365.0
+# x = 0.00001 * t + np.sin(2 * np.pi * t / 365.0)
+# print harmonic(t, x, 1, periods=[365])

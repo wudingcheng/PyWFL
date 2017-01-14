@@ -1,0 +1,1531 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyWFL.spectrum package &mdash; PyWFL 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyWFL 1.0 documentation" href="index.html"/>
+        <link rel="up" title="PyWFL package" href="PyWFL.html"/>
+        <link rel="next" title="PyWFL.statistics package" href="PyWFL.statistics.html"/>
+        <link rel="prev" title="PyWFL.rand package" href="PyWFL.rand.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyWFL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">PyWFL</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="PyWFL.html">PyWFL package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="PyWFL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.calendar.html">PyWFL.calendar package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coordinate.html">PyWFL.coordinate package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coorelation.html">PyWFL.coorelation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.filters.html">PyWFL.filters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.fit.html">PyWFL.fit package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.geophysics.html">PyWFL.geophysics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.harmonics.html">PyWFL.harmonics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.rand.html">PyWFL.rand package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PyWFL.spectrum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.statistics.html">PyWFL.statistics package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL.constant">PyWFL.constant module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PyWFL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">PyWFL</a> &raquo;</li>
+      
+          <li><a href="PyWFL.html">PyWFL package</a> &raquo;</li>
+      
+    <li>PyWFL.spectrum package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/PyWFL.spectrum.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pywfl-spectrum-package">
+<h1>PyWFL.spectrum package<a class="headerlink" href="#pywfl-spectrum-package" title="Permalink to this headline">¶</a></h1>
+<p>Function transform and spectrum analysis</p>
+<p>Including FFT, Hilbert, EMD, complex EOF, Wavelet transform, FFT amplitude spectrum, power spectrum, MTM spectrum and Period diagram.</p>
+<div class="section" id="module-PyWFL.spectrum">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PyWFL.spectrum" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="PyWFL.spectrum.arco">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">arco</code><span class="sig-paren">(</span><em>x</em>, <em>m=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#arco"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.arco" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get auto-regressive (AR) process&#8217;s parameter and autocorrelation coefficients</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Array or time series to be analysis</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Maximum model order given by user (or maximum lag order, e.g. AR(m) )
+if m &gt; 0, use m as the order of AR model; if m &lt;= 0,  then using FPE criterion to get the best order of AR model</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>co(0:m) : Array of coefficients of AR model estimated by the subroutine</li>
+<li>cor(0:m) : Array of autocorrelation function</li>
+<li>best_order :(Optional) Must be presented with ch at the same time. If presented, return the best order of AR model.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Ding Y., W. Zheng, Astronomical data processing, Nanjing Univ.  Press, Nanjing, 1990. (in Chinese)</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>丁月蓉, 郑大伟 , 天文测量数据的处理方法, 南京大学出版社, 1990.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>todo</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.ceof_ith_eigen">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">ceof_ith_eigen</code><span class="sig-paren">(</span><em>nt</em>, <em>eigenvalues</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#ceof_ith_eigen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.ceof_ith_eigen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine ith eigenvalus are significant to the error level (only used after all subroutine <code class="xref py py-func docutils literal"><span class="pre">ceof()</span></code>)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>nt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of original time series (reference nt in <code class="xref py py-func docutils literal"><span class="pre">ceof()</span></code>)</li>
+<li><strong>eigenvalues</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Eigenvalues calculate in <code class="xref py py-func docutils literal"><span class="pre">ceof()</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The ith eigenvalues are significant to the error level. Note, if ith==nmodes-1, it has two possible explanations: 1) it&#8217;s true that the nmode-1 is the last eigenvalues which are significant to the error level; 2) the nmodes is small here, you should use more larger nmodes to see if ith is correct. Because here only input nmodes eigenvalues, so we can get the largest ith is nmodes-1.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>North G., T. Bell, R. Cahalan and F. J. Moeng, Sampling errors in the estimation of empirical orthogonal function, Vol.110, Mon. Wea. Rev., 699-706,1982.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.conv">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">conv</code><span class="sig-paren">(</span><em>x</em>, <em>response</em>, <em>method='matlab'</em>, <em>isconv=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#conv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.conv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.emd">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">emd</code><span class="sig-paren">(</span><em>t</em>, <em>x</em>, <em>m=10</em>, <em>std=0.3</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#emd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.emd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes Empirical Mode Decomposition (EMD)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; time index of signal <span class="math">\(X\)</span></li>
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; input signal</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; number of Intrinsic Mode Functions(IMFs) (last one is residual)</li>
+<li><strong>std</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Standard deviation to stop the iteration (0.2&lt;=std&lt;=0.3), default is 0.3</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">IMFs (first to m-1 column is IMFs, last one (m) is residual)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Edge conditions: extended symmetrical 2 points of both end maximum values and minimum values respectively.
+EMD_TOL is more speed than EMD, but EMD may more accuracy (personal opinion)</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><ol class="first last upperalpha simple" start="14">
+<li><ol class="first upperalpha" start="5">
+<li>Huang et al., &#8220;The empirical mode decomposition and the Hilbert spectrum for non-linear and non stationary time series analysis, &#8221; Proc. Royal Soc. London A, Vol. 454, pp. 903-995, 1998</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>todo</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.emd_tol">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">emd_tol</code><span class="sig-paren">(</span><em>t</em>, <em>x</em>, <em>m=12</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#emd_tol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.emd_tol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes Empirical Mode Decomposition (EMD)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; time index of signal <span class="math">\(X\)</span></li>
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; input signal</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; number of Intrinsic Mode Functions(IMFs) (last one is residual)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">IMFs (first to m-1 column is IMFs, last one (m) is residual)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Edge conditions: extended symmetrical 2 points of both end maximum values and minimum values respectively.
+Same as EMD but with different stopping criterion for sifting : at each point : mean amplitude &lt; threshold2*envelope amplitude &amp; mean of boolean array ((mean amplitude)/(envelope amplitude) &gt; threshold) &lt; tolerance &amp; the N.E. HUANG&#8217;s stopping criterion sd0&gt;0.3
+EMD_TOL is more speed than EMD, but EMD may more accuracy (personal opinion)</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><ol class="first last upperalpha simple" start="14">
+<li><ol class="first upperalpha" start="5">
+<li>Huang et al., &#8220;The empirical mode decomposition and the Hilbert spectrum for non-linear and non stationary time series analysis, &#8221; Proc. Royal Soc. London A, Vol. 454, pp. 903-995, 1998</li>
+</ol>
+</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>todo</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fft_am_window">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fft_am_window</code><span class="sig-paren">(</span><em>dt</em>, <em>x</em>, <em>m</em>, <em>window</em>, <em>overlap</em>, <em>p</em>, <em>lag1_co=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fft_am_window"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fft_am_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get windowed Fourier amplitude spectrum with suitable window, red-noise background amplitude spectrum, and 100p% (e.g. p=95%,99%) confidence amplitude spectrum of time series.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval of x</li>
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; x[n], Time series to be analyzed</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number data of window width (m&lt;=n), then the x(n) will be seprate to k=n/m or 2k-1 segments to be analysis with FFT method. See comments for details.</li>
+<li><strong>window_type</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Window type used. Can be one of the belows: &#8216;square&#8217;, &#8216;rectangular&#8217;, &#8216;bartlett&#8217;, &#8216;hamming&#8217;, &#8216;hanning&#8217;, &#8216;welch&#8217;. See <a class="reference internal" href="#PyWFL.spectrum.fft_window" title="PyWFL.spectrum.fft_window"><code class="xref py py-func docutils literal"><span class="pre">fft_window()</span></code></a> for details.</li>
+<li><strong>overlap</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; .If overlap, then do overlap analysis, otherwise do non-overlap analysis. See comments for details.</li>
+<li><strong>p</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Confidential level (0&lt;p&lt;1.0, typically p=0.95, p=0.99)</li>
+<li><strong>lag1_co</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The lag-1 autocorrelations of x, used to output background red-noise amplitude spectrum, see <a class="reference internal" href="#PyWFL.spectrum.fns" title="PyWFL.spectrum.fns"><code class="xref py py-func docutils literal"><span class="pre">fns()</span></code></a> for details. If presented, lag1_co as the lag-1 autocorrelations; if not present, use <a class="reference internal" href="#PyWFL.spectrum.arco" title="PyWFL.spectrum.arco"><code class="xref py py-func docutils literal"><span class="pre">arco()</span></code></a> to get it, and then calculate <a class="reference internal" href="#PyWFL.spectrum.fns" title="PyWFL.spectrum.fns"><code class="xref py py-func docutils literal"><span class="pre">fns()</span></code></a>. Note, if set lag1_co=0.0, the background is white-noise amplitude spectrum.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>am_window(m/2,2): Windowed Fourier amplitude spectrum of input time series. am_window(:,1), period index; am_window(:,2), windowed Fourier amplitude spectrum. Note: am_window(:,1) is different with am(:,1) output when m/=n.</li>
+<li>am(n/2,3): Windowed Fourier amplitude spectrum of background (noise). am(:,1), period index; am(:,2) background Red-noise amplitude spectrum; am(:,3), 100p% confidence amplitude spectrum. Note that the period index of am(:,1) and am_window(:,1) is different, so you must plot am_window(:,2) with am_window(:,1) and am(:,2:3) with am(:,1) to get correct plot of windowed amplitude spectrum and corresponding noise amplitude spectrum and amplitude spectrum at confidential level p.</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Here, k=n/m windows are used to filter the original x(n), which can decrease the power leakage in analysis frequency. m is the data number in each segments. If overlap==True, then the original data will be analyzed at 2k-1 segments. Each segments have half window width overlap. E.g., (0,m), (m/2+1,3m/2), (m+1,2m), ... will be analyzed. If overlap==.false., the the original data will be analyzed at k segments, no overlap in the analyzed data. E.g., (0,m), (m+1,2m), (2m+1,3m), ...</p>
+<p>comments from &#8220;Numerical Recipes(NR) in Fortran77&#8221;, P549, modified by WFL Author.</p>
+<p>We might want to obtain the smallest variance from a fixed amount of computation, without regard to the number of data points used. This will generally be the goal when the data are being gathered in real time, with the data-reduction being computer-limited. Alternatively, we might want to obtain the smallest variance from a fixed number of available sampled data points. This will generally be the goal in cases where the data are already recorded and we are analyzing it after the fact.</p>
+<p>In the first situation (smallest spectral variance per computer operation), it is best to segment the data without any overlapping. The first M data points constitute segment number 1; the next M data points constitute segment number 2; and so on, up to segment number K, for a total of KM sampled points. The variance in this case, relative to a single segment, is reduced by a factor K.</p>
+<p>In the second situation (smallest spectral variance per data point), it turns out to be optimal, or very nearly optimal, to overlap the segments by one half of their length. The first M points are segment number 1; the m/2+1 and 3m/2 sets of M points are segment number 2; and so on, up to segment number 2K-1. The reduction in the variance is NOT a factor of K, since the segments are not statistically independent. It can be shown that the variance is instead reduced by a factor of about 9K/11. This is, however, significantly better than the reduction of about K=2 that would have resulted if the same number of data points were segmented without overlapping.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Torrence C., G. P. Combo, A Practical Guide to Wavelet Analysis, Bulletin of the American Meteorological Society, Vol. 79, p61-78, 1998.  E.Q. (16), (17)</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Jenkins, G. M., and D. G., Watts, Spectral analysis and its applications, Holden-Day, 1968. (chapter 6 and 7)</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>William H. Press, Saul A. Teukolsky, William T. Vetterling, Brian P. Flannery, Numerical Recipes in Fortran 77, Second Edition, Syndicate of the University of Cambridge Press, p550, 1992.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>Harris, Fredric J. &#8220;On the Use of Windows for Harmonic Analysis with the Discrete Fourier Transform&#8221; in Proceedings of the IEEE Vol. 66, No. 1, January 1978.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fft_fre">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fft_fre</code><span class="sig-paren">(</span><em>x</em>, <em>dt=1</em>, <em>amp=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fft_fre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fft_fre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the period, amplitude and instantaneous phase (or real and image part) of a vector by FFT method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; array (or time series) to be analyzed</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; time interval of array x</li>
+<li><strong>amp</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; if true, then get the amplitude and instantaneous phase of x; if false, then get real and image part (FFT result) of x.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>pe (array): period of time series x</li>
+<li>am (array): Amplitude or real part (FFT result) of time series x corresponding with period pe.</li>
+<li>ph (array): Instantaneous phase or image part (FFT result) of time series x corresponding with period pe.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>FFT_FRE is almost the same as FFT_PERIOD, but FFT_FRE can get instantaneous phase or it can get the real and image part of time series corresponding with the period analysis. Some times, we need this corresponding relation. E.G. , we have two time series x and y, and we want to know the spectrum of <span class="math">\(z=y/x\)</span>, then we can get  the spectrum (real and image part) of x and y first, then get <span class="math">\(z(\omega)=y(\omega)/x(\omega)\)</span>, now we get the spectrum of z.
+When you get the real and image part of a time series, you can get the energy spectrum of x by <span class="math">\(\sqrt(real^2+imag^2)\)</span>, but this is not the amplitude spectrum.  The energy spectrum and amplitude spectrum is not the same. (see Example for details)</p>
+<p class="rubric">Examples</p>
+<p>todo</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-func docutils literal"><span class="pre">fft_period()</span></code>, <a class="reference internal" href="#PyWFL.spectrum.wave_linear" title="PyWFL.spectrum.wave_linear"><code class="xref py py-func docutils literal"><span class="pre">wave_linear()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.period_graph" title="PyWFL.spectrum.period_graph"><code class="xref py py-func docutils literal"><span class="pre">period_graph()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fft_omiga">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fft_omiga</code><span class="sig-paren">(</span><em>n</em>, <em>dt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fft_omiga"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fft_omiga" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get FFT frequency value of a time series</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; number of the time series to be do FFT</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; time interval of the time series to be do FFT</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">omiga[n], corresponding frequency of the time series used for FFT results, unit: 1/(unit of dt)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>omiga(1)==0.0, omiga(i)=(i-1)/((N-1)*dt)  for i=1,N/2+1, while omiga(N/2+1) is the Nyquist positive frequency. The negative frequency is corresponding with the positive frequency but with opposite sign. If N is even, then only one positive Nyquist frequency, if N is odd, then i=N/2+2 is the negative Nyquist frequency.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fft_preiod">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fft_preiod</code><span class="sig-paren">(</span><em>x</em>, <em>dt=1</em>, <em>modifcation=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fft_preiod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fft_preiod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the period and amplitude of a vector by FFT method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; x(n), Array (or time series) to be analyzed</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval of array x</li>
+<li><strong>modification</strong> (<em>boolean</em>) &#8211; if true, modified amplitude to more accuracy for big dt and small n*dt. For example: if dt=1.0 day, then when get annual and semiannual amplitude, no correction is needed, but when dt=1.0 month, you&#8217;d better add the modification (Generally 1% increase in amplitude). More details: Markus Bath, Spectral analysis in geophysics, Elsevier Scientific Publishing Company, New York, 1974.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><p class="first last">pe (array): pe(n-1), period of time series x
+am (array): am(n-1), amplitude of time series x corresponding with period pe</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.spectrum.fft_fre" title="PyWFL.spectrum.fft_fre"><code class="xref py py-func docutils literal"><span class="pre">fft_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.wave_linear" title="PyWFL.spectrum.wave_linear"><code class="xref py py-func docutils literal"><span class="pre">wave_linear()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.period_graph" title="PyWFL.spectrum.period_graph"><code class="xref py py-func docutils literal"><span class="pre">period_graph()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fft_spec">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fft_spec</code><span class="sig-paren">(</span><em>x</em>, <em>dt=1</em>, <em>p=0.95</em>, <em>lag1_co=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fft_spec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fft_spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get normalized Fourier spectrum, red-noise background spectrum, and 100p% (e.g. p=95%, 99%) confidence spectrum of time series.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time series to be analyzed</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval of x</li>
+<li><strong>p</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Confidential level (0&lt;p&lt;1.0, typically p=0.95, p=0.99)</li>
+<li><strong>lag1_co</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The lag-1 autocorrelations of x, used to output background red-noise spectrum, see FNS for details. If present, lag1_co as the lag-1 autocorrelations; if not present, use ARCO to get it, and then calculate FNS.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">spec(:, 4) :　Normalized Fourier spectrum. spec(:, 1), period index; spec(:, 2), Fourier spectrum of x; spec(:, 3) background Red-noise spectrum; spec(:, 4), 100p% confidence spectrum</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Reference:</dt>
+<dd><table class="first last docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Torrence C., G. P. Combo, A Practical Guide to Wavelet Analysis, Bulletin of the American Meteorological Society, Vol. 79, p61-78, 1998.  E.Q. (16), (17)</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>todo</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fft_spec_window">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fft_spec_window</code><span class="sig-paren">(</span><em>dt</em>, <em>x</em>, <em>m</em>, <em>window</em>, <em>overlap</em>, <em>p</em>, <em>lag1_co=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fft_spec_window"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fft_spec_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get normalized Fourier spectrum with suitable window, red-noise background spectrum, and 100p% (e.g. p=95%,99%) confidence spectrum of time series.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval of x</li>
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; x[n], Time series to be analyzed</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number data of window width (m&lt;=n), then the x(n) will be seprate to k=n/m or 2k-1 segments to be analysis with FFT method. See comments for details.</li>
+<li><strong>window_type</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Window type used. Can be one of the belows: &#8216;square&#8217;, &#8216;rectangular&#8217;, &#8216;bartlett&#8217;, &#8216;hamming&#8217;, &#8216;hanning&#8217;, &#8216;welch&#8217;. See <a class="reference internal" href="#PyWFL.spectrum.fft_window" title="PyWFL.spectrum.fft_window"><code class="xref py py-func docutils literal"><span class="pre">fft_window()</span></code></a> for details.</li>
+<li><strong>overlap</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; .If overlap, then do overlap analysis, otherwise do non-overlap analysis. See comments for details.</li>
+<li><strong>p</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Confidential level (0&lt;p&lt;1.0, typically p=0.95, p=0.99)</li>
+<li><strong>lag1_co</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The lag-1 autocorrelations of x, used to output background red-noise amplitude spectrum, see <a class="reference internal" href="#PyWFL.spectrum.fns" title="PyWFL.spectrum.fns"><code class="xref py py-func docutils literal"><span class="pre">fns()</span></code></a> for details. If presented, lag1_co as the lag-1 autocorrelations; if not present, use <a class="reference internal" href="#PyWFL.spectrum.arco" title="PyWFL.spectrum.arco"><code class="xref py py-func docutils literal"><span class="pre">arco()</span></code></a> to get it, and then calculate <a class="reference internal" href="#PyWFL.spectrum.fns" title="PyWFL.spectrum.fns"><code class="xref py py-func docutils literal"><span class="pre">fns()</span></code></a>. Note, if set lag1_co=0.0, the background is white-noise amplitude spectrum.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>spec_window(m/2,2):Normalized windowed Fourier spectrum. spec_window(:,1), period index; spec_window(:,2), Fourier spectrum. Note: spec_window(:,1) is different with spec(:,1) output when m/=n.</li>
+<li>spec(n/2,3): Normalized Fourier spectrum. spec(:,1), period index; spec(:,2) background Red-noise spectrum; spec(:,3), 100p% confidence spectrum. Note that the period index of spec(:,1) and spec_window(:,1) is different, so you must plot spec_window(:,2) with spec_window(:,1) and spec(:,2:3) with spec(:,1) to get correct plot of windowed spectrum and corresponding noise spectrum and spectrum at confidential level p.</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Here, k=n/m windows are used to filter the original x(n), which can decrease the power leakage in analysis frequency. m is the data number in each segments. If overlap==True, then the original data will be analyzed at 2k-1 segments. Each segments have half window width overlap. E.g., (0,m), (m/2+1,3m/2), (m+1,2m), ... will be analyzed. If overlap==.false., the the original data will be analyzed at k segments, no overlap in the analyzed data. E.g., (0,m), (m+1,2m), (2m+1,3m), ...</p>
+<p>comments from &#8220;Numerical Recipes(NR) in Fortran77&#8221;, P549, modified by WFL Author.</p>
+<p>We might want to obtain the smallest variance from a fixed amount of computation, without regard to the number of data points used. This will generally be the goal when the data are being gathered in real time, with the data-reduction being computer-limited. Alternatively, we might want to obtain the smallest variance from a fixed number of available sampled data points. This will generally be the goal in cases where the data are already recorded and we are analyzing it after the fact.</p>
+<p>In the first situation (smallest spectral variance per computer operation), it is best to segment the data without any overlapping. The first M data points constitute segment number 1; the next M data points constitute segment number 2; and so on, up to segment number K, for a total of KM sampled points. The variance in this case, relative to a single segment, is reduced by a factor K.</p>
+<p>In the second situation (smallest spectral variance per data point), it turns out to be optimal, or very nearly optimal, to overlap the segments by one half of their length. The first M points are segment number 1; the m/2+1 and 3m/2 sets of M points are segment number 2; and so on, up to segment number 2K-1. The reduction in the variance is NOT a factor of K, since the segments are not statistically independent. It can be shown that the variance is instead reduced by a factor of about 9K/11. This is, however, significantly better than the reduction of about K=2 that would have resulted if the same number of data points were segmented without overlapping.</p>
+<p>here the result of <a class="reference internal" href="#PyWFL.spectrum.fft_spec_window" title="PyWFL.spectrum.fft_spec_window"><code class="xref py py-func docutils literal"><span class="pre">fft_spec_window()</span></code></a> is NOT equivalent with the result of &#8220;spctrm&#8221; in NR.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Torrence C., G. P. Combo, A Practical Guide to Wavelet Analysis, Bulletin of the American Meteorological Society, Vol. 79, p61-78, 1998.  E.Q. (16), (17)</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id12" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Jenkins, G. M., and D. G., Watts, Spectral analysis and its applications, Holden-Day, 1968. (chapter 6 and 7)</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id13" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>William H. Press, Saul A. Teukolsky, William T. Vetterling, Brian P. Flannery, Numerical Recipes in Fortran 77, Second Edition, Syndicate of the University of Cambridge Press, p550, 1992.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fft_window">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fft_window</code><span class="sig-paren">(</span><em>width</em>, <em>window_type='square'</em>, <em>window_parameter=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fft_window"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fft_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data window used by Fourier spectrum analysis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>width</strong> &#8211; Length (or data number) of window</li>
+<li><strong>window_type</strong> &#8211; Type of the data window. window_type is one of below: &#8216;square&#8217;, &#8216;rectangular&#8217;, &#8216;bartlett&#8217;, &#8216;hamming&#8217;, &#8216;hanning&#8217;, &#8216;welch&#8217;.  Note: &#8216;square&#8217;==&#8217;rectangular&#8217;.</li>
+<li><strong>window_parameter</strong> &#8211; True for a whole window from index 1 to width, False for a half window from index 1 to width, respectively. See comments for details.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>window_result (array): output window results</li>
+<li>bandwidth (float): bandwidth of the window. See comments for details.</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The most common windows and their features are given below. This table can be used to choose the best windowing function for each application.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="7%" />
+<col width="30%" />
+<col width="23%" />
+<col width="18%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Window</th>
+<th class="head">Best for these Signal Types</th>
+<th class="head">Frequency Resolution</th>
+<th class="head">Spectral Leakage</th>
+<th class="head">Amplitude Accuracy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Barlett</td>
+<td>Random</td>
+<td>Good</td>
+<td>Fair</td>
+<td>Fair</td>
+</tr>
+<tr class="row-odd"><td>Hanning</td>
+<td>Random</td>
+<td>Good</td>
+<td>Good</td>
+<td>Fair</td>
+</tr>
+<tr class="row-even"><td>Hamming</td>
+<td>Random</td>
+<td>Good</td>
+<td>Fair</td>
+<td>Fair</td>
+</tr>
+<tr class="row-odd"><td>Welch</td>
+<td>Random</td>
+<td>Good</td>
+<td>Good</td>
+<td>Fair</td>
+</tr>
+</tbody>
+</table>
+<p>Whole data window equations (here m=window_length, window_parameter==&#8217;one&#8217;):</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8216;square&#8217; or &#8216;rectangular&#8217; <span class="math">\(w(1:m) = 1.0\)</span></li>
+<li>&#8216;bartlett&#8217;: <span class="math">\(w(j)= 1 - \left | \frac{2j - 2 - m}{m} \right |  \quad (j=1, \dots, m)\)</span></li>
+<li>&#8216;hamming&#8217; : <span class="math">\(w(j) = 0.54 - 0.46 \cos(2\pi j /m) \quad (j=1, \dots, m)\)</span></li>
+<li>&#8216;hanning&#8217; : <span class="math">\(w(j) = 0.5 - 0.5 \cos(2\pi j /m) \quad (j=1, \dots, m)\)</span></li>
+<li>&#8216;welch&#8217;   : :math:<a href="#id14"><span class="problematic" id="id15">`</span></a>w(j) = 1 - left ( frac{m^2(j-1)}{4} right)^2</li>
+</ul>
+</div></blockquote>
+<p>Half data window equations (here m=window_length, window_parameter==&#8217;half&#8217;):</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8216;square&#8217; or &#8216;rectangular&#8217;:  <span class="math">\(w(1:m)=1.0\)</span></li>
+<li>&#8216;bartlett&#8217;: <span class="math">\(w(j)= 1 - \left | j/m \right |   \quad (j=1, \dots, m)\)</span></li>
+<li>&#8216;hamming&#8217;: <span class="math">\(w(j)=0.54+0.46 * \cos ( \pi*j/m)  \quad (j=1, \dots, m)\)</span></li>
+<li>&#8216;hanning&#8217;: <span class="math">\(w(j)=0.5+0.5 * \cos( \pi*j/m)     \quad (j=1, \dots, m)\)</span></li>
+<li>&#8216;welch&#8217;: <span class="math">\(w(j)=1- (j/m)^2                     \quad (j=1, \dots, m)\)</span></li>
+</ul>
+</div></blockquote>
+<p><span class="math">\(w(0)==1.0\)</span> for half data windows.</p>
+<div class="math">
+\[bandwidth = 1 / \int_{-\infty}^{+\infty} w(u)^2 du\]</div>
+<p>here, <span class="math">\(w(u)\)</span> is th window_result, and integral interval is <span class="math">\(\left[ -m, m \right]\)</span>. Note, here bandwidth is defined in <span class="math">\(\left[ -m, m \right]\)</span> but NOT in <span class="math">\(\left[ 0, m \right]\)</span>.</p>
+<dl class="docutils">
+<dt>Referemces:</dt>
+<dd>..[1] Jenkins, G. M., and D. G., Watts, Spectral analysis and its applications, Holden-Day, 1968. (chapter 6 and 7)
+..[2] William H. Press, Saul A. Teukolsky, William T. Vetterling, Brian P. Flannery, Numerical Recipes in Fortran 77, Second Edition, Syndicate of the University of Cambridge Press, p550, 1992.</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fft_window</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fft_window</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s1">&#39;bartlett&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fft_window</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">window_type</span><span class="o">=</span><span class="s1">&#39;welch&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fft_window</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">window_type</span><span class="o">=</span><span class="s1">&#39;welch&#39;</span><span class="p">,</span> <span class="n">window_parameter</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fns">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fns</code><span class="sig-paren">(</span><em>n</em>, <em>lag</em>, <em>dt=1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Amplitude of time series x corresponding with period pe</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of original time series to get lag</li>
+<li><strong>lag</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The lag-1 autocorrelations of the original time series, see comments for details</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval of the original time series</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>per (array): per(1:n/2), The periods of the original time series</li>
+<li>pk (array): pk(1:n/2), Normalized Fourier Red / White noise spectrum</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>If lag is not 0.0, then pk is the normalized Fourier red noise spectrum; if lag is 0.0, then pk==1.0 is the normalized Fourier white noise spectrum. To get lag from a time series, you can use subroutine ARCO (e.g call arco(n, 2, x, co, cor), then lag=(cor(1)+sqrt(cor(2)))/2. Note that, to get lag, it&#8217;s better to pre-whiten (e.g remove known period signals, such as seasonal terms) the original time series first and then to get lag.</p>
+<p class="rubric">References</p>
+<p>..[1] Torrence C., G. P. Combo, A Practical Guide to Wavelet Analysis, Bulletin of the American Meteorological Society, Vol. 79, p61-78, 1998.  E.Q. (16)</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.spectrum.fft_spec" title="PyWFL.spectrum.fft_spec"><code class="xref py py-func docutils literal"><span class="pre">fft_spec()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.fre_wavanum">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">fre_wavanum</code><span class="sig-paren">(</span><em>c</em>, <em>s</em>, <em>dt=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#fre_wavanum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.fre_wavanum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get frequency-wavenumber spectrum from time depend spherical harmonic coefficients</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>c</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; c(n, n, nt) Coefficients of cosine term</li>
+<li><strong>s</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; s(n, n, nt) Coefficients of sine term</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>pe (nt/2):The periods in frequency domain (1/pe is the frequency)</li>
+<li>fw (nt/2, 0:n) : Frequency-wavenumber spectrum</li>
+<li>f (nt/2): Frequency spectrum (summed on n of fw)</li>
+<li>w (0:n): Wavenumber spectrum (summed on nt of fw)</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Here, the frequency-wavenumber spectrum means the frequency-dependent degree variance power spectrum. The results of fw(nt/2, 0:n), f(nt/2) and w(0:n) is calculated from Eq. 8, 9 and 11 of Wunsch and Stammer, 1995 paper, respectively. If the unit of spatial data obtained from c, s coefficients is mm, then the unit of the above power spectrum is <span class="math">\(mm^2\)</span>.</p>
+<p class="rubric">References</p>
+<p>..[1] Wunsch C., D. Stammer, The global frequency-wavenumber spectrum of oceanic variability estimated from TOPEX/POSEDION altimetric measurements, J. Geophys. Res., Vol. 100, No. C12, P24895-24910, 1995. (EQ. 8)</p>
+<p class="rubric">Examples</p>
+<p>todo</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">todo</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.hilbert">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">hilbert</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#hilbert"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.hilbert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a vector&#8217;s Hilbert transform</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd>x (array) : Array (or vector) to do Hilbert transform</dd>
+<dt>Returns:</dt>
+<dd>array: Hilbert transform vector of array x</dd>
+<dt>Notes:</dt>
+<dd><p class="first">Hilbert transforms are essential in understanding many modern modulation methods. These transforms effectively phase shift a function by 90 degrees independent of frequency. Of course practical implementations have limitations. For example, the phase shifting of a low frequency implies a long delay, which in turn implies a computational process that maintains a long history of the signal. Hilbert transforms are useful in creating signals with one sided Fourier transforms. Also the concepts of analytic functions and analytic signals will be shown to be related through Hilbert transforms.  (comments from the below reference of Turner)</p>
+<p>Time domain convolution:</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>..math::</dt>
+<dd>xhil(t) = x(t)/(pi t) =</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p>rac{1}{pi}int_{-infty}^{infty} x(u)/(t-u) du</p>
+<blockquote>
+<div><blockquote>
+<div><p>Frequency domain multiplication:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>..math::</dt>
+<dd>xhil(omega)=(-i        imes    extrm{sgn}(omega)))    imes X(omega)</dd>
+</dl>
+<p>where <span class="math">\(i*i=-1\)</span>, :math:`       extrm{sgn}` is a signum function, and :math:`   extrm{sgn}(omega)=1, 0, or -1` for <span class="math">\(\omega &gt; 0,  \omega=0, \omega &lt; 0\)</span>, respectively.</p>
+</div></blockquote>
+<dl class="docutils">
+<dt>Hilbert Transform Properties:</dt>
+<dd>see WFL</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd>todo</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.hilbert_amp">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">hilbert_amp</code><span class="sig-paren">(</span><em>x</em>, <em>dt=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#hilbert_amp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.hilbert_amp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a vector&#8217;s instantaneous envelope, frequency and phase by Hilbert transform  method</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Args:</dt>
+<dd>x (array): Array (or vector) to do Hilbert transformed
+dt (float): Time interval of array (or vector) x</dd>
+<dt>Returns:</dt>
+<dd><dl class="first last docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>amp (n): Instantaneous amplitude of array x by Hilbert transform</li>
+<li>ph (n): Instantaneous phase of array x by Hilbert transform</li>
+<li>fre (n): Instantaneous frequency of array x by Hilbert transform</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Notes:</p>
+<blockquote>
+<div><div class="math">
+\[\begin{split}Amp &amp; = &amp; \sqrt(x_t^2 + xhil_t^2) \\
+fre &amp; = &amp; \arctan(xhil/x) \\
+ph  &amp; = &amp; \frac{1}{2\pi}\end{split}\]</div>
+</div></blockquote>
+</div></blockquote>
+<p>rac{fre_t}{dt}</p>
+<blockquote>
+<div>here <span class="math">\(xhil_t\)</span> is the hilbert transform of <span class="math">\(x_t\)</span></div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.hilbert_emd_fre">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">hilbert_emd_fre</code><span class="sig-paren">(</span><em>iunit</em>, <em>t</em>, <em>fre_low</em>, <em>fre_up</em>, <em>emd_imf</em>, <em>nfreline</em>, <em>filename</em>, <em>tlow=None</em>, <em>tup=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#hilbert_emd_fre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.hilbert_emd_fre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a file which contains instantaneous amplitude and frequency of all EMD&#8217;s IMFs by Hilbert method. The output file is a contour file which can be plotted in Golden Software Surfer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iunit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; File unit of output data</li>
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time index of array (or vector) emd_imf</li>
+<li><strong>fre_low</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Lower frequency to be analyzed, If fre_low&lt;=2/(n*dt) then fre_low=2/(n*dt), here dt=t(2)-t(1)</li>
+<li><strong>fre_up</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Uper frequency to be analyzed, If fre_up&gt;=1/(2*dt) then fre_up=1/(2*dt), here dt=t(2)-t(1)</li>
+<li><strong>emd_imf</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; emd_imf[n, m], Input EMD&#8217;s IMFs (n is number in time domain, m is m_th IMFs)</li>
+<li><strong>nfreline</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Line numbers of frequency between fre_low and fre_up to be analyzed</li>
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Output contour data filename (add &#8221;.dat.grd&#8221; to filename after output)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p><a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a> get an output file which can plot contour in surfer, the results is come form  <code class="xref py py-func docutils literal"><span class="pre">hilbert_amp.</span> <span class="pre">We</span> <span class="pre">get</span> <span class="pre">the</span> <span class="pre">instantaneous</span> <span class="pre">envelope</span> <span class="pre">of</span> <span class="pre">EMD's</span> <span class="pre">IMFs</span> <span class="pre">by</span> <span class="pre">HILBERT</span> <span class="pre">method,</span> <span class="pre">then</span> <span class="pre">put</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">to</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">Golden</span> <span class="pre">Software</span> <span class="pre">SURFER</span> <span class="pre">contour</span> <span class="pre">grid</span> <span class="pre">file.</span> <span class="pre">:func:`hilbert_emd_fre()</span></code> output time, frequency, envelope for all IMFs.</p>
+<p><a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_per" title="PyWFL.spectrum.hilbert_emd_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_per()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_fre" title="PyWFL.spectrum.hilbert_spec_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_fre()</span></code></a> and <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_per" title="PyWFL.spectrum.hilbert_spec_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_per()</span></code></a>  are similar. <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a> and <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_per" title="PyWFL.spectrum.hilbert_emd_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_per()</span></code></a> output more than one HILBERT amplitude in one single output file, but <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_fre" title="PyWFL.spectrum.hilbert_spec_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_fre()</span></code></a> and <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_per" title="PyWFL.spectrum.hilbert_spec_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_per()</span></code></a> only output one instantaneous envelope in one single output file.</p>
+<p><a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a> not only can be used to output instantaneous envelope of EMD&#8217;s IMFs, but also can be used by any signal like EMD&#8217;s IMFs. It means you can analyze two dimension signal x(n,m) where n is time number and m is m_th signal. Specially, <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_fre" title="PyWFL.spectrum.hilbert_spec_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_fre()</span></code></a> and <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_per" title="PyWFL.spectrum.hilbert_spec_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_per()</span></code></a> is the special case of <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a> and <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_per" title="PyWFL.spectrum.hilbert_emd_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_per()</span></code></a>, in this special case, m==1.</p>
+<p>If the periods you interesting is not long, <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_per" title="PyWFL.spectrum.hilbert_emd_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_per()</span></code></a> is more suitable than <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>, otherwise you&#8217;d better choose <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.hilbert_emd_per">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">hilbert_emd_per</code><span class="sig-paren">(</span><em>iunit</em>, <em>t</em>, <em>per_low</em>, <em>per_up</em>, <em>emd_imf</em>, <em>nfreline</em>, <em>filename</em>, <em>tlow=None</em>, <em>tup=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#hilbert_emd_per"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.hilbert_emd_per" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a file which contains instantaneous amplitude and period of all EMD&#8217;s IMFs by Hilbert method. The output file is a contour file which can be plotted in Golden Software Surfer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iunit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; File unit of output data</li>
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time index of array (or vector) emd_imf</li>
+<li><strong>fre_low</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Lower frequency to be analyzed, If fre_low&lt;=2/(n*dt) then fre_low=2/(n*dt), here dt=t(2)-t(1)</li>
+<li><strong>fre_up</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Uper frequency to be analyzed, If fre_up&gt;=1/(2*dt) then fre_up=1/(2*dt), here dt=t(2)-t(1)</li>
+<li><strong>emd_imf</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; emd_imf[n, m], Input EMD&#8217;s IMFs (n is number in time domain, m is m_th IMFs)</li>
+<li><strong>nfreline</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Line numbers of frequency between fre_low and fre_up to be analyzed</li>
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Output contour data filename (add &#8221;.dat.grd&#8221; to filename after output)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert" title="PyWFL.spectrum.hilbert"><code class="xref py py-func docutils literal"><span class="pre">hilbert()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_amp" title="PyWFL.spectrum.hilbert_amp"><code class="xref py py-func docutils literal"><span class="pre">hilbert_amp()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_fre" title="PyWFL.spectrum.hilbert_spec_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_per" title="PyWFL.spectrum.hilbert_spec_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_per()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.hilbert_spec_fre">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">hilbert_spec_fre</code><span class="sig-paren">(</span><em>iunit</em>, <em>t</em>, <em>fre_low</em>, <em>fre_up</em>, <em>x</em>, <em>nfreline</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#hilbert_spec_fre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.hilbert_spec_fre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a file which contains instantaneous amplitude and frequency of a vector by Hilbert method. The output file is a contour file which can be plotted in Golden Software Surfer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iunit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; File unit of output data</li>
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time index of array (or vector) emd_imf</li>
+<li><strong>fre_low</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Lower frequency to be analyzed, If fre_low&lt;=2/(n*dt) then fre_low=2/(n*dt), here dt=t(2)-t(1)</li>
+<li><strong>fre_up</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Uper frequency to be analyzed, If fre_up&gt;=1/(2*dt) then fre_up=1/(2*dt), here dt=t(2)-t(1)</li>
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Input vector x</li>
+<li><strong>nfreline</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Line numbers of frequency between fre_low and fre_up to be analyzed</li>
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Output contour data filename (add &#8221;.dat.grd&#8221; to filename after output)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert" title="PyWFL.spectrum.hilbert"><code class="xref py py-func docutils literal"><span class="pre">hilbert()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_amp" title="PyWFL.spectrum.hilbert_amp"><code class="xref py py-func docutils literal"><span class="pre">hilbert_amp()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_per" title="PyWFL.spectrum.hilbert_emd_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_per()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_spec_per" title="PyWFL.spectrum.hilbert_spec_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_spec_per()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.hilbert_spec_per">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">hilbert_spec_per</code><span class="sig-paren">(</span><em>iunit</em>, <em>t</em>, <em>per_low</em>, <em>per_up</em>, <em>x</em>, <em>nperline</em>, <em>filename</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#hilbert_spec_per"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.hilbert_spec_per" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produce a file which contains instantaneous amplitude and frequency of a vector by Hilbert method. The output file is a contour file which can be plotted in Golden Software Surfer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>iunit</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; File unit of output data</li>
+<li><strong>t</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time index of array (or vector) emd_imf</li>
+<li><strong>fre_low</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Lower frequency to be analyzed, If fre_low&lt;=2/(n*dt) then fre_low=2/(n*dt), here dt=t(2)-t(1)</li>
+<li><strong>fre_up</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Uper frequency to be analyzed, If fre_up&gt;=1/(2*dt) then fre_up=1/(2*dt), here dt=t(2)-t(1)</li>
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Input vector x</li>
+<li><strong>nfreline</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Line numbers of frequency between fre_low and fre_up to be analyzed</li>
+<li><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Output contour data filename (add &#8221;.dat.grd&#8221; to filename after output)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert" title="PyWFL.spectrum.hilbert"><code class="xref py py-func docutils literal"><span class="pre">hilbert()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_amp" title="PyWFL.spectrum.hilbert_amp"><code class="xref py py-func docutils literal"><span class="pre">hilbert_amp()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_fre" title="PyWFL.spectrum.hilbert_emd_fre"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_fre()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_per" title="PyWFL.spectrum.hilbert_emd_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_per()</span></code></a>, <a class="reference internal" href="#PyWFL.spectrum.hilbert_emd_per" title="PyWFL.spectrum.hilbert_emd_per"><code class="xref py py-func docutils literal"><span class="pre">hilbert_emd_per()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.mtm">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">mtm</code><span class="sig-paren">(</span><em>dt</em>, <em>x</em>, <em>nw</em>, <em>spec_type='unity'</em>, <em>p=0.95</em>, <em>lag1_co=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#mtm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.mtm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get normalized Fourier spectrum by MultiTaper Method (MTM), and red-noise background spectrum, and 100p% (e.g. p=95%,99%) confidence spectrum of time series.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval or sample interval of x</li>
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time series to be analyzed  (real, double, complex, double complex)</li>
+<li><strong>nw</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; <code class="xref py py-func docutils literal"><span class="pre">dpss()</span></code> orders 0 to 2*nw-1 required (2&lt;=nw&lt;n/2). Note, here, nw is real or double type. The typical values of nw is 2, 5/2, 3, 7/2, 4. Thus you can get (nw)Pi-multitapers, e.g. for nw=4, you get 4Pi-multitapers. Smaller nw higher frequency precision, greater nw smaller variance in frequency domain.</li>
+<li><strong>spec_type</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; weight method for multitaper window. spec_type is one of below (case-insensitive):
+&#8216;unity&#8217; weighted by: 1/(2*nw-1)* sum s(f)*s(f) k=0,2*nw-1 for sum
+&#8216;eigen&#8217; weighted by: 1./sum(eigen(:)) * sum s(f)*s(f)*eigen(k) k=0,2*nw-1
+&#8216;hires&#8217; weighted by: sum s(f)*s(f)/eigen(k) k=0,2*nw-1
+&#8216;adapt_pw&#8217; weighted by: 1./ sum ( bk/bk/eigen(k)) <a href="#id16"><span class="problematic" id="id17">*</span></a>sum bk*bk*eigen(k)*s(f)*s(f) k=0,2*nw-1 !see Percival and Walden (1993) eq. 368a,370a
+&#8216;adapt_th&#8217; (default) weighted by: 1./dk/dk * sum dk*dk*s(f)*s(f) !see Thomson (1982, eq. 5.2, 5.3)
+comment on spec_type: the first 3 weighted methods are appropriate for pure white noise,  and the last two are appropriate for colored noise.</li>
+<li><strong>p</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Confidential level (0&lt;p&lt;1.0, typically p=0.95, p=0.99). Note, p and red_noise_spec must be present at same time if you want to get the red_noise_spec, also you can present lag1_co or not when to calculate red_noise_spec.</li>
+<li><strong>lag1_co</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The lag-1 autocorrelations of x, used to output background red-noise amplitude spectrum, see <a class="reference internal" href="#PyWFL.spectrum.fns" title="PyWFL.spectrum.fns"><code class="xref py py-func docutils literal"><span class="pre">fns()</span></code></a> for details. If presented, lag1_co as the lag-1 autocorrelations; if not present, use <a class="reference internal" href="#PyWFL.spectrum.arco" title="PyWFL.spectrum.arco"><code class="xref py py-func docutils literal"><span class="pre">arco()</span></code></a> to get it, and then calculate <a class="reference internal" href="#PyWFL.spectrum.fns" title="PyWFL.spectrum.fns"><code class="xref py py-func docutils literal"><span class="pre">fns()</span></code></a>. Note, if set lag1_co=0.0, the background is white-noise amplitude spectrum.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>f_test(n/2) (array):F-test which compares the variance of an assumed locally white noise background to the variance explained by a periodic signal. See Lees and Park(1994), eq. (6) and (7).</li>
+<li>x_edof(n/2) (array):Effective degree of freedom in frequency domain.</li>
+<li>red_noise_spec(n/2,3) (array):Normalized red noise Fourier spectrum. red_noise_spec(:,1), period index; red_noise_spec(:,2), AR(1) red noise Fouried spectrum; red_noise_spec(:,3)100p% confidence spectrum.</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.mtm_overlap">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">mtm_overlap</code><span class="sig-paren">(</span><em>dt</em>, <em>x</em>, <em>m</em>, <em>overlap</em>, <em>nw</em>, <em>spec_type='unity'</em>, <em>p=0.95</em>, <em>lag1_co=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#mtm_overlap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.mtm_overlap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.multicor_spec_mtm">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">multicor_spec_mtm</code><span class="sig-paren">(</span><em>dt</em>, <em>x</em>, <em>nw</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#multicor_spec_mtm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.multicor_spec_mtm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.multicor_spectra">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">multicor_spectra</code><span class="sig-paren">(</span><em>dt</em>, <em>x</em>, <em>max_lag</em>, <em>window_type</em>, <em>out_type</em>, <em>p=0.95</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#multicor_spectra"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.multicor_spectra" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get windowed FFT spectrum of auto and cross covariance/correlation of input time series.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval of time series of x</li>
+<li><strong>x</strong> (<em>n</em><em>,</em><em>m</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time series to be analyzed</li>
+<li><strong>max_lag</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number data of window width (max_lag&lt;=n), w(1)=1.0, w(max_lag)=0.0.</li>
+<li><strong>window_type</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Window type used. Can be one of the belows: &#8216;square&#8217;, &#8216;rectangular&#8217;, &#8216;bartlett&#8217;, &#8216;hamming&#8217;, &#8216;hanning&#8217;, &#8216;welch&#8217;. See <a class="reference internal" href="#PyWFL.spectrum.fft_window" title="PyWFL.spectrum.fft_window"><code class="xref py py-func docutils literal"><span class="pre">fft_window()</span></code></a> for details.</li>
+<li><strong>out_type</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Output control. out_type=&#8217;COV&#8217; or &#8216;COR&#8217;.</li>
+<li><strong>p</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Confidential level (0&lt;p&lt;1.0, typically p=0.95, p=0.99). p, cll, clu must be presented at the same time.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>pe(n/2) (array): eriods of analyzed time series x(n,m)</li>
+<li><dl class="first docutils">
+<dt>x_out(n/2,m,m) (array): uto and cross covariance/correlation FFT spectrum of input time series.</dt>
+<dd>Auto- and cross covariances FFT spectrum for X if out_type=&#8217;COV&#8217;
+Auto- and corss correlation FFT spectrum for X, if out_type=&#8217;COR&#8217;
+The first index is periods( or 1/frequency). Thus x_out(:,i,j) is the covariance/correlation FFT spectrum of
+the ith and jth series. And x_out(:,i,i) is the autocovariance/autocorrelation FFT spectrum of the ith series.</dd>
+</dl>
+</li>
+<li>x_out2(n/2,m,m) (array): Phase spectrum. x_out2(:,i,i)==0.0, and x_out2(:,i,j) from -180 to 180 degree. Note, the phase may not continued with the frequency increase, so you should remove the jump by yourself.</li>
+<li>x_out3(n/2,m,m) (array): Squared coherency spectrum. x_out3(:,i,i)=1.0, x_out3(:,i,j) from 0 to 1.0.  Please also reference <code class="xref py py-func docutils literal"><span class="pre">corfre()</span></code>.</li>
+<li>cll(n/2,m,m) (array): Lower confidence limits for the auto-spectrum (x_out(:,i,i)) and for the squared coherency spectrum (xout3(:,i,j))</li>
+<li>clu(n/2, m,m) (array): Upper confidence limits for the auto-spectrum (x_out(:,i,i)) and for the squared coherency spectrum (x_out3(:,i,j))</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>If window_type=&#8217;square&#8217; or &#8216;rectangular&#8217;, max_lag=n-1, out_type=&#8217;cor&#8217;, then the result of WFL_MULTICOR_SPECTRA is the same with <a class="reference internal" href="#PyWFL.spectrum.fft_spec" title="PyWFL.spectrum.fft_spec"><code class="xref py py-func docutils literal"><span class="pre">fft_spec()</span></code></a>. See example 1 for details. If out_type=&#8217;cov&#8217;, then var(x) must be divide to get the same result with out_type=&#8217;cor&#8217;.</p>
+<p>The lower and upper confidence limits produce a confidence interval for the auto-spectrum or squared coherency spectrum. The interpretation of this e.g. 95% confidence interval is that, having constructed a random interval which has probability 0.95 of enclosing the true spectrum, we have 95% confidence on this particular occasion that the interval obtained happens to include auto-spectrum or squared coherency spectrum. Thus, the 99% confidence interval &gt; 95% confidence interval. This concept is NOT the same as significance level (or confidence level) such as used in <code class="xref py py-func docutils literal"><span class="pre">corfre()</span></code>.</p>
+<p>Difference between <code class="xref py py-func docutils literal"><span class="pre">corfre()</span></code> and <a class="reference internal" href="#PyWFL.spectrum.multicor_spectra" title="PyWFL.spectrum.multicor_spectra"><code class="xref py py-func docutils literal"><span class="pre">multicor_spectra()</span></code></a>:
+use different smoothing method to get squared coherency spectrum. The definition of the squared coherency spectrum is equivalent.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id18" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Jenkins, G. M., and D. G., Watts, Spectral analysis and its applications, Holden-Day, 1968. (chapter 6-9)</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.period_graph">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">period_graph</code><span class="sig-paren">(</span><em>x</em>, <em>dt</em>, <em>mw</em>, <em>per_low</em>, <em>per_up</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#period_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.period_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the period graph (or amplitude spectrum) of a time series</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; Time series to be used to get period graph (or amplitude spectrum)</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval</li>
+<li><strong>mw</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of frequency (or period) to be analyzed</li>
+<li><strong>per_low</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The lowest analyzed periods</li>
+<li><strong>per_up</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The highest analyzed periods</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>per (array): per(mw), the analyzed periods time series</li>
+<li>sp (array): sp(mw), The  amplitude spectrum corresponding to per</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">References</p>
+<p>..[1]  Ding Yuerong, Dawei Zheng, Data processing method for astronomic observed data, Nanjing Unvi. Press, Nanjing, 1990. (in Chinese)</p>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="mf">18.2621</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mf">0.14</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="mi">435</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.10</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="mi">365</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">per</span><span class="p">,</span> <span class="n">sp</span> <span class="o">=</span> <span class="n">period_graph</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">per</span><span class="p">,</span> <span class="n">sp</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.svd_coupled">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">svd_coupled</code><span class="sig-paren">(</span><em>s</em>, <em>p</em>, <em>kmode</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#svd_coupled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.svd_coupled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do SVD decompsion for two coupled given time-space data fields.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>S</strong> (<em>n</em><em>,</em><em>mp</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; One data set used to do SVD, must be anomalies (you can use RMAVER_NXNT or RMAVER_NTNX to get the anomalies)</li>
+<li><strong>P</strong> (<em>n</em><em>,</em><em>mq</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; The other data set used to do SVD, must be anomalies (you can use RMAVER_NXNT or RMAVER_NTNX to get the anomalies)</li>
+<li><strong>kmode</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; The number of modes to be output. Note: kmode&lt;=MIN(mp,mq)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>lk (kmode)(array) : The computed singular values of covariance matrix (transport(S)* P, or in IMSL operators: S .tx. P), the largest returned first</li>
+<li>uk(mp,kmode)(array) : The computed singular vectors of array S, the most important returned first  (or spatial pattern for S)</li>
+<li>vk(mp,kmode)(array) : The computed singular vectors of array P, the most important returned first  (or spatial pattern for P)</li>
+<li>ak(n,kmode)(array) : The expansion coefficients for array S  (or spatial pattern evolves in time)</li>
+<li>bk(n,kmode)(array) : The expansion coefficients for array P  (or spatial pattern evolves in time)</li>
+<li>scfk(kmode)(array) : The percent of Square Covariance Fraction (SCF) explained by each singular value mode</li>
+<li>cumk(kmode)(array) : The cumulative percent of SCF explained by each singular mode. This is a bit redundant &#8211; it&#8217;s just the sum of &#8220;scfk&#8221;</li>
+<li>sk(n, mp)(array) : The reconstruction of field S use first kmode. Note: must be presented with pk at the same time.</li>
+<li>pk(n, mp)(array) : The reconstruction of field P use first kmode. Note: must be presented with sk at the same time.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>For the real geophysical data, to get a more reliable results, the two fields such as S and P above should be weighted by square root area weight of sqrt(cosine(latitude)) first.
+See also sqrootweight(nx) parameters in subroutine WFL_CEOF.</p>
+<p>If there is an error like: &#8220;WFL ERROR: no convergence in wfl_svd (svdcmp)&#8221;,please use double precision subroutine of WFL_SVD_COUPLED8.</p>
+<p>If there is an error with &#8220;stack overflow&#8221;, please see here for how to resolve it.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id19" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Mewman M. and P. D. Sardeshmukh, A caveat concerning singular value decomposition, J Climate, Vol. 8, p352-360,1995. (very important)</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id20" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Bretherton C. S., C. Smith, and J. M. Wallace, An intercomparison of methods for finding coupled patterns in climate data, J Climate, Vol. 5, P541-560,1992.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id21" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Björnsson H. and S. A. Venegas, A manual for EOF and SVD analyses of climate data, C2GCR Report No, 97-1, 1997.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id22" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>Hannachi A., I. T. Jolliffe and D. B. Stephenson, Empirical orthogonal function s and related techniques in atmospheric science: A review, Int. J. Climatol., Vol. 27, p1119-1152, 2007.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.wave_linear">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">wave_linear</code><span class="sig-paren">(</span><em>y</em>, <em>dt</em>, <em>s0</em>, <em>step</em>, <em>jtot</em>, <em>param</em>, <em>sigma</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#wave_linear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.wave_linear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate wavelet transform of a time series and get amplitude spectrum</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; y(n), time series to be analyzed</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; time interval of array</li>
+<li><strong>s0</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; begin periods to analysis <span class="math">\((s_0 \leq 2 dt)\)</span></li>
+<li><strong>step</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; step length of period</li>
+<li><strong>jtot</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; total number to be analyzed, if the end periods is <span class="math">\(ss\)</span>, then <span class="math">\(jtot=(ss - s0)/ step\)</span></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>scale (array) : scale(jtot), fourier period analyzed, it is correspond with amp(n, jtot)</li>
+<li>amp (array) : amp(n, jtot), amplitude at desired period of input vector y</li>
+<li>coi (array) : coi(n), cone of influence at time <span class="math">\(1 \rightarrow n\)</span></li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The results of subroutine WAVE_LINEAR keep the same amplitude of sine/cosine wave at different frequencies but the white noise spectrum is ~1/scale.  See reference of Maraun and Kurths (2004) for details.
+Opinions from Maraun and Kurths (2004):
+In Fourier analysis, any normalization automatically provides the following two features:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The Gaussian white noise spectrum is (by definition) flat.</li>
+<li>Sines of the same amplitude have the same integrated power in the frequency domain.</li>
+</ul>
+</div></blockquote>
+<p>In wavelet analysis, we meet difficulties to obtain both. For the factor c(s) in Eq. (1), Torrence and Compo (1998) and Kaiser (1994) suggest different normalizations, which only preserve one of the mentioned features. Torrence suggests c(s) = (Dt/ s)1/2 which preserves a flat white noise spectrum, but sines of equal amplitude exhibit different integrated power proportional to their oscillation scale. This choice equals Kaiser’s normalization with p = 1/2 (Eq. 3.5 in Kaiser, 1994, p. 62). Using the normalization of Kaiser with p = 0, c(s) = (Dt)1/2, sines of equal amplitude also exhibit equal integrated power (when scale is plotted logarithmically). On the other hand, the white noise spectrum is no longer flat but decreases proportional to 1/scale.  Fortunately, the normalization is only relevant for a first inspection by eye. A normalization following  c(s) = (Dt/ s)1/2 emphasizes power on high scales and could lead to misinterpretations. However, when performing a significance test, the significance level already includes the chosen normalization.</p>
+<p>Here, the Morlet wavelet is real part of general complex Morlet wavelet.</p>
+<ol class="arabic">
+<li><p class="first">Complex Morlet mother wavelet:</p>
+<blockquote>
+<div><div class="math">
+\[\Psi(t)=\pi^{-1/4}e^{-t^2/2}e^{i \omega_0 t}\]</div>
+<p>where <span class="math">\(\omega_0\)</span> is the nondimensional frequency, here taken to be 6 to satisfy the admissibility condition.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Real Morlet mother wavelet (used by WAVE_LINEAR):</p>
+<blockquote>
+<div><div class="math">
+\[\Psi(t)=e^{-t^2/(2\delta^2)}\cos(\omega_0 t)\]</div>
+<p>where <span class="math">\(\omega_0\)</span> and <span class="math">\(\delta &gt; 0\)</span></p>
+</div></blockquote>
+</li>
+</ol>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id23" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Torrence, C. and Compo, G.: A practical guide to wavelet analysis, Bull. Amer. Meteor. Soc., 79, 61–78, 1998.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id24" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Liu L. T., Basic wavelet theory and its applications in geosciences, Ph. D. Dissertation, WHIGG, Wuhan, 1999 (in Chinese).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id25" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Maraun D., and J. Kurths, Cross wavelet analysis: significance testing and pitfalls, Nonlinear Processes in Geophysics, Vol. 11, P505-514, 2004.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.wavelet">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">wavelet</code><span class="sig-paren">(</span><em>dt</em>, <em>s0</em>, <em>dj</em>, <em>jtot</em>, <em>y</em>, <em>param=6.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#wavelet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.wavelet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate wavelet power spectrum of a time series using complex Molet wavelet (TC98 method)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dt</strong><strong>(</strong><strong></strong><strong>)</strong><strong></strong> &#8211; Time interval of array y</li>
+<li><strong>s0</strong><strong>(</strong><strong></strong><strong>)</strong><strong></strong> &#8211; The smallest scale of the wavelet. Typically s0 = 2*dt. Note: for accurate reconstruction computation set s0=dt for Morlet</li>
+<li><strong>dj</strong><strong>(</strong><strong></strong><strong>)</strong><strong></strong> &#8211; The spacing between discrete scales. Typically dj = 0.25.  A smaller # will give better scale resolution, but be slower.</li>
+<li><strong>jtot</strong><strong>(</strong><strong></strong><strong>)</strong><strong></strong> &#8211; the # of scales.  Scales range from s0 up to s0*2**[(jtot-1)*dj]. Typically jtot=1+(LOG2(n*dt/s0))/dj</li>
+<li><strong>y</strong> (<em>n</em><em>)</em><em></em><em>(</em><em></em>) &#8211; Time series to be analyzed</li>
+<li><strong>param</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Morlet wavelet parameters (default param=6.0). You can change the value of param if you familiar with parameters chosen, otherwise use default.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Returns</dt>
+<dd><dl class="first last docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>wave (n, jtot): (array) :complex (real and image part) of Morlet wavelet transform for input vector y versus time and scale.  CABS(wave) gives the wavelet amplitude, ATAN2(AIMAG(wave),REAL(wave)) gives wavelet phase. The wavelet power spectrum is CABS(wave)**2.</li>
+<li>period(jtot): (array) :the &#8220;Fourier&#8221; periods (in time units) corresponding to &#8220;scale&#8221;. period corresponding with n index of wave(n,jtot).</li>
+<li>scale (jtot): (array) :the wavelet scales that were used, it has small difference with period.</li>
+<li>coi (n): (array) : Cone of influence at time 1-&gt;n. the e-folding factor used for the cone of influence.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The results of subroutine <a class="reference internal" href="#PyWFL.spectrum.wavelet" title="PyWFL.spectrum.wavelet"><code class="xref py py-func docutils literal"><span class="pre">wavelet()</span></code></a> do NOT keep the same amplitude of sine/cosine wave at different frequencies but keep the white noise spectrum flat.  See reference of Maraun and Kurths (2004) for details.</p>
+<p>Opinions from Maraun and Kurths (2004):</p>
+<p>In Fourier analysis, any normalization automatically provides the following two features:</p>
+<p>– The Gaussian white noise spectrum is (by definition) flat.
+– Sines of the same amplitude have the same integrated power in the frequency domain.</p>
+<p>In wavelet analysis, we meet difficulties to obtain both. For the factor c(s) in Eq. (1), Torrence and Compo (1998) and Kaiser (1994) suggest different normalizations, which only preserve one of the mentioned features. Torrence suggests c(s) = (Dt/ s)1/2 which preserves a flat white noise spectrum, but sines of equal amplitude exhibit different integrated power proportional to their oscillation scale. This choice equals Kaiser’s normalization with p = 1/2 (Eq. 3.5 in Kaiser, 1994, p. 62). Using the normalization of Kaiser with p = 0, c(s) = (Dt)1/2, sines of equal amplitude also exhibit equal integrated power (when scale is plotted logarithmically). On the other hand, the white noise spectrum is no longer flat but decreases proportional to 1/scale.  Fortunately, the normalization is only relevant for a first inspection by eye. A normalization following  c(s) = (Dt/ s)1/2 emphasizes power on high scales and could lead to misinterpretations. However, when performing a significance test, the significance level already includes the chosen normalization.</p>
+<p>Here, the Morlet wavelet is complex mother wavelet.</p>
+<p>Complex Morlet mother wavelet:</p>
+<blockquote>
+<div><blockquote>
+<div><div class="math">
+\[\psi(t) = \pi^{-1/4}\exp(-t^2/2)\exp(i \omega_0 t)\]</div>
+</div></blockquote>
+<p>where <span class="math">\(\omega_0\)</span> is the nondimensional frequency, here taken to be 6 to satisfy the admissibility condition.</p>
+</div></blockquote>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id26" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Torrence, C. and Compo, G.: A practical guide to wavelet analysis, Bull. Amer. Meteor. Soc., 79, 61–78, 1998.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id27" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Maraun D., and J. Kurths, Cross wavelet analysis: significance testing and pitfalls, Nonlinear Processes in Geophysics, Vol. 11, P505-514, 2004.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.wavelet_coherency">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">wavelet_coherency</code><span class="sig-paren">(</span><em>time</em>, <em>scale</em>, <em>wave1</em>, <em>wave2</em>, <em>smooth=True</em>, <em>m=8</em>, <em>w=5</em>, <em>tolerance=1e-09</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#wavelet_coherency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.wavelet_coherency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate wavelet squared coherency of two time series using complex Molet wavelet</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>time</strong> (<em>nt</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; time index of wavelet transform</li>
+<li><strong>scale</strong> (<em>nj</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; scale index of wavelet spectrum (accquired from WFL_WAVELET subroutine)</li>
+<li><strong>wave1</strong> (<em>nt</em><em>,</em><em>nj</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; complex (real and image part ) of wavelet transform for time series #1 (accquired from WFL_WAVELET subroutine)</li>
+<li><strong>wave2</strong> (<em>nt</em><em>,</em><em>nj</em><em>)  </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; complex (real and image part ) of wavelet transform for time series #2 (accquired from WFL_WAVELET subroutine)</li>
+<li><strong>smooth</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Logical. Default is True If smooth=True, then smooth the cross wavelet spectrum of wave1 and wave2 in both time and scale direction by normalized Gaussian window and box car window, respectively.</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time direction smooth parameter: the ratio between window length and scale. Default is m=8.w ():  Scale direction smooth parameter, box car smoothing window length (must be odd number, if w is even number, then w=w+1). Default is w=5. if w&lt;3, then w==3.</li>
+<li><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; tolerance for power1*power2, where power1=cabs(wave1)**2 and power2=cabs(wave2)**2. Default is 1.e-9. If power1*power2&lt;tolerance, then wave_coher=0.0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>wave_coher (nt, nj) (array): squared wavelet coherency (0.0-1.0)</li>
+<li>wave_phase(nt,nj) (array): the phase of corresponding squared  wavelet coherency (unit: degree, 0-360)</li>
+<li>global_coher(nj) (array): the global (mean) squared coherency averaged over all times (0.0-1.0).</li>
+<li>global_phase(nj) (array): the global (mean) phase averaged over all times (unit: degree, 0-360 ).</li>
+<li>power1(nt,nj) (array): the wavelet power spectrum of time series #1, corresponding wave1. If smooth=True, then power1 is * smoothed power spectrum.</li>
+<li>power2(nt,nj) (array): same as power1, but for time series #2.</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Before call WFL_WAVELET_COHERENCY, you must first call WFL_WAVELET twice. see example for details.</p>
+<p>The cross-wavelet spectrum is defined as:</p>
+<p>Wave_Cross(nt,s)=wave1(nt,s)*conj(wave2(nt,s))</p>
+<p>Then, the squared wavelet coherency is defined as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>                          <span class="o">|</span> <span class="o">&lt;</span> <span class="n">Wave_Cross</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">ns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="mi">2</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">=</span> <span class="o">-------------------------------------------------</span>
+                 <span class="o">&lt;</span> <span class="o">|</span><span class="n">wave1</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">|</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="o">&lt;</span> <span class="o">|</span><span class="n">wave2</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">|</span><span class="mi">2</span> <span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where, &lt; · &gt; indecates smoothing in both time and scale direction, and |  ·  | indicates the complex module.</p>
+<p>Normalized Gaussian window (to have a total weight of unity) in time direction is : exp( -t2/(2s2)
+Normalized box cars window are used in scale direction.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id28" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Torrence, C. and Webster, P.: Interdecadal Changes in the ENSO Monsoon System, Journal of Climate, 12, 2679–2690, 1999</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id29" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Torrence, C. and Compo, G.: A practical guide to wavelet analysis, Bull. Amer. Meteor. Soc., 79, 61–78, 1998.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id30" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Maraun D., and J. Kurths, Cross wavelet analysis: significance testing and pitfalls, Nonlinear Processes in Geophysics, Vol. 11, P505-514, 2004.</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.wavelet_coherency_lag">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">wavelet_coherency_lag</code><span class="sig-paren">(</span><em>time</em>, <em>scale</em>, <em>wave1</em>, <em>wave2</em>, <em>smooth=True</em>, <em>m=8</em>, <em>w=5</em>, <em>tolerance=1e-09</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#wavelet_coherency_lag"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.wavelet_coherency_lag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate wavelet squared coherency of two time series using complex Molet wavelet</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>time</strong> (<em>nt</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; time index of wavelet transform</li>
+<li><strong>scale</strong> (<em>nj</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; scale index of wavelet spectrum (accquired from WFL_WAVELET subroutine)</li>
+<li><strong>wave1</strong> (<em>nt</em><em>,</em><em>nj</em><em>) </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; complex (real and image part ) of wavelet transform for time series #1 (accquired from WFL_WAVELET subroutine)</li>
+<li><strong>wave2</strong> (<em>nt</em><em>,</em><em>nj</em><em>)  </em><em></em><em>(</em><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; complex (real and image part ) of wavelet transform for time series #2 (accquired from WFL_WAVELET subroutine)</li>
+<li><strong>smooth</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Logical. Default is True If smooth=True, then smooth the cross wavelet spectrum of wave1 and wave2 in both time and scale direction by normalized Gaussian window and box car window, respectively.</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time direction smooth parameter: the ratio between window length and scale. Default is m=8.w ():  Scale direction smooth parameter, box car smoothing window length (must be odd number, if w is even number, then w=w+1). Default is w=5. if w&lt;3, then w==3.</li>
+<li><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; tolerance for power1*power2, where power1=cabs(wave1)**2 and power2=cabs(wave2)**2. Default is 1.e-9. If power1*power2&lt;tolerance, then wave_coher=0.0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>wave_coher_lag (-nt/2:nt/2, nj) (array) :lag squared wavelet coherency (0.0-1.0)</li>
+<li>wave_phase_lag (-nt/2:nt/2,nj) (array) :the phase of corresponding lag squared  wavelet coherency (unit: degree, 0-360)</li>
+<li>time_idx_lag (-nt/2:nt/2) (array) :lag time index</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Before call <a class="reference internal" href="#PyWFL.spectrum.wavelet_coherency_lag" title="PyWFL.spectrum.wavelet_coherency_lag"><code class="xref py py-func docutils literal"><span class="pre">wavelet_coherency_lag()</span></code></a>, you must first call WFL_WAVELET twice. see example for details.</p>
+<p><a class="reference internal" href="#PyWFL.spectrum.wavelet_coherency_lag" title="PyWFL.spectrum.wavelet_coherency_lag"><code class="xref py py-func docutils literal"><span class="pre">wavelet_coherency_lag()</span></code></a> call <a class="reference internal" href="#PyWFL.spectrum.wavelet_coherency" title="PyWFL.spectrum.wavelet_coherency"><code class="xref py py-func docutils literal"><span class="pre">wavelet_coherency()</span></code></a> to calculate the global squared coherency with different lags.</p>
+<p>The default for smooth is .false. here, which is different with the default smooth=True in subroutine <a class="reference internal" href="#PyWFL.spectrum.wavelet_coherency" title="PyWFL.spectrum.wavelet_coherency"><code class="xref py py-func docutils literal"><span class="pre">wavelet_coherency()</span></code></a></p>
+<p>The cross-wavelet spectrum is defined as:</p>
+<p>Wave_Cross(nt,s)=wave1(nt,s)*conj(wave2(nt,s))</p>
+<p>Then, the squared wavelet coherency is defined as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>                          <span class="o">|</span> <span class="o">&lt;</span> <span class="n">Wave_Cross</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">ns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">|</span> <span class="mi">2</span>
+<span class="n">R2</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">=</span> <span class="o">-------------------------------------------------</span>
+                 <span class="o">&lt;</span> <span class="o">|</span><span class="n">wave1</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">|</span><span class="mi">2</span> <span class="o">&gt;</span> <span class="o">&lt;</span> <span class="o">|</span><span class="n">wave2</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span><span class="n">s</span><span class="p">)</span><span class="o">|</span><span class="mi">2</span> <span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>where, &lt; · &gt; indecates smoothing in both time and scale direction, and |  ·  | indicates the complex module.</p>
+<p>Normalized Gaussian window (to have a total weight of unity) in time direction is : exp( -t2/(2s2)</p>
+<p>Normalized box cars window are used in scale direction.</p>
+<p>The lag squared coherency is defined as:</p>
+<p>wave_coher_lag(lag, nj)= do <a class="reference internal" href="#PyWFL.spectrum.wavelet_coherency" title="PyWFL.spectrum.wavelet_coherency"><code class="xref py py-func docutils literal"><span class="pre">wavelet_coherency()</span></code></a> (result of global_coher) using wave1(1:nt-lag,:) and wave2(lag+1:nt,:) for lag=[0,nt/2]</p>
+<p>wave_coher_lag(lag, nj)= do <a class="reference internal" href="#PyWFL.spectrum.wavelet_coherency" title="PyWFL.spectrum.wavelet_coherency"><code class="xref py py-func docutils literal"><span class="pre">wavelet_coherency()</span></code></a> (result of global_coher) using wave1(lag+1:nt,:) and wave2(1:nt-lag,:) for lag=[-nt/2,-1]</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.spectrum.wavelet_signif">
+<code class="descclassname">PyWFL.spectrum.</code><code class="descname">wavelet_signif</code><span class="sig-paren">(</span><em>dt</em>, <em>y</em>, <em>s0</em>, <em>dj</em>, <em>scale</em>, <em>period</em>, <em>dof</em>, <em>param=6.0</em>, <em>siglvl=0.05</em>, <em>lag1=-1</em>, <em>isigtest=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/spectrum.html#wavelet_signif"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.spectrum.wavelet_signif" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PyWFL.statistics.html" class="btn btn-neutral float-right" title="PyWFL.statistics package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PyWFL.rand.html" class="btn btn-neutral" title="PyWFL.rand package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YAN Haoming, WU Dingcheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyWFL.calendar &mdash; PyWFL 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="PyWFL 1.0 documentation" href="../../index.html"/>
+        <link rel="up" title="PyWFL" href="../PyWFL.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> PyWFL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">PyWFL</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">PyWFL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      
+          <li><a href="../PyWFL.html">PyWFL</a> &raquo;</li>
+      
+    <li>PyWFL.calendar</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for PyWFL.calendar</h1><div class="highlight"><pre>
+<span></span><span class="c1"># encoding: utf-8</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ymd2julday&quot;</span><span class="p">,</span> <span class="s2">&quot;julday2date&quot;</span><span class="p">,</span> <span class="s2">&quot;mjd2julday&quot;</span><span class="p">,</span> <span class="s2">&quot;yearfraction2date&quot;</span><span class="p">,</span> <span class="s2">&quot;yearfraction2mjd&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;mjd2yearfraction&quot;</span><span class="p">,</span> <span class="s2">&quot;julday2mjd&quot;</span><span class="p">,</span> <span class="s2">&quot;yr2year&quot;</span><span class="p">,</span> <span class="s2">&quot;year2yr&quot;</span><span class="p">,</span> <span class="s2">&quot;year_doy2date&quot;</span><span class="p">,</span> <span class="s2">&quot;date2year_doy&quot;</span><span class="p">,</span>
+           <span class="s2">&quot;date2yearfraction&quot;</span><span class="p">,</span> <span class="s2">&quot;date2mjd&quot;</span><span class="p">,</span> <span class="s2">&quot;ymdhms2mjd&quot;</span><span class="p">,</span> <span class="s2">&quot;mjd2date&quot;</span><span class="p">,</span> <span class="s2">&quot;gpsweek2date&quot;</span><span class="p">,</span> <span class="s2">&quot;date2gpsweek&quot;</span><span class="p">]</span>
+
+
+<span class="n">STARTDATE</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ymd2julday"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.ymd2julday">[docs]</a><span class="k">def</span> <span class="nf">ymd2julday</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;get julian day from year, month and day</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        year (int) : year input</span>
+<span class="sd">        month (int) : month input</span>
+<span class="sd">        day (int) : day input</span>
+
+<span class="sd">    Return</span>
+<span class="sd">        int : julday</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">]:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="s1">&#39;input is not number&#39;</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="o">&lt;</span> <span class="mi">1801</span> <span class="ow">or</span> <span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2099</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="s2">&quot;Year is out of range&quot;</span>
+
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">14</span> <span class="o">-</span> <span class="n">month</span><span class="p">)</span> <span class="o">/</span> <span class="mi">12</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">year</span> <span class="o">+</span> <span class="mi">4800</span> <span class="o">-</span> <span class="n">a</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">month</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">*</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">3</span>
+    <span class="n">jul</span> <span class="o">=</span> <span class="n">day</span> <span class="o">+</span> <span class="nb">int</span><span class="p">((</span><span class="mi">153</span> <span class="o">*</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">365</span> <span class="o">*</span> <span class="n">y</span> <span class="o">+</span> \
+        <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mi">400</span><span class="p">)</span> <span class="o">-</span> \
+        <span class="mi">32045</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">jul</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="julday2date"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.julday2date">[docs]</a><span class="k">def</span> <span class="nf">julday2date</span><span class="p">(</span><span class="n">jul</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;give a julday and return datetime object</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        jul (float) : julian day</span>
+
+<span class="sd">    Return</span>
+<span class="sd">        datetime : datetime</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+    <span class="n">l</span> <span class="o">=</span> <span class="n">jul</span> <span class="o">+</span> <span class="mi">68569</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">4</span> <span class="o">*</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mf">146097.0</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">-=</span> <span class="nb">int</span><span class="p">(((</span><span class="mi">146097</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">4000</span> <span class="o">*</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="mi">1461001</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">-=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1461</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">31</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">80</span> <span class="o">*</span> <span class="n">l</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2447.0</span><span class="p">)</span>
+    <span class="n">day</span> <span class="o">=</span> <span class="n">l</span> <span class="o">-</span> <span class="nb">int</span><span class="p">((</span><span class="mi">2447</span> <span class="o">*</span> <span class="n">j</span><span class="p">)</span> <span class="o">/</span> <span class="mf">80.0</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">j</span> <span class="o">/</span> <span class="mf">11.0</span><span class="p">)</span>
+    <span class="n">month</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="mi">12</span> <span class="o">*</span> <span class="n">l</span><span class="p">)</span>
+    <span class="n">year</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">49</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="n">l</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="mjd2julday"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.mjd2julday">[docs]</a><span class="k">def</span> <span class="nf">mjd2julday</span><span class="p">(</span><span class="n">mjd</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get julian day(JD) by modified julian day (MJD)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mjd (float) : modified julian day</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        int : julian day</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">mjd</span> <span class="o">+</span> <span class="mf">2400000.5</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ex</span></div>
+
+
+<div class="viewcode-block" id="yearfraction2date"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.yearfraction2date">[docs]</a><span class="k">def</span> <span class="nf">yearfraction2date</span><span class="p">(</span><span class="n">yearfraction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Convery fractional year to datetime object/list</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        yearfraction (float/list) : fractional year</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        float/list : datetime obejct/list</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">yearfraction</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="n">yearfraction2date</span><span class="p">,</span> <span class="n">yearfraction</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mjd</span> <span class="o">=</span> <span class="n">yearfraction2mjd</span><span class="p">(</span><span class="n">yearfraction</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">mjd2date</span><span class="p">(</span><span class="n">mjd</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="yearfraction2mjd"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.yearfraction2mjd">[docs]</a><span class="k">def</span> <span class="nf">yearfraction2mjd</span><span class="p">(</span><span class="n">yearfraction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;give a fractional year and return mjd</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        yearfraction (float/list) : fractional year</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        float/list : datetime object/list</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">yearfraction</span><span class="p">,</span> <span class="s2">&quot;__len__&quot;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="n">yearfraction2mjd</span><span class="p">,</span> <span class="n">yearfraction</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="mf">365.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">yearfraction</span> <span class="o">-</span> <span class="mf">1970.0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">40587.0</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span></div>
+
+
+<div class="viewcode-block" id="mjd2yearfraction"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.mjd2yearfraction">[docs]</a><span class="k">def</span> <span class="nf">mjd2yearfraction</span><span class="p">(</span><span class="n">mjd</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;give a mjd and return a fractional year</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mjd (float) : modified julday day</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float : fractional year</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">mjd</span> <span class="o">-</span> <span class="mf">51544.5</span><span class="p">)</span> <span class="o">/</span> <span class="mf">365.25</span> <span class="o">+</span> <span class="mf">2000.0</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ex</span></div>
+
+
+<div class="viewcode-block" id="julday2mjd"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.julday2mjd">[docs]</a><span class="k">def</span> <span class="nf">julday2mjd</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; julian day to modified julian day</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        julday (int) : julian day</span>
+<span class="sd">        hour (int) : hour, optional</span>
+<span class="sd">        minute (int) : minute, optional</span>
+<span class="sd">        seconds (float) : seconds, optional</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float : modified julian day</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">julday</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">mjd</span> <span class="o">=</span> <span class="n">julday</span> <span class="o">-</span> <span class="mf">2400001.0</span>
+    <span class="n">hms</span> <span class="o">=</span> <span class="p">[</span><span class="mi">24</span><span class="p">,</span> <span class="mi">1440</span><span class="p">,</span> <span class="mi">86400</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+        <span class="n">mjd</span> <span class="o">+=</span> <span class="n">v</span> <span class="o">/</span> <span class="n">hms</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">mjd</span></div>
+
+
+<div class="viewcode-block" id="yr2year"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.yr2year">[docs]</a><span class="k">def</span> <span class="nf">yr2year</span><span class="p">(</span><span class="n">yr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;convert two digital year to four digital year</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        yr (int) : two digital year</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int : four digital year</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">yr</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">yr</span> <span class="o">&lt;=</span> <span class="mi">99</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">60</span> <span class="o">&lt;=</span> <span class="n">yr</span> <span class="o">&lt;=</span> <span class="mi">99</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1900</span> <span class="o">+</span> <span class="n">yr</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">yr</span> <span class="o">&lt;=</span> <span class="mi">59</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2000</span> <span class="o">+</span> <span class="n">yr</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;yr2year error, yr is number and between 0 - 99&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="year2yr"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.year2yr">[docs]</a><span class="k">def</span> <span class="nf">year2yr</span><span class="p">(</span><span class="n">year</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;convert four digital year to two digital year</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        yr (int) : four digital year</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int : two digital year</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">1960</span> <span class="o">&lt;=</span> <span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">2059</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">1960</span> <span class="o">&lt;=</span> <span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">1999</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">year</span> <span class="o">-</span> <span class="mi">1900</span>
+        <span class="k">if</span> <span class="mi">2000</span> <span class="o">&lt;=</span> <span class="n">year</span> <span class="o">&lt;=</span> <span class="mi">2059</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">year</span> <span class="o">-</span> <span class="mi">2000</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="s1">&#39;year2yr error, year is number and between 1960 - 2059&#39;</span></div>
+
+
+<div class="viewcode-block" id="year_doy2date"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.year_doy2date">[docs]</a><span class="k">def</span> <span class="nf">year_doy2date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">doy</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get datetime object by year and day of year (doy)</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        year (int) : year</span>
+<span class="sd">        doy (int) : day of year</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        datetime: datetime of input year and doy</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">doy</span><span class="p">),</span> <span class="s1">&#39;%Y-%j&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ex</span></div>
+
+
+<div class="viewcode-block" id="date2year_doy"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.date2year_doy">[docs]</a><span class="k">def</span> <span class="nf">date2year_doy</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get datetime&#39;s year and day</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        date (datetime) : datetime obejct</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        tuple:</span>
+<span class="sd">            * year (int) : year</span>
+<span class="sd">            * doy (int) : day of year</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">date</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="s1">&#39;%j&#39;</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ex</span></div>
+
+
+<div class="viewcode-block" id="date2yearfraction"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.date2yearfraction">[docs]</a><span class="k">def</span> <span class="nf">date2yearfraction</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get fractional year by datetime</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        date (datetime/list) : datetime object/list</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float/list: fractional year (/list)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="n">date2yearfraction</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">mjd2yearfraction</span><span class="p">(</span><span class="n">date2mjd</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;date should be a datetime object or list!&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="date2mjd"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.date2mjd">[docs]</a><span class="k">def</span> <span class="nf">date2mjd</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get modified julian day by datetime obejct/list</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        datetime/list : datetime obejct/list</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float/list : modified julian day (/list)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">map</span><span class="p">(</span><span class="n">date2mjd</span><span class="p">,</span> <span class="n">date</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ymdhms2mjd</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">timetuple</span><span class="p">())[:</span><span class="mi">6</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;date should be a datetime object or list!&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ymdhms2mjd"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.ymdhms2mjd">[docs]</a><span class="k">def</span> <span class="nf">ymdhms2mjd</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Convert year, month, day, hour, minute, seconds to modified julian day</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        year (int) : year</span>
+<span class="sd">        month (int) : month</span>
+<span class="sd">        day (int) : day</span>
+<span class="sd">        hour (int) : hour</span>
+<span class="sd">        minute (int) : minute</span>
+<span class="sd">        second (float) : second</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float : modified julian day</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">,</span> <span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span> <span class="n">ex</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ex</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">month</span> <span class="o">-</span> <span class="mi">14</span><span class="p">)</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">)</span>
+    <span class="n">mjd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">1461</span> <span class="o">*</span> <span class="p">(</span><span class="n">year</span> <span class="o">+</span> <span class="mi">4800</span> <span class="o">+</span> <span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span>
+    <span class="n">mjd</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">367</span> <span class="o">*</span> <span class="p">(</span><span class="n">month</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">12</span> <span class="o">*</span> <span class="n">a</span><span class="p">))</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">year</span> <span class="o">+</span> <span class="mi">4900</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="mf">100.0</span><span class="p">)</span>
+    <span class="n">mjd</span> <span class="o">-=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">3</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">)</span>
+    <span class="n">mjd</span> <span class="o">+=</span> <span class="n">day</span> <span class="o">-</span> <span class="mf">2432075.5</span>
+
+    <span class="n">mjd</span> <span class="o">-=</span> <span class="mf">0.5</span>  <span class="c1"># 0 hours; above JD is for midday, switch to midnight.</span>
+    <span class="n">mjd</span> <span class="o">+=</span> <span class="n">hour</span> <span class="o">/</span> <span class="mi">24</span> <span class="o">+</span> <span class="n">minute</span> <span class="o">/</span> <span class="mi">1440</span> <span class="o">+</span> <span class="n">second</span> <span class="o">/</span> <span class="mi">86400</span>
+    <span class="k">return</span> <span class="n">mjd</span></div>
+
+
+<div class="viewcode-block" id="mjd2date"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.mjd2date">[docs]</a><span class="k">def</span> <span class="nf">mjd2date</span><span class="p">(</span><span class="n">mjd</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Convert modified julian day to datetime obejct</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        mjd (float) : modified julian day</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        datetime : datetime obejct</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mjd</span> <span class="o">+</span> <span class="mf">2400001.0</span><span class="p">)</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">julday2date</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">timetuple</span><span class="p">()</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mf">24.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">mjd</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">mjd</span><span class="p">))</span>
+    <span class="n">hour</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="mf">60.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="n">hour</span><span class="p">)</span>
+    <span class="n">minute</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">second</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">60.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="n">minute</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">datetime</span><span class="p">(</span><span class="n">date</span><span class="o">.</span><span class="n">tm_year</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">,</span> <span class="n">date</span><span class="o">.</span><span class="n">tm_mday</span><span class="p">,</span>
+                    <span class="n">hour</span><span class="p">,</span> <span class="n">minute</span><span class="p">,</span> <span class="n">second</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="gpsweek2date"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.gpsweek2date">[docs]</a><span class="k">def</span> <span class="nf">gpsweek2date</span><span class="p">(</span><span class="n">gpsweek</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Convert GPS Week to datetime object</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        gpsweek (int) : GPS Week</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        datetime : datetime object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="mi">10000</span> <span class="o">&lt;=</span> <span class="n">gpsweek</span> <span class="o">&lt;=</span> <span class="mi">99999</span><span class="p">:</span>
+        <span class="n">week</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gpsweek</span> <span class="o">/</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="n">gpsweek</span> <span class="o">%</span> <span class="mi">10</span>
+    <span class="k">elif</span> <span class="mi">1000</span> <span class="o">&lt;=</span> <span class="n">gpsweek</span> <span class="o">&lt;=</span> <span class="mi">9999</span><span class="p">:</span>
+        <span class="n">week</span> <span class="o">=</span> <span class="n">gpsweek</span>
+        <span class="n">day</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;GPS Week Error Input&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">day</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">STARTDATE</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">week</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="n">day</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">day</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;GPS Week Error Input&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="date2gpsweek"><a class="viewcode-back" href="../../PyWFL.calendar.html#PyWFL.calendar.date2gpsweek">[docs]</a><span class="k">def</span> <span class="nf">date2gpsweek</span><span class="p">(</span><span class="n">date</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Convert datetime obejct to GPS Week</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        date (datetime) : datetime obejct</span>
+
+<span class="sd">    Return:</span>
+<span class="sd">        int : GPS Week</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">date</span><span class="p">,</span> <span class="n">datetime</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;date should be datetime object&quot;</span><span class="p">)</span>
+    <span class="n">days</span> <span class="o">=</span> <span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="n">STARTDATE</span><span class="p">)</span><span class="o">.</span><span class="n">days</span>
+    <span class="n">weeks</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">days</span> <span class="o">/</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">weeks</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">date</span><span class="o">.</span><span class="n">isoweekday</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YAN Haoming, WU Dingcheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

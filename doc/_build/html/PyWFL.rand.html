@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyWFL.rand package &mdash; PyWFL 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyWFL 1.0 documentation" href="index.html"/>
+        <link rel="up" title="PyWFL package" href="PyWFL.html"/>
+        <link rel="next" title="PyWFL.spectrum package" href="PyWFL.spectrum.html"/>
+        <link rel="prev" title="PyWFL.harmonics package" href="PyWFL.harmonics.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyWFL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">PyWFL</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="PyWFL.html">PyWFL package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="PyWFL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.calendar.html">PyWFL.calendar package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coordinate.html">PyWFL.coordinate package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coorelation.html">PyWFL.coorelation package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.filters.html">PyWFL.filters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.fit.html">PyWFL.fit package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.geophysics.html">PyWFL.geophysics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.harmonics.html">PyWFL.harmonics package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PyWFL.rand package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.spectrum.html">PyWFL.spectrum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.statistics.html">PyWFL.statistics package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL.constant">PyWFL.constant module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PyWFL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">PyWFL</a> &raquo;</li>
+      
+          <li><a href="PyWFL.html">PyWFL package</a> &raquo;</li>
+      
+    <li>PyWFL.rand package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/PyWFL.rand.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pywfl-rand-package">
+<h1>PyWFL.rand package<a class="headerlink" href="#pywfl-rand-package" title="Permalink to this headline">¶</a></h1>
+<p>Random produce</p>
+<p>Including normal, uniform distribution random number generation, and color noise generation.</p>
+<div class="section" id="module-PyWFL.rand">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PyWFL.rand" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="PyWFL.rand.color_noise">
+<code class="descclassname">PyWFL.rand.</code><code class="descname">color_noise</code><span class="sig-paren">(</span><em>n</em>, <em>beta</em>, <em>iseed=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/rand.html#color_noise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.rand.color_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get time series of (color) noise with pre-determined power spectra <span class="math">\(P(f)\)</span> which is proportional to <span class="math">\(1/f^{\beta}\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; number of data to be generated</li>
+<li><strong>beta</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; spectral densities parameter that vary as powers of inverse frequency. More precisely, the power spectra <span class="math">\(P(f)\)</span> is proportional to <span class="math">\(1/f^{\beta}\)</span>. Note, <span class="math">\(0&lt;=\beta&lt;=3\)</span>.</li>
+<li><strong>iseed</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; default 0, use system clock as the random seed, different time with different random array, if not equal to 0, then the same iseed get the same random array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">(color) noise time series (generated from random number) with special spectra <span class="math">\(P(f) \propto 1 / f^{\beta}\)</span></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The <strong>same random seed</strong> will produce the same noise time series.
+Noise (or color noise) will be generated that has spectral densities that vary as powers of inverse frequency, more precisely, the power spectra <span class="math">\(P(f)\)</span> is proportional to <span class="math">\(1/f^{\beta}\)</span> for <span class="math">\(\beta &gt;= 0\)</span>.  When <span class="math">\(\beta\)</span> is 0 the noise is referred to white noise, when it is 2 it is referred to as Brownian noise, and when it is 1 it normally referred to simply as <span class="math">\(1/f\)</span> noise which occurs very often in processes found in nature.</p>
+<dl class="docutils">
+<dt>Reference:</dt>
+<dd><table class="first docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><ol class="first last upperalpha simple" start="10">
+<li>Timmer and M. Konig, On generating power law noise, Astron. Astrophys., 1995, Vol. 300, P707-710.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<p class="last">If one plots the log(power) vs log(frequency) for noise with a particular beta value, the slope gives the value of beta. This leads to the most obvious way to generate a noise signal with a particular beta. One generates the power spectrum with the appropriate distribution and then inverse fourier transforms that into the time domain, this technique is commonly called the fBm method and is used to create many natural looking fractal forms. The basic method involves creating frequency components which have a magnitude that is generated from a Gaussian white process and scaled by the appropriate power of f. The phase is uniformly distributed on 0, 2pi. See the code for more precise details. There is a relationship between the value of beta and the fractal dimension D, namely, D = (5 - beta) / 2</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">color_noise</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">iseed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">color_noise</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">iseed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># x and y are same, because they have same iseed.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">color_noise</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.rand.multi_color_noise">
+<code class="descclassname">PyWFL.rand.</code><code class="descname">multi_color_noise</code><span class="sig-paren">(</span><em>n</em>, <em>beta</em>, <em>pieces</em>, <em>iseed=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/rand.html#multi_color_noise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.rand.multi_color_noise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get time series of multi-color noise with pre-determined power spectra <span class="math">\(P(f)\)</span> which is proportional to <span class="math">\(1/f^{\beta}\)</span>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; number of data to be generated</li>
+<li><strong>beta</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; beta(m), spectral densities parameter that vary as powers of inverse frequency. More precisely, the power spectra <span class="math">\(P(f)\)</span> is proportional to <span class="math">\(1/f^{\beta}\)</span>. Note, <span class="math">\(0&lt;=\beta&lt;=3\)</span>.</li>
+<li><strong>pieces</strong> (<a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)"><em>array</em></a>) &#8211; The frequency index number of FFT. For example, if we want generate multi-noise color time series, the power spectrum of the time series have the below characteristics: for low frequency beta is 0.5, for middle frequency beta is 1.0, for high frequency beta is 2.0. Then beta(1:m)=beta(1:3)=0.5, 1.0, 2.0; pieces(1:m-1)=pieces(1:2)=100, 300 for n =2048. This means for FFT frequency (1~100)/n we use beta=0.5; for FFT frequency (101~300)/n we use beta =1.0,; for FFT frequency (301~1024+1)/n we use beta=2.0. Note: pieces(1:m-1) must be monotonic and pieces(m-1)&lt;=n/2+1</li>
+<li><strong>iseed</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; default 0, use system clock as the random seed, different time with different random array, if not equal to 0, then the same iseed get the same random array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">(color) noise time series (generated from random number) with special spectra <span class="math">\(P(f) \propto 1 / f^{\beta}\)</span></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The <strong>same random seed</strong> will produce the same noise time series.
+Noise (or color noise) will be generated that has spectral densities that vary as powers of inverse frequency, more precisely, the power spectra <span class="math">\(P(f)\)</span> is proportional to <span class="math">\(1/f^{\beta}\)</span> for <span class="math">\(\beta &gt;= 0\)</span>.  When <span class="math">\(\beta\)</span> is 0 the noise is referred to white noise, when it is 2 it is referred to as Brownian noise, and when it is 1 it normally referred to simply as <span class="math">\(1/f\)</span> noise which occurs very often in processes found in nature.</p>
+<dl class="docutils">
+<dt>Reference:</dt>
+<dd><table class="first docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><ol class="first last upperalpha simple" start="10">
+<li>Timmer and M. Konig, On generating power law noise, Astron. Astrophys., 1995, Vol. 300, P707-710.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<p class="last">If one plots the log(power) vs log(frequency) for noise with a particular beta value, the slope gives the value of beta. This leads to the most obvious way to generate a noise signal with a particular beta. One generates the power spectrum with the appropriate distribution and then inverse fourier transforms that into the time domain, this technique is commonly called the fBm method and is used to create many natural looking fractal forms. The basic method involves creating frequency components which have a magnitude that is generated from a Gaussian white process and scaled by the appropriate power of f. The phase is uniformly distributed on 0, 2pi. See the code for more precise details. There is a relationship between the value of beta and the fractal dimension D, namely, D = (5 - beta) / 2</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">multi_color_noise</span><span class="p">(</span><span class="mi">2048</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">300</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.rand.color_noise" title="PyWFL.rand.color_noise"><code class="xref py py-func docutils literal"><span class="pre">color_noise()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.rand.random_mt">
+<code class="descclassname">PyWFL.rand.</code><code class="descname">random_mt</code><span class="sig-paren">(</span><em>n, interval=[0, 1], ran_type=3, iseed=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/rand.html#random_mt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.rand.random_mt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces uniform distribution random numbers by MT (Mersenne Twister) method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of normal distribution</li>
+<li><strong>interval</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#list" title="(in Python v2.7)"><em>list</em></a>) &#8211; interval[2], The interval domain for uniform distribution uni</li>
+<li><strong>ran_type</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; ran_type is one of 1, 2, 3, 4. Default is ran_type==3. This parameter choice use which uniform random to produce normal random data. The uniform random period is: It is proved that the period is 219937-1, and 623-dimensional equidistribution property is assured. [0,1],[0,1) and (0,1) for ran_type= 1,2 and 3 in 32 bit precision, and (0,1) for ran_type=4 in 53 bit precision.</li>
+<li><strong>iseed</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; default 0, use system clock as the random seed, different time with different random array, if not equal to 0, then the same iseed get the same random array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Random array</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Give input n then produces standard normal distribution random numbers x(n). If iseed is 0, then get the iseed by the system clock. mean and sig is the mean and standard deviation (or root of variance) of normal distribution which means Normal (mean, sig*sig)</p>
+<p>A random generate based on a C-program for MT19937 with initialization improved 2002/1/26.
+C-program coded by Takuji Nishimura and Makoto Matsumoto,
+FORTRAN77 translation by Tsuyoshi TADA. (2005/12/19)
+Fortran90 coded base on the above Fortran77 version, and re-interfaced to easy use by Dr. Yan Haoming(2015.4.29)</p>
+<p class="rubric">References</p>
+<p>..[1] <a class="reference external" href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html">http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html</a></p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.rand.random_mt_norm" title="PyWFL.rand.random_mt_norm"><code class="xref py py-func docutils literal"><span class="pre">random_mt_norm()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.rand.random_mt_norm">
+<code class="descclassname">PyWFL.rand.</code><code class="descname">random_mt_norm</code><span class="sig-paren">(</span><em>n</em>, <em>mean=0.0</em>, <em>sig=1.0</em>, <em>ran_type=3</em>, <em>iseed=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/rand.html#random_mt_norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.rand.random_mt_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces standard normal distribution random numbers  by MT (Mersenne Twister) method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of normal distribution</li>
+<li><strong>mean</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Mean value (or mathematic expectation) of normal distribution</li>
+<li><strong>sig</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Standard deviation (or root of variance) of normal distribution.</li>
+<li><strong>ran_type</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; ran_type is one of 1, 2, 3, 4. Default is ran_type==3. This parameter choice use which uniform random to produce normal random data. The uniform random period is: It is proved that the period is 219937-1, and 623-dimensional equidistribution property is assured. [0,1],[0,1) and (0,1) for ran_type= 1,2 and 3 in 32 bit precision, and (0,1) for ran_type=4 in 53 bit precision.</li>
+<li><strong>iseed</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; default 0, use system clock as the random seed, different time with different random array, if not equal to 0, then the same iseed get the same random array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Random array</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Give input n then produces standard normal distribution random numbers x(n). If iseed is 0, then get the iseed by the system clock. mean and sig is the mean and standard deviation (or root of variance) of normal distribution which means Normal (mean, sig*sig)</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.rand.random_mt" title="PyWFL.rand.random_mt"><code class="xref py py-func docutils literal"><span class="pre">random_mt()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.rand.random_norm">
+<code class="descclassname">PyWFL.rand.</code><code class="descname">random_norm</code><span class="sig-paren">(</span><em>n</em>, <em>mean=0.0</em>, <em>sig=1.0</em>, <em>ran_type=1</em>, <em>iseed=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/rand.html#random_norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.rand.random_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces standard normal distribution random numbers</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of normal distribution</li>
+<li><strong>mean</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Mean value (or mathematic expectation) of normal distribution</li>
+<li><strong>sig</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Standard deviation (or root of variance) of normal distribution.</li>
+<li><strong>ran_type</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; <p>ran_type is one of -1, 0, 1, 2, 3. Default is ran_type==1. This parameter choice use which uniform random to produce normal random data. The uniform random period and speed are list as:</p>
+<ul>
+<li>uniform random period: 3.1*1018 for ran_type=-1 !fastest for serial computer</li>
+<li>2.0*1028 for ran_type= 0 !paralle random, fastest</li>
+<li>8.5*1037 for ran_type= 1 !20% slower than ran_type=0 (default choose)</li>
+<li>8.5*1037 for ran_type= 2 !20% slower than ran_type=1</li>
+<li>1.8*1019 for ran_type= 3 !200% slower than ran_type 1</li>
+</ul>
+</li>
+<li><strong>iseed</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; default 0, use system clock as the random seed, different time with different random array, if not equal to 0, then the same iseed get the same random array.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Random array</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/array.html#module-array" title="(in Python v2.7)">array</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Give input n then produces standard normal distribution random numbers x(n). If iseed is 0, then get the iseed by the system clock. mean and sig is the mean and standard deviation (or root of variance) of normal distribution which means Normal (mean, sig*sig)</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.rand.random_mt" title="PyWFL.rand.random_mt"><code class="xref py py-func docutils literal"><span class="pre">random_mt()</span></code></a>, <a class="reference internal" href="#PyWFL.rand.random_mt_norm" title="PyWFL.rand.random_mt_norm"><code class="xref py py-func docutils literal"><span class="pre">random_mt_norm()</span></code></a></p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PyWFL.spectrum.html" class="btn btn-neutral float-right" title="PyWFL.spectrum package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PyWFL.harmonics.html" class="btn btn-neutral" title="PyWFL.harmonics package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YAN Haoming, WU Dingcheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

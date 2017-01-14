@@ -1,0 +1,766 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyWFL.filters package &mdash; PyWFL 1.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="PyWFL 1.0 documentation" href="index.html"/>
+        <link rel="up" title="PyWFL package" href="PyWFL.html"/>
+        <link rel="next" title="PyWFL.fit package" href="PyWFL.fit.html"/>
+        <link rel="prev" title="PyWFL.coorelation package" href="PyWFL.coorelation.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> PyWFL
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">PyWFL</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="PyWFL.html">PyWFL package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="PyWFL.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.calendar.html">PyWFL.calendar package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coordinate.html">PyWFL.coordinate package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.coorelation.html">PyWFL.coorelation package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">PyWFL.filters package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.fit.html">PyWFL.fit package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.geophysics.html">PyWFL.geophysics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.harmonics.html">PyWFL.harmonics package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.rand.html">PyWFL.rand package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.spectrum.html">PyWFL.spectrum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="PyWFL.statistics.html">PyWFL.statistics package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL.constant">PyWFL.constant module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PyWFL.html#module-PyWFL">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PyWFL</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">PyWFL</a> &raquo;</li>
+      
+          <li><a href="PyWFL.html">PyWFL package</a> &raquo;</li>
+      
+    <li>PyWFL.filters package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/PyWFL.filters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pywfl-filters-package">
+<h1>PyWFL.filters package<a class="headerlink" href="#pywfl-filters-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-PyWFL.filters">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-PyWFL.filters" title="Permalink to this headline">¶</a></h2>
+<p>Filter functions of PyWFL</p>
+<dl class="function">
+<dt id="PyWFL.filters.butterworth">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">butterworth</code><span class="sig-paren">(</span><em>l</em>, <em>fl</em>, <em>fh</em>, <em>iband</em>, <em>n</em>, <em>dt</em>, <em>x</em>, <em>method='no_phase_shift'</em>, <em>edge_effect=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#butterworth"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.butterworth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Using Butterworth filter (an Infinite Impulse Response (IIR) filter ) to do signal filter for low pass, high pass, band pass and band stop filter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>L</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; order of normalized Butterworth analog filter. L can be given by first call WFL_BUTTERWORTH_ORDER. See example for details.</li>
+<li><strong>fl</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; lower cut-off frequency for all filter. (unit: Hz or others, see comments)</li>
+<li><strong>fh</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; higher cut-off frequency for only band-pass and band-stop filter. (unit: Hz or others, see comments)</li>
+<li><strong>iband</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Desired digital filter type: 1&#8211;low pass   2&#8211;high pass    3&#8211;band pass    4&#8211;band stop</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Sample intervals (unit: second or others, see comments)</li>
+<li><strong>x</strong> (<em>array_alike</em>) &#8211; Array of input digital signal</li>
+<li><strong>method</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; if method is presented and method=&#8217;no_phase_shift&#8217; or method=&#8217;NO_PHASE_SHIFT&#8217;, then WFL_BUTTERWORTH do twice Butterworth filter. Once forward and once backward. The purpose of doing forward-backward Butterworth filter is that by using this method, the phase shift of forward Butterworth filter will be erase (we can get zero phase shift output). Note, by using forward-backward Butterworth will double the order L of normalized Butterworth analog filter.</li>
+<li><strong>edge_effect</strong> (<em>boolean</em>) &#8211; must be presented with &#8220;method&#8221; parameter at the same time. If presented and edge_effect==&#8217;NO&#8217;, then the large edge effects during the filter process will be mostly eliminated (though there are also some small edge effects near both ends of the filtered data ).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>tuple</dt>
+<dd><ul class="first last simple">
+<li>xout (array_alike) : signal array after Butterworth filter</li>
+<li>fre(n/2) (array_alike) : Frequency of Gain function (unit: Hz or others, see comments). Note, fre, amp, and ph should be presented at the same time.</li>
+<li>amp(n/2) (array_alike) : Amplitude of Gain function</li>
+<li>ph(n/2) (array_alike) : Phase of Gain function (unit: degree)</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>After the Butterworth-filter, the filtered data has phase shift to compare with the original data if method is not presented. If method is presented and method=&#8217;no_phase_shift&#8217; or method=&#8217;NO_PHASE_SHIFT&#8217;, then the filtered data will have the same (or almost the same) phase with the original data, but the order L will be doubled.
+There are also edge effects for the filtered data if edge_effect parameters are not presented with &#8220;NO&#8221; value. Be careful when use the data at the beginning and at the end of input signal if you do NOT use this parameter.
+Table 3.1 of Reference: Frequencies of Discrete Fourier Transform (DFT) components in different units</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="14%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>rad/s</td>
+<td>Hz-s</td>
+<td>rad</td>
+<td>Hz</td>
+</tr>
+<tr class="row-even"><td>Symbol <span class="math">\(\Omega\)</span></td>
+<td><span class="math">\(Y\)</span></td>
+<td><span class="math">\(\Omega\)</span></td>
+<td><span class="math">\(f\)</span></td>
+</tr>
+<tr class="row-odd"><td>Frequency of <span class="math">\(X_1\)</span> <span class="math">\(2\pi/N/dt\)</span></td>
+<td><span class="math">\(1/N\)</span></td>
+<td><span class="math">\(2\pi/N\)</span></td>
+<td><span class="math">\(1/N/dt\)</span></td>
+</tr>
+<tr class="row-even"><td>Frequency of <span class="math">\(X_{n/2}\)</span> <span class="math">\(\pi/dt\)</span></td>
+<td>0.5</td>
+<td><span class="math">\(\pi\)</span></td>
+<td><span class="math">\(0.5/dt\)</span></td>
+</tr>
+<tr class="row-odd"><td>Sampling Frequency <span class="math">\(2\pi/dt\)</span></td>
+<td>1.0</td>
+<td><span class="math">\(2\pi\)</span></td>
+<td><span class="math">\(1/dt\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The unit of fl and fh is in Hz unit. if dt is in second unit, then fl or fh is in Hz unit; if dt is in day unit, then fl or fh is in 1/day unit (or cycle per day). Thus dt can be year or other unit, while fl or fh has the corresponding unit.</p>
+<dl class="docutils">
+<dt>Gain function is defined as:</dt>
+<dd><div class="first last math">
+\[\begin{split}Amplitude\_gain &amp; = | H(e^{j\omega}) | \\
+Power\_gain\_in\_decibels &amp; = 10 \log10  | H(e^{j\omega}) |^2 \\
+Phase\_shift &amp; = \tan^{-1}{ Im ( | H^(ej\omega) | ) / Re ( | H(e^{j\omega}) | ) }\end{split}\]</div>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Stearns S. D. and R. A. David, Signal processing algorithms using Fortran and c,  PTR Prentice Hall, Englewood Cliffs, New Jersey, 1993. Chapter1-7</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>todo</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.filters.butterworth_order" title="PyWFL.filters.butterworth_order"><code class="xref py py-func docutils literal"><span class="pre">butterworth_order()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.filters.butterworth_order">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">butterworth_order</code><span class="sig-paren">(</span><em>fl</em>, <em>fh</em>, <em>dt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#butterworth_order"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.butterworth_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine the best order of Butterworth filter (an Infinite Impulse Response (IIR) filter )</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fl</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Minimum order of normalized Butterworth analog filter</li>
+<li><strong>fh</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; lower cut-off frequency for all filter. (unit: Hz or others, see comments)</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; higher cut-off frequency for all filter. (unit: Hz or others, see comments)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>Desired digital filter type</dt>
+<dd><ol class="first last arabic simple">
+<li>means low pass,</li>
+<li>means high pass,</li>
+<li>means band pass,</li>
+<li>means band stop.</li>
+</ol>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)">int</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>After the Butterworth-filter, the filtered data has phase shift to compare with the original data if method is not presented. If method is presented and method=&#8217;no_phase_shift&#8217; or method=&#8217;NO_PHASE_SHIFT&#8217;, then the filtered data will have the same (or almost the same) phase with the original data. , but the order L will be doubled.</p>
+<p>There are also edge effects for the filtered data if edge_effect parameters are not presented with &#8220;NO&#8221; value. Be careful when use the data at the beginning and at the end of input signal if you do NOT use this parameter.</p>
+<p>Table 3.1 of Reference: Frequencies of Discrete Fourier Transform (DFT) components in different units</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="14%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>rad/s</td>
+<td>Hz-s</td>
+<td>rad</td>
+<td>Hz</td>
+</tr>
+<tr class="row-even"><td>Symbol <span class="math">\(\Omega\)</span></td>
+<td><span class="math">\(Y\)</span></td>
+<td><span class="math">\(\Omega\)</span></td>
+<td><span class="math">\(f\)</span></td>
+</tr>
+<tr class="row-odd"><td>Frequency of <span class="math">\(X_1\)</span> <span class="math">\(2\pi/N/dt\)</span></td>
+<td><span class="math">\(1/N\)</span></td>
+<td><span class="math">\(2\pi/N\)</span></td>
+<td><span class="math">\(1/N/dt\)</span></td>
+</tr>
+<tr class="row-even"><td>Frequency of <span class="math">\(X_{n/2}\)</span> <span class="math">\(\pi/dt\)</span></td>
+<td>0.5</td>
+<td><span class="math">\(\pi\)</span></td>
+<td><span class="math">\(0.5/dt\)</span></td>
+</tr>
+<tr class="row-odd"><td>Sampling Frequency <span class="math">\(2\pi/dt\)</span></td>
+<td>1.0</td>
+<td><span class="math">\(2\pi\)</span></td>
+<td><span class="math">\(1/dt\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The unit of fl and fh is in Hz unit. if dt is in second unit, then fl or fh is in Hz unit; if dt is in day unit, then fl or fh is in 1/day unit (or cycle per day). Thus dt can be year or other unit, while fl or fh has the corresponding unit.</p>
+<dl class="docutils">
+<dt>Gain function is defined as:</dt>
+<dd><div class="first last math">
+\[\begin{split}Amplitude\_gain &amp; = | H(e^{j\omega}) | \\
+Power\_gain\_in\_decibels &amp; = 10 \log10  | H(e^{j\omega}) |^2 \\
+Phase\_shift &amp; =    an^{-1}{ Im [ | H^(ej\omega) | ] / Re [ | H(e^{j\omega}) | ] }\end{split}\]</div>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Stearns S. D. and R. A. David, Signal processing algorithms using Fortran and c, PTR Prentice Hall, Englewood Cliffs, New Jersey, 1993. Chapter1-7</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>todo</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.filters.butterworth" title="PyWFL.filters.butterworth"><code class="xref py py-func docutils literal"><span class="pre">butterworth()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.filters.fft_filter">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">fft_filter</code><span class="sig-paren">(</span><em>x</em>, <em>dt</em>, <em>per1</em>, <em>per2</em>, <em>method</em>, <em>window=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#fft_filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.fft_filter" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>ndarray</em>) &#8211; Array(or time series) to be analyzed</li>
+<li><strong>dt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Time interval of array x</li>
+<li><strong>per1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Period for filter</li>
+<li><strong>per2</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Period for filter</li>
+<li><strong>method</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; Filter method, should be <strong>low</strong>, <strong>high</strong>, <strong>band</strong>, means low pass filter, high pass filter and band pass filter.
+If method is <strong>low</strong>, all signal period greater than per1 is retained, per2 not used;
+If method is <strong>high</strong>, all signal period smaller than per1 is retained, per2 not used;
+If method is <strong>band</strong>, all signal period from per1 to per2  is retained, per1 &lt; per2;</li>
+<li><strong>window</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; <p>Window width for filter, <span class="math">\(window*dt=T/5\)</span> window width (a cosine weighted window), here <span class="math">\(T\)</span> is window width, such as <span class="math">\(T=100 days\)</span>, if <span class="math">\(dt=10 days\)</span>, then you can set window as 2.0, then
+filter window:</p>
+<div class="math">
+\[\begin{split}w_1(t) &amp; = (1+\cos(5*\pi*t/T))/2 &amp; \quad &amp;    -T &amp; &lt; t  &amp; &lt; -4T/5 \\
+w_2(t) &amp; = 1 &amp; \quad &amp;                     -4T/5 &amp; &lt; t  &amp; &lt; 4T/5  \\
+w_3(t) &amp; = (1+\cos(5*\pi*t/T))/2 &amp; \quad &amp; 4T/5  &amp; &lt; t  &amp; &lt; T\end{split}\]</div>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Filtered series</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_alike</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Detials for choose suitable window</p>
+<p class="rubric">Examples</p>
+<p>...</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.filters.vondrak" title="PyWFL.filters.vondrak"><code class="xref py py-func docutils literal"><span class="pre">vondrak()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.filters.gauss_jekeli">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">gauss_jekeli</code><span class="sig-paren">(</span><em>r</em>, <em>distance</em>, <em>ch='distance'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#gauss_jekeli"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.gauss_jekeli" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>r</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; r is the distance on the Earth&#8217;s surface at which weight function w has dropped to 1/2 it value at <span class="math">\(\alpha=0\)</span> (the distance on the Earth&#8217;s surface = Earth_Radius*alpha). Or we can refer to r as the averaging radius (unit: meter).</li>
+<li><strong>distance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Distance from the center point for using Gaussian filtering weight function (unit: meter)</li>
+<li><strong>ch</strong> (<a class="reference external" href="https://docs.python.org/2/library/string.html#module-string" title="(in Python v2.7)"><em>string</em></a>) &#8211; default, &#8216;distance&#8217;; optional in [&#8216;distance&#8217;, &#8216;degree&#8217;]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>float</dt>
+<dd><p class="first last">If ch==&#8217;distance&#8217;, the unit of distance_from_center should be in meter;
+If ch==&#8217;degree&#8217;, the unit of distance_from_center should be in degree (0°-90° );</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>The Gaussian filtering weight function (normalized here so that the global integral of w is 1) in space domain is defined:</p>
+<div class="math">
+\[\begin{split}W(\Psi) &amp; = \frac{2 a e^{-a(1-\cos \Psi)}}{1 - e^{-2a}} \\
+a &amp; = \frac{\ln 2}{1 - \cos (r/R)}\end{split}\]</div>
+<p>here <span class="math">\(\alpha\)</span> is the angle distance on the Earth&#8217;s surface, <span class="math">\(a\)</span> is the Earth&#8217;s averaging radius. <span class="math">\(r\)</span> is the distance on the Earth&#8217;s surface at which <span class="math">\(W(\alpha)\)</span> has dropped to 1/2 it value at <span class="math">\(\alpha=0\)</span> (the distance on the Earth&#8217;s surface = <span class="math">\(a*\alpha\)</span>). Or we can refer to <span class="math">\(r\)</span> as the averaging radius (unit: meter).</p>
+<p class="rubric">Examples</p>
+<p>todo</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Jekeli, C., Alternative methods to smooth the Earth&#8217;s gravity field, Rep.327, Dep. of Geod. Sci. and Surv., Ohio State Univ., Columbus,1981.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Whar, J.,M. Molenaar, F. Bryan, Time variablity of the Earth&#8217;s gravity field: Hydrological and oceanic effects and their possible detection using GRACE, J. Geophys. Res. Vol.103, No.b12, P30205-30229,1998.</td></tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.filters.gauss_jekeli_fre" title="PyWFL.filters.gauss_jekeli_fre"><code class="xref py py-func docutils literal"><span class="pre">gauss_jekeli_fre()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.filters.gauss_jekeli_fre">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">gauss_jekeli_fre</code><span class="sig-paren">(</span><em>n</em>, <em>r</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#gauss_jekeli_fre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.gauss_jekeli_fre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Gaussian filtering weight function (defined by Jekeli) in frequency domain which is used to filter spherical harmonic coefficients</p>
+<p>Args:
+n (int): Maximum number of Gaussian filtering weight function</p>
+<p>r (float): r is the distance on the Earth&#8217;s surface at which w has dropped to 1/2 it value at alpha=0 (the distance on the Earth&#8217;s surface = Earth_R*alpha). Or we can refer to r as the averaging radius (unit: meter).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">w(0:n), Gaussian filtering weight function in frequency domain which is used to filter spherical harmonic coefficients</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">array_alike</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Here we use the equations of C. Jekeli. So when you use the equation defined by Wahr J. (1998), note the difference for factor <span class="math">\(2*pi\)</span>. E.G., in Wahr J. (1998), eq.(30) now can omit the factor <span class="math">\(2*pi\)</span>, you can get the same results.</p>
+<p>In the frequency domain, the Gaussian filtering weight function can be computed with recursion relations (see Algorithm in GAUSS_JEKELI for definition of a):</p>
+<div class="math">
+\[\begin{split}\mathbf{W}_0 &amp; = 1 \\
+\mathbf{W}_1 &amp; = \frac{1 + e^{-2a}}{1 - e^{-2a}} - \frac{1}{1} \\
+\mathbf{W}_{n+1} &amp; = -\frac{2n+1}{a} \mathbf{W}_n + \mathbf{W}_{n-1}\end{split}\]</div>
+<p>Now <span class="math">\(w(l)\)</span> can multiply the spherical harmonic coefficients calculated from FUN_EXP_FFT, and then use FUNC_SUM_FFT to get the Gaussian filtering weighted spherical function value in space domain. This is also equivalent to do convolution between spherical function value with Gaussian filtering weighted function <span class="math">\(w(lpha)\)</span> calculated from GAUSS_JEKELI in space domain.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Jekeli, C., Alternative methods to smooth the Earth&#8217;s gravity field, Rep.327, Dep. of Geod. Sci. and Surv., Ohio State Univ., Columbus,1981.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Wahr J.,M. Molenaar, F. Bryan, Time variablity of the Earth&#8217;s gravity field: Hydrological and oceanic effects and their possible detection using GRACE, J. Geophys. Res. Vol.103, No.b12, P30205-30229,1998.</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>todo</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.filters.gauss_jekeli_fre_nm">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">gauss_jekeli_fre_nm</code><span class="sig-paren">(</span><em>n</em>, <em>m_max</em>, <em>r_lon</em>, <em>r_lat</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#gauss_jekeli_fre_nm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.gauss_jekeli_fre_nm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get non-isotropic Gaussian filtering weight function in frequency domain which is used to filter spherical harmonic coefficients</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Maximum number (Degree) of Gaussian filtering weight function</li>
+<li><strong>m_order</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Maximum order used in filter (domain: 1~N), for order grater than m_order, the filter result is 0.</li>
+<li><strong>r_lon</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The filter distance (in longitude) on the Earth&#8217;s surface at which w has dropped to 1/2 it value at alpha=0 (the distance on the Earth&#8217;s surface = Earth_R*alpha). Or we can refer r_lon as the averaging radius (unit: meter).</li>
+<li><strong>r_lat</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; The filter distance (in latitude) on the Earth&#8217;s surface at which w has dropped to 1/2 it value at alpha=0 (the distance on the Earth&#8217;s surface = Earth_R*alpha). Or we can refer r_lat as the averaging radius (unit: meter).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">w (0:n, 0:n), Gaussian filtering weight function in frequency domain which is used to filter spherical harmonic coefficients</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_alike</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>In the frequency domain, the non-isotropic Gaussian filtering weight function can be computed with recursion relations (see Algorithm in GAUSS_JEKELI for definition of a):</p>
+<div class="math">
+\[\begin{split}\mathbf{W}_0 &amp; = 1 \\
+\mathbf{W}_1 &amp; = \frac{1 + e^{-2a}}{1 - e^{-2a}} - \frac{1}{1} \\
+\mathbf{W}_{n+1} &amp; = -\frac{2n+1}{a} \mathbf{W}_n + \mathbf{W}_{n-1}\end{split}\]</div>
+<p>Now <span class="math">\(w(l)\)</span> can multiply the spherical harmonic coefficients calculated from FUN_EXP_FFT, and then use FUNC_SUM_FFT to get the Gaussian filtering weighted spherical function value in space domain. This is also equivalent to do convolution between spherical function value with Gaussian filtering weighted function <span class="math">\(w(lpha)\)</span> calculated from GAUSS_JEKELI in space domain.</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Han S. C., C. k. Shum, C. Jekeli, C. Y. Kuo, C. Wilson, Non-isotropic filtering of GRACE temporal gravity for geohysical signal enhancement, Geophys. J. Int. Vol. 163, P18-25, 2005.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>Jekeli, C., Alternative methods to smooth the Earth&#8217;s gravity field, Rep.327, Dep. of Geod. Sci. and Surv., Ohio State Univ., Columbus,1981.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id9" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>Wahr J.,M. Molenaar, F. Bryan, Time variablity of the Earth&#8217;s gravity field: Hydrological and oceanic effects and their possible detection using GRACE, J. Geophys. Res. Vol.103, No.b12, P30205-30229,1998.</td></tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.filters.gauss_jekeli" title="PyWFL.filters.gauss_jekeli"><code class="xref py py-func docutils literal"><span class="pre">gauss_jekeli()</span></code></a>, <a class="reference internal" href="#PyWFL.filters.gauss_jekeli_fre" title="PyWFL.filters.gauss_jekeli_fre"><code class="xref py py-func docutils literal"><span class="pre">gauss_jekeli_fre()</span></code></a>, <code class="xref py py-func docutils literal"><span class="pre">func_sum_fft()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.filters.running_mean">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">running_mean</code><span class="sig-paren">(</span><em>x</em>, <em>m</em>, <em>weight=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#running_mean"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.running_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>running_mean</strong> ( real / double / complex / double complex )
+Do <em>n</em>-points weighted moving (or running) average using convolution
+method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>array_alike</em>) &#8211; Time series to be analyzed</li>
+<li><strong>m</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of points to do moving average (<strong>m</strong> must be odd number and &gt;=3)</li>
+<li><strong>weight</strong> (<em>array_alike</em>) &#8211; (Optional; Input) If NOT present <em>weight</em>, then do running average (which means weight is equal); if present, then do weighted running average. For real/double precision call, the final weight is weight/sum(weight); for complex/double complex call, the final weight is weight/sum(abs(weight)). Thus the weight is normalized in the inner of subroutine WFL_RUNNING_MEAN to have a total weight of unity.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><dl class="docutils">
+<dt>array</dt>
+<dd><p class="first last">Output data for moving average</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>weight=1.0 means running average; weight=[1, 3, 5, 7, 9..or anything like 8,4, 5,2, ...] means weighted running average, the true weight used in the <strong>WFL_RUNNING_MEAN</strong> is weight/sum(weight) for real/double calling, and weight/sum(abs(weight)) for complex/double complex calling.&nbsp; <strong>WFL_RUNNING_MEAN</strong> is the same as <a class="reference external" href="weight_aver.htm">WEIGHT_AVER</a> but using different method. Note, here the weight can be set as your own, while in <a class="reference external" href="weight_aver.htm">WEIGHT_AVER</a>, you only have two type weight.</p>
+<p>xout=conv(x, weight/sum(weight)) #for real/double
+xout=conv(x, weight/sum(abs(weight)) ) #for complex/double complex</p>
+<p class="rubric">Examples</p>
+<p>todo</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-func docutils literal"><span class="pre">filters()</span></code></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.filters.vondrak">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">vondrak</code><span class="sig-paren">(</span><em>e</em>, <em>t</em>, <em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#vondrak"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.vondrak" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>e</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Filter factor</li>
+<li><strong>t</strong> (<em>array_alike</em>) &#8211; Time index of array x</li>
+<li><strong>x</strong> (<em>array_alike</em>) &#8211; Time series to be filtered</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>filtered time series and standard error</dt>
+<dd><ul class="first last simple">
+<li>u (list) : Filtered time series</li>
+<li>em (float) : Standard error between x and u.</li>
+</ul>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)">tuple</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>For 3 order Vondrak filter, define frequency response function as,</p>
+<div class="math" id="equation-eq1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq1" title="Permalink to this equation">¶</a></span>\[F(e,T)=(1+1/e (2\pi /T)^6)^{-1}=A \quad (0&lt;A&lt;1)\]</div>
+<p>and we can conclude that,</p>
+<div class="math" id="equation-eq2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq2" title="Permalink to this equation">¶</a></span>\[e = (2 \pi /T)^6(A/(1-A))\]</div>
+<div class="math" id="equation-eq3">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq3" title="Permalink to this equation">¶</a></span>\[T =2 \pi ((1-A)e/A)^{-1/6}\]</div>
+<p>Then for low pass filter, set <span class="math">\(A\)</span> close to 1.0( such as <span class="math">\(A=0.99\)</span> or <span class="math">\(A=0.95\)</span>) and <span class="math">\(T\)</span> as the truncate period (which means the the signal of period of <span class="math">\(T\)</span> can be retained as <span class="math">\((A*100)%\)</span>), and we can calculate the corresponding filter factor e by using <a class="reference internal" href="#equation-eq2">(2)</a>. By using this <span class="math">\(e\)</span> in subroutine VONDRAK, we can get the signals for all period greater than T.</p>
+<p>For high pass filter, first do the low pass filter as above, and then use the original data minus the low pass filter data, you can get the high pass filter data.</p>
+<p>For band pass filter, you can do two low pass filter <span class="math">\(e1\)</span> and <span class="math">\(e2\)</span> with the different truncate period <span class="math">\(T1\)</span> and <span class="math">\(T2\)</span>, then the difference for the two filtered data is the results of band pass filter (see Example below).
+To get more information of parameter e in subroutine VONDRAK, please reference:</p>
+<p class="rubric">References</p>
+<table class="docutils footnote" frame="void" id="id10" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>Yan Haoming, Zhong Min, Zhu Yaozhong, Determination of the degree of freedom of digital filtered time series with an application to the correlation analysis between the length of day and the southern oscillation index, Chinese Astronomy and Astrophysics, Vol. 28, No.1, P120-126, 2004.(in English)</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id11" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>闫昊明，钟敏，朱耀仲，时间序列数字滤波后自由度的确定――应用于日长变化与南方涛动指数的相关分析，天文学报，Vol. 44, No.3, P324-329, 2003. (in Chinese)</td></tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>todo</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#PyWFL.filters.fft_filter" title="PyWFL.filters.fft_filter"><code class="xref py py-func docutils literal"><span class="pre">fft_filter()</span></code></a></p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="PyWFL.filters.weight_aver">
+<code class="descclassname">PyWFL.filters.</code><code class="descname">weight_aver</code><span class="sig-paren">(</span><em>x</em>, <em>npoints</em>, <em>weight_no=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/PyWFL/filters.html#weight_aver"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyWFL.filters.weight_aver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do n-points weighted moving (or running) average</p>
+<p>Args:
+x (array) : Time series to be analyzed</p>
+<p>npoints (int) : Number of points to do moving average (npoints must be odd number and &gt;=3)</p>
+<p>weight_no (boolean) : optional, if present, then do running average (which means weight is equal); if not then do weighted running average</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Output data for moving average</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">array_alike</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>There is a new subroutine RUNNING_MEAN which do the same thing, but can define weight function.
+For 3 points the equation is:</p>
+<blockquote>
+<div><div class="math">
+\[xout_i = x_{i-1}+3*x_{i} + x_{i+1} / 5.0\]</div>
+</div></blockquote>
+<dl class="docutils">
+<dt>For 5 points the equation is:</dt>
+<dd><div class="first last math">
+\[xout_i = (x_{i-2}+3*x_{i-1}+5*x_{i}+3*x_{i+1} + x_{i+2} / 13.0\]</div>
+</dd>
+</dl>
+<p>For npoints the weight is: <cite>1/sum(wt), 3/sum(wt), 5/sum(wt), 7/sum(wt), 9/sum(wt), ... 3/sum(wt), 1/sum(wt)</cite>, where <span class="math">\(wt_n=1, 3, 5, 7, 9, 11, ..., 11, 9, 7, 5, 3, 1\)</span></p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><code class="xref py py-func docutils literal"><span class="pre">filters()</span></code></p>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="PyWFL.fit.html" class="btn btn-neutral float-right" title="PyWFL.fit package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PyWFL.coorelation.html" class="btn btn-neutral" title="PyWFL.coorelation package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, YAN Haoming, WU Dingcheng.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

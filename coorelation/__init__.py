@@ -1,5 +1,8 @@
 # encoding: utf-8
-import _correlation
+from __future__ import absolute_import
+from . import _correlation
+
+__all__ = ["cor2", "corfre", "corlag", "arcov", "edof", "fre_response", "mtm_coh", "multicor"]
 
 
 def cor2(a, b, dof=0):
@@ -271,6 +274,3 @@ def multicor(x, out_type='cor', fft=False, remove_mean=True):
 """
     remove_mean = 'y' if remove_mean else 'n'
     return _correlation.py_wfl_multicor(x, out_type, fft=fft, remove_mean=remove_mean)
-
-
-

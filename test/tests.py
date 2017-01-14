@@ -1,8 +1,10 @@
+from __future__ import absolute_import
 import sys
 from numpy.testing import *
 sys.path.insert(0, "../")
 
-from coordinate import *
+# from coordinate import *
+from geophysics import green
 
 
 class TestCoordinate(TestCase):
@@ -18,3 +20,5 @@ class TestCoordinate(TestCase):
         res = gd2lambert(alon, alat, cm, ps, pn, ol)
         assert_almost_equal(res, output, decimal=6)
         assert_almost_equal([alon, alat], lambert2gd(output[0], output[1], cm, ps, pn, ol), decimal=6)
+
+print green([1, 10], 10)
