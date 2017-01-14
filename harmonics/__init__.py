@@ -39,6 +39,30 @@ def cs2k(c, s, quantum=True):
     return _harmonics.py_cs2k(c, s, cha=cha)
 
 
+def cs2kai(cs, cha='x'):
+    """Change degree 2 spherical harmonic (Stokes) coefficients of the gravity field (C20,C21,S21) to polar motion and length of day (LOD) domain
+
+    Args:
+        cs (float) : One of the degree 2 spherical harmonic (Stokes) coefficients of the gravity field (C20 or C21 or S21)  (cs is fully normalized spherical harmonic coefficients, like get from :func:`func_exp_fft`)
+        cha (string) : cha is one of follow character, 'X',  'Y' , 'Z','x','y','z'
+
+    Returns:
+        float: Polar Motion (unit: mas) or Length of Day (unit: ms)
+
+    Notes
+        the transfer pairs are (C20, LOD), (C21, POLAR MOTION X),(S21, POLAR MOTION Y),  and only mass term suit to use this function.
+
+        mas=milli-arcsencod, ms=millisecond
+
+    References:
+        .. [1] Yan Haoming, The role of ocean in Earth's Rotation and Gravity field, Doctor thesis, Wuhan, 2005.
+"""
+    conds = ['x', 'y', 'z']
+    if cha.lower() not in conds:
+        raise ValueError("cha should be in [{}]".format(' '.join(conds)))
+    return _harmonics.py_cs2kai(cs, cha)
+
+
 def pn(n, x):
     """Compute the Legendre Polynomials Pn(x) using recursion relation equation
 
@@ -342,10 +366,3 @@ def harmonic(t, x, periods, pdef=None, itrend=2, timebegin=None, method='aic'):
         return _harmonics.py_wfl_harmonic(t, x, periods, itrend=itrend, timebegin=timebegin, method=method)
     else:
         return _harmonics.py_wfl_harmonic_more(t, x, periods, pdef, itrend=itrend, timebegin=timebegin, method=method)
-
-import numpy as np
-
-a = np.arange(51544, 52000)
-periods = np.array([365.2422, 182.6211])
-x = 1.2 * (a - a[0]) + np.sin(a / periods[0]) + np.cos(a / periods[1])
-print harmonic(a, x, periods)

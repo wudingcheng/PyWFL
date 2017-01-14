@@ -64,4 +64,4 @@ import timeit
 print timeit.timeit(stmt="qr_solve(A, y)", setup="from __main__ import qr_solve, A, y", number=100)
 # print timeit.timeit(stmt="cholesky(A, y)", setup="from __main__ import cholesky, A, y", number=100)
 print timeit.timeit(stmt="adjustment(A, y)", setup="from __main__ import adjustment, A, y", number=100)
-print timeit.timeit(stmt="lstsq(A, y)", setup="from __main__ import lstsq, A, y", number=100)
+# print timeit.timeit(stmt="lstsq(A, y)", setup="from __main__ import lstsq, A, y", number=100)

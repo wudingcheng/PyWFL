@@ -417,7 +417,7 @@ def fft_window(width, window_type='square', window_parameter=True):
     window_parameter = 'one' if window_parameter else 'half'
     conds = ['square', 'rectanglular', 'bartlett', 'hamming', 'hanning', 'welch']
     if window_type not in conds:
-        raise ValueError("window_type should be in [%s]".format(' '.join(conds)))
+        raise ValueError("window_type should be in [{}]".format(' '.join(conds)))
     return _spectrum.py_wfl_window(width, window_type, window_parameter)
 
 
@@ -637,7 +637,7 @@ def mtm(dt, x, nw, spec_type='unity', p=0.95, lag1_co=-1):
 """
     conds = ['unity', 'eigen', 'hires', 'adapt_pw', 'adapt_th']
     if spec_type not in conds:
-        raise ValueError('spec_type should be in [%s]'.format(' '.join(conds)))
+        raise ValueError('spec_type should be in [{}]'.format(' '.join(conds)))
     return _spectrum.py_wfl_mtm(dt, x, nw, spec_type=spec_type, p=p, lag1_co=lag1_co)
 
 

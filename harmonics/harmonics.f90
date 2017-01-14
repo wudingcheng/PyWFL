@@ -31,21 +31,21 @@ subroutine py_wfl_pn_diff(n, x, pn_diff)
 end subroutine py_wfl_pn_diff
 
 ! subroutine py_wfl_pnm_derivative(n, theta, dp)
-!     use wfl
+!     use wfl, only: wfl_pnm_derivative
 !     integer, intent(in) :: n
 !     real*8, intent(in) :: theta
 !     real*8, intent(out) :: dp(0:n, 0:n)
 !     call wfl_pnm_derivative(n, theta, dp)
 ! end subroutine py_wfl_pnm_derivative
 
-! function py_cs2kai(cs, cha)  result(kai)
-!     use wfl
-!     implicit none
-!     real*8, intent(in) :: cs
-!     character(len=1), intent(in) :: cha
-!     real*8 kai
-!     kai = cs2kai(cs, cha)
-! end function py_cs2kai
+function py_cs2kai(cs, cha)  result(kai)
+    use wfl
+    implicit none
+    real*8, intent(in) :: cs
+    character(len=1), intent(in) :: cha
+    real*8 kai
+    kai = cs2kai(cs, cha)
+end function py_cs2kai
 
 subroutine py_cs2k(n, c, s, k, cha)
     use wfl, only: cs2k

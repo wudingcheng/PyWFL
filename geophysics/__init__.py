@@ -36,7 +36,7 @@ def am2eam(am, cha='xp'):
 """
     cond = ['xp', 'xc', 'yp', 'yc', 'zp', 'zc']
     if cha.lower() not in cond:
-        raise ValueError("should should be in [%s]".format(' '.join(cond)))
+        raise ValueError("should should be in [{}]".format(' '.join(cond)))
     return _geophysics.py_am2eam(am, cha=cha.upper())
 
 
@@ -69,7 +69,7 @@ def geo_distance(phi1, lambda1, phi2, lambda2, ch='angle'):
 
     cond = ['angle', 'distance']
     if ch.lower() not in cond:
-        raise ValueError("ch should be in [%s]".format(" ".join(cond)))
+        raise ValueError("ch should be in [{}]".format(" ".join(cond)))
     return _geophysics.geo_distance(phi1, lambda1, phi2, lambda2, ch)
 
 
@@ -124,7 +124,7 @@ def cs2kai(cs, cha='x'):
 """
     cond = ['x', 'y', 'z']
     if cha.lower() not in cond:
-        raise ValueError("should should be in [%s]".format(' '.join(cond)))
+        raise ValueError("should should be in [{}]".format(' '.join(cond)))
     return _geophysics.py_cs2kai(cs, cha)
 
 
@@ -156,7 +156,7 @@ def kai2cs(kai, cha='x'):
 """
     cond = ['x', 'y', 'z']
     if cha.lower() not in cond:
-        raise ValueError("should should be in [%s]".format(' '.join(cond)))
+        raise ValueError("should should be in [{}]".format(' '.join(cond)))
     return _geophysics.py_kai2cs(kai, cha)
 
 
@@ -299,7 +299,7 @@ def cs2cs(c, s, cha='g2h'):
 """
     cond = ['g2h', 'h2g']
     if cha.lower() not in cond:
-        raise ValueError("should should be in [%s]".format(' '.join(cond)))
+        raise ValueError("should should be in [{}]".format(' '.join(cond)))
     return _geophysics.py_wfl_cs2cs(c, s, cha=cha.upper())
 
 
@@ -436,7 +436,7 @@ def green(theta, n_max_love, cha="vd", cha_norm=False):
     cha_norm = 'norm' if cha_norm else 'unnorm'
     conds = ['vd', 'hd', 'gc', 'dg', 'ig', 'dig', 'tc', 'fag', 'pc', 'sc']
     if cha.lower() not in conds:
-        raise ValueError('cha should be in [%s]'.format(' '.join(conds)))
+        raise ValueError('cha should be in [{}]'.format(' '.join(conds)))
 
     return _geophysics.py_wfl_green(theta, n_max_love, cha, cha_norm=cha_norm)
 
@@ -772,7 +772,7 @@ def thermal_vertical_deformation(amp, period, phase, year_begin, nday, pr=0.25, 
 """
     conds = ['day', 'hour']
     if unit not in conds:
-        raise ValueError('unit should be in [%s]'.format(" ".join(conds)))
+        raise ValueError('unit should be in [{}]'.format(" ".join(conds)))
     return _geophysics.py_wfl_thermalv(amp, period, phase, year_begin, nday, pr=pr, ltec=ltec, td=td, unit=td)
 
 
@@ -1135,7 +1135,7 @@ def eam_barnes2eubanks(eam, cha):
 """
     conds = ['xp', 'xc', 'yp', 'yc', 'zp', 'zc']
     if cha not in conds:
-        raise ValueError("cha should be in [%s]".format(conds))
+        raise ValueError("cha should be in [{}]".format(conds))
     return _geophysics.py_eam_barnes2eubanks(eam, cha)
 
 
@@ -1161,7 +1161,7 @@ def eam2masms(xin, cha):
 """
     conds = ['x', 'y', 'z']
     if cha not in conds:
-        raise ValueError("cha should be in [%s]".format(conds))
+        raise ValueError("cha should be in [{}]".format(conds))
     return _geophysics.py_eam2masms(xin, cha)
 
 
@@ -1269,7 +1269,7 @@ def masms2eam(xin, cha):
 """
     conds = ['x', 'y', 'z']
     if cha not in conds:
-        raise ValueError("cha should be in [%s]".format(conds))
+        raise ValueError("cha should be in [{}]".format(conds))
     return _geophysics.py_masms2eam(xin, cha)
 
 def oam_int(rho,r1,r2,zlat_s,zlat_n,zlon_w,zlon_e,u,v):
@@ -1353,7 +1353,7 @@ def pm2xy(dt, pm, cha='mas'):
 """
     conds = ['mas', 'e-7']
     if cha not in conds:
-        raise ValueError("cha should be in [%s]".format(conds))
+        raise ValueError("cha should be in [{}]".format(conds))
     return _geophysics.py_pm2xy(dt, pm, cha)
 
 def prograd2x_0(f1,f2,g1,g2):

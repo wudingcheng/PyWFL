@@ -85,7 +85,7 @@ def yearfraction2date(yearfraction):
     Return:
         float/list : datetime obejct/list
 """
-    if isinstance(yearfraction, list):
+    if hasattr(yearfraction, "__len__"):
         return map(yearfraction2date, yearfraction)
     else:
         mjd = yearfraction2mjd(yearfraction)
@@ -101,7 +101,7 @@ def yearfraction2mjd(yearfraction):
     Return:
         float/list : datetime object/list
 """
-    if isinstance(yearfraction, list):
+    if hasattr(yearfraction, "__len__"):
         return map(yearfraction2mjd, yearfraction)
     else:
         return round(365.25 * (yearfraction - 1970.0) + 40587.0 + 0.1) - 0.5
@@ -287,8 +287,6 @@ def mjd2date(mjd):
     Returns:
         datetime : datetime obejct
     '''
-    if not isinstance(int(mjd), int):
-        raise 'mjd2date, mjd should be a number'
     j = int(mjd + 2400001.0)
     date = julday2date(j).timetuple()
     f = 24.0 * (mjd - int(mjd))
